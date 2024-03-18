@@ -68,5 +68,24 @@ public class Weather {
         return Math.floor(Math.random()*(25+1)+0);
     }
 
+    public String setWeather (int num){
+        if(num == 0){
+            weather = "Freezing";
+        }
+        else if(num >0 && num <= 5){
+            weather = "cold";
+        } else if (num >6 && num <= 10) {
+            weather = "cool";
+
+        } else if (num >10 && num <= 15) {
+            weather = "warm";
+        } else if (num >15 && num <=20 ) {
+            weather = "hot";
+        }
+        else{
+            weather = "scolding hot";
+        }
+    }
+
 
 }
