@@ -85,6 +85,8 @@ public class Weather {
         else{
             weather = "scolding hot";
         }
+
+        return weather;
     }
 
 
