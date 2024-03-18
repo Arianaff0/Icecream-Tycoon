@@ -10,15 +10,7 @@ public class Price {
 	public Price() {
 		playerConePrice = 0;
 	}
-	
-	public void setPriceRangeMin(double num) {
-		priceRangeMin = num;
-	}
-	
-	public void setPriceRangeMax(double num) {
-		priceRangeMax = num;
-	}
-	
+
 	public double getPriceRangeMin() {
 		return priceRangeMin;
 	}
@@ -28,7 +20,9 @@ public class Price {
 	}
 	
 	public void setPlayerConePrice(double price) {
-		playerConePrice = price;
+		if (price >= priceRangeMin && price <= priceRangeMax) {
+			playerConePrice = price;
+		}
 	}
 	
 	public double getPlayerConePrice() {
