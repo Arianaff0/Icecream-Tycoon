@@ -10,6 +10,9 @@ public class Weather {
     // this is the double weather that hold the weather
     double weatherInt;
 
+    // this changes the range for each of the weathers
+    double rangemover;
+
     String weatherData;
 
     /**
@@ -19,13 +22,14 @@ public class Weather {
      * @return an object arrays
      */
     public Object[] getWeatherInt(){
-        Object[] arr = new Object[2];
+        Object[] arr = new Object[3];
         weatherInt = weatherRandomizer();
         weatherData = setWeatherData(weatherInt);
         System.out.println(weatherInt);
         System.out.println(weatherData);
         arr[0] = weatherInt;
         arr[1] = weatherData;
+        arr[2] = rangemover;
         return arr;
     }
 
@@ -41,19 +45,25 @@ public class Weather {
         // if else statments that take in the random number generated and returns the associated weather "descriptor".
         if(num == 0){
             weather = "Freezing";
+            rangemover = -1.50
         }
         else if(num >0 && num <= 5){
             weather = "cold";
+            rangemover = -1.00;
         } else if (num >6 && num <= 10) {
             weather = "cool";
+            rangemover = 0.0;
 
         } else if (num >10 && num <= 15) {
             weather = "warm";
+            rangemover = 1.50;
         } else if (num >15 && num <=20 ) {
             weather = "hot";
+            rangemover = 2.00;
         }
         else{
             weather = "scolding hot";
+            rangemover= 3.00;
         }
         return weather;
     }
@@ -68,22 +78,28 @@ public class Weather {
         return Math.floor(Math.random()*(25+1)+0);
     }
 
-    public String setWeather (int num){
+    /**
+     * This is for the admin class if they want to set the weather
+     * @param num the temp they want to set it at
+     * @return an integer for the range
+     */
+
+    public double setWeather (int num){
         if(num == 0){
-            weather = "Freezing";
+            rangemover = -1.50
         }
         else if(num >0 && num <= 5){
-            weather = "cold";
+            rangemover = -1.00;
         } else if (num >6 && num <= 10) {
-            weather = "cool";
+            rangemover = 0.0;
 
         } else if (num >10 && num <= 15) {
-            weather = "warm";
+            rangemover = 1.50;
         } else if (num >15 && num <=20 ) {
-            weather = "hot";
+            rangemover = 2.00;
         }
         else{
-            weather = "scolding hot";
+            rangemover= 3.00;
         }
 
         return weather;
