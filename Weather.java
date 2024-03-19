@@ -8,12 +8,12 @@ import java.math.*;
 public class Weather {
 
     // this is the double weather that hold the weather
-    double weatherInt;
+    private double weatherInt;
 
     // this changes the range for each of the weathers
-    double rangemover;
+    private double rangemover;
 
-    String weatherData;
+    private String weatherData;
 
     /**
      * This is the method that will be returning an object array
@@ -25,8 +25,6 @@ public class Weather {
         Object[] arr = new Object[3];
         weatherInt = weatherRandomizer();
         weatherData = setWeatherData(weatherInt);
-        System.out.println(weatherInt);
-        System.out.println(weatherData);
         arr[0] = weatherInt;
         arr[1] = weatherData;
         arr[2] = rangemover;
@@ -45,7 +43,7 @@ public class Weather {
         // if else statments that take in the random number generated and returns the associated weather "descriptor".
         if(num == 0){
             weather = "Freezing";
-            rangemover = -1.50
+            rangemover = -2.00;
         }
         else if(num >0 && num <= 5){
             weather = "cold";
@@ -56,7 +54,7 @@ public class Weather {
 
         } else if (num >10 && num <= 15) {
             weather = "warm";
-            rangemover = 1.50;
+            rangemover = 1.00;
         } else if (num >15 && num <=20 ) {
             weather = "hot";
             rangemover = 2.00;
@@ -86,7 +84,7 @@ public class Weather {
 
     public double setWeather (int num){
         if(num == 0){
-            rangemover = -1.50
+            rangemover = -1.50;
         }
         else if(num >0 && num <= 5){
             rangemover = -1.00;
@@ -102,7 +100,7 @@ public class Weather {
             rangemover= 3.00;
         }
 
-        return weather;
+        return rangemover;
     }
 
 
