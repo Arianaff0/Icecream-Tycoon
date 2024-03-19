@@ -15,7 +15,7 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
-	//declare all instance variables
+	// declare all instance variables
 	private JPanel panel = new JPanel();
 	private JPanel profilePanel1 = new JPanel();
 	private JPanel profilePanel2 = new JPanel();
@@ -32,10 +32,9 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	private JButton profileButton2 = new JButton();
 	private JButton profileButton3 = new JButton();
 
-	
 	/**
-	 * This is the constructor method for the Save and Load Screen.
-	 * It handles IOExceptions with custom error code, as well as general Exceptions.
+	 * This is the constructor method for the Save and Load Screen. It handles
+	 * IOExceptions with custom error code, as well as general Exceptions.
 	 */
 	public SaveAndLoadScreen() {
 		try {
@@ -44,19 +43,19 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 			assembleProfiles();
 			loadProfileData();
 		} catch (IOException e) {
-			System.out.println("Error: IOException, error code 2.1");
+			System.out.println("Error: IOException, error code 3.1");
 			e.printStackTrace();
 
 		} catch (Exception e) {
-			System.out.println("Error: Unknown exception, error code 2.2");
+			System.out.println("Error: Unknown exception, error code 3.2");
 			e.printStackTrace();
 		}
 	}
 
-	
 	/**
-	 * Sets up full frame with title, icon, turns of resizability, and sets the default close operation.
-	 * Throws an IOException if the image that's being used in the Icon is not readable or not found.
+	 * Sets up full frame with title, icon, turns of resizability, and sets the
+	 * default close operation. Throws an IOException if the image that's being used
+	 * in the Icon is not readable or not found.
 	 * 
 	 * @throws IOException
 	 */
@@ -73,7 +72,6 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	
 	/**
 	 * Assembles basic parts of the window, including the panel and title.
 	 */
@@ -98,9 +96,9 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * This method is somewhat repetitive in its code, but accomplishes several different tasks:
-	 * - Lays out three panels for each profile
-	 * Sets text based on other conditions (fulfilled by an if-else)
+	 * This method is somewhat repetitive in its code, but accomplishes several
+	 * different tasks: - Lays out three panels for each profile Sets text based on
+	 * other conditions (fulfilled by an if-else)
 	 */
 	private void assembleProfiles() {
 		profilePanel1.setBounds(275, 225, 300, 560);
@@ -160,9 +158,10 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * This method load all of the profile data (and labels) that correspond to each respective profile.
-	 * Every button is initialized and positioned using the FlowLayout (default for Java Swing).
-	 * User data is loaded via //FILL THIS LATER// and passed into the respective buttons and labels.
+	 * This method load all of the profile data (and labels) that correspond to each
+	 * respective profile. Every button is initialized and positioned using the
+	 * FlowLayout (default for Java Swing). User data is loaded via //FILL THIS
+	 * LATER// and passed into the respective buttons and labels.
 	 */
 	private void loadProfileData() {
 
@@ -177,10 +176,11 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 		// this header is pretty packed, but every "integer to string" can be thought of
 		// as one of the parameters for this JLabel
-		// those labels being each ingredients' current count, and the same goes for the following ones below
-		JLabel profileIngredientsHeader1 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Egg:&nbsp;"
+		// those labels being each ingredients' current count, and the same goes for the
+		// following ones below
+		JLabel profileIngredientsHeader1 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Cream:&nbsp;"
 				+ Integer.toString(100) + " <br/>&nbsp;&nbsp;Cones:&nbsp;" + Integer.toString(100)
-				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Flavour:&nbsp;"
+				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Vanilla:&nbsp;"
 				+ Integer.toString(100) + "</html>");
 
 		JLabel profileInitials2 = new JLabel("Initials: AF");
@@ -188,9 +188,9 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		JLabel profileWeather2 = new JLabel("Weather: Rainy");
 		JLabel profileDifficulty2 = new JLabel("Difficulty: Medium");
 
-		JLabel profileIngredientsHeader2 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Egg:&nbsp;"
+		JLabel profileIngredientsHeader2 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Cream:&nbsp;"
 				+ Integer.toString(100) + " <br/>&nbsp;&nbsp;Cones:&nbsp;" + Integer.toString(100)
-				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Flavour:&nbsp;"
+				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Vanilla:&nbsp;"
 				+ Integer.toString(100) + "</html>");
 
 		JLabel profileInitials3 = new JLabel("Initials: KR");
@@ -198,18 +198,19 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		JLabel profileWeather3 = new JLabel("Weather: Cloudy");
 		JLabel profileDifficulty3 = new JLabel("Difficulty: Hard");
 
-		JLabel profileIngredientsHeader3 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Egg:&nbsp;"
+		JLabel profileIngredientsHeader3 = new JLabel("<html>Ingredients&nbsp;-<br/>&nbsp;&nbsp;Cream:&nbsp;"
 				+ Integer.toString(100) + " <br/>&nbsp;&nbsp;Cones:&nbsp;" + Integer.toString(100)
-				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Flavour:&nbsp;"
+				+ "<br/>&nbsp;&nbsp;Sugar:&nbsp;" + Integer.toString(100) + "<br/>&nbsp;&nbsp;Vanilla:&nbsp;"
 				+ Integer.toString(100) + "</html>");
 
 		/*
-		 * These next sections are all very similar to each other.
-		 * First, the label (or button) has its boundaries initialized (size of the component, and its location relative to the panel)
-		 * Foreground is set (text colour), then the font is set (instance variables)
-		 * Finally, the button/label is added to its respective panel, and actionListeners are added if required.
+		 * These next sections are all very similar to each other. First, the label (or
+		 * button) has its boundaries initialized (size of the component, and its
+		 * location relative to the panel) Foreground is set (text colour), then the
+		 * font is set (instance variables) Finally, the button/label is added to its
+		 * respective panel, and actionListeners are added if required.
 		 */
-		
+
 		profileInitials1.setBounds(10, 25, 295, 30);
 		profileInitials1.setForeground(Color.BLACK);
 		profileInitials1.setFont(profileFont);
@@ -288,8 +289,9 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * This actionPerformed method checks the actionListeners of every clickable button on this screen.
-	 * When a button is clicked, the subsequent actions inside each if statement are executed.
+	 * This actionPerformed method checks the actionListeners of every clickable
+	 * button on this screen. When a button is clicked, the subsequent actions
+	 * inside each if statement are executed.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -297,23 +299,23 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 			// we will need to pass the data of the player into the game play through here
 			// or some other form of storage (for profile 1)
-			
+
 			setVisible(false);
-			new MainGameplayScreen();
+			new IngredientSelectionScreen();
 		} else if (e.getSource() == profileButton2) {
 
 			// we will need to pass the data of the player into the game play through here
 			// or some other form of storage (for profile 2)
-			
+
 			setVisible(false);
-			new MainGameplayScreen();
+			new IngredientSelectionScreen();
 		} else if (e.getSource() == profileButton3) {
 
 			// we will need to pass the data of the player into the game play through here
 			// or some other form of storage (for profile 3)
-			
+
 			setVisible(false);
-			new MainGameplayScreen();
+			new IngredientSelectionScreen();
 		}
 
 	}

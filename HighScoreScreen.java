@@ -9,6 +9,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/**
+ * This class displays the GUI to the user, and displays the high scores of the top 5 individuals who have played the game.
+ * @author Lukas Bozinov
+ */
 @SuppressWarnings("serial")
 public class HighScoreScreen extends JFrame implements ActionListener {
 
@@ -22,7 +26,7 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 	private Font scoreFont = new Font("Calibri", Font.BOLD, 36);
 	private Font titleFont = new Font("Calibri", Font.BOLD, 96);
 
-	private JButton back = new JButton("Go Back");
+	private JButton back = new JButton("<html><center>Go Back<center/><html/>");
 
 	private static JLabel highScoreName1 = new JLabel();
 	private static JLabel highScoreMoney1 = new JLabel();
@@ -39,7 +43,12 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 	private static JLabel highScoreName5 = new JLabel();
 	private static JLabel highScoreMoney5 = new JLabel();
 
-	// runs everything necessary
+	
+	/**
+	 * This constructor runs everything required in the HighScoreScreen.
+	 * This method runs the frameSetup, assembleWindow, and addScoresToWindow methods.
+	 * This method also catches exceptions thrown by these other helper methods.
+	 */
 	public HighScoreScreen() {
 		try {
 			frameSetup();
@@ -55,7 +64,12 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 		}
 	}
 
-	// sets up full frame with title, icon, etc
+	
+	/**
+	 * This helper method sets up the basics of the JFrame that this class extends.
+	 * Sets the size of the window, makes it unresizable, and sets titles as well as layout/decorations.
+	 * @throws IOException
+	 */
 	private void frameSetup() throws IOException {
 
 		setSize(1920, 1080); // set size of the window to 1920x1080
@@ -69,7 +83,14 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	// assembles basic parts of the window
+	
+	/**
+	 * This method assemble the larger background components of the window.
+	 * This includes:
+	 * - The main background panel
+	 * - The photos used for decoration
+	 * - JButtons for user interaction
+	 */
 	private void assembleWindow() {
 
 		panel.setBounds(0, 0, 1920, 1080);
@@ -112,6 +133,11 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 		panel.setVisible(true);
 	}
 	
+	/**
+	 * This method will add the top scores to the highscore window.
+	 * This method will receive the top 5 earners as input ///(to be implemented)/// and rank them accordingly.
+	 * After ranking, this method adds the scorers to the respective panel.
+	 */
 	private void addScoresToWindow() {
 		
 		//limit money to 8 characters (7 characters excluding $)

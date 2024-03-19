@@ -26,7 +26,12 @@ public class TitleScreen extends JFrame implements ActionListener {
 	private JButton highScores = new JButton("High Scores");
 	private JButton credits = new JButton("Credits");
 
-	// runs everything necessary
+	
+	/**
+	 * This constructor runs everything required in the TitleScreen.
+	 * This method runs the frameSetup and assembleWindow methods.
+	 * This method also catches exceptions thrown by these other helper methods.
+	 */
 	public TitleScreen() {
 		try {
 			frameSetup();
@@ -41,7 +46,11 @@ public class TitleScreen extends JFrame implements ActionListener {
 		}
 	}
 
-	// sets up full frame with title, icon, etc
+	/**
+	 * This helper method sets up the basics of the JFrame that this class extends.
+	 * Sets the size of the window, makes it unresizable, and sets titles as well as layout/decorations.
+	 * @throws IOException
+	 */
 	private void frameSetup() throws IOException {
 
 		setSize(1920, 1080); // set size of the window to 1920x1080
