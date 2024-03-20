@@ -18,15 +18,15 @@ public class Transaction {
 		this.price = price;
 	}
 	
-	private String getIngredient() {
+	public String getIngredient() {
 		return ingredient;
 	}
 	
-	private int getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 	
-	private int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 }
