@@ -113,7 +113,7 @@ public class IngredientList {
 	 * 
 	 * @return cream in inventory
 	 */
-	private double getCream(){
+	public double getCream(){
 		return numCream;
 	}
 	
