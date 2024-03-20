@@ -8,6 +8,7 @@ public class Player {
     private int totalMoney;
     private String playerInitials;
     private int numIceCreams;
+    public IngredientList inventory;
 
     /**
      * Player Constructor
@@ -17,6 +18,7 @@ public class Player {
     public Player(int totalMoney, String playerInitials) {
         this.totalMoney = totalMoney;
         this.playerInitials = playerInitials;
+        this.inventory = new IngredientList();
     }
 
     /**
