@@ -11,7 +11,7 @@ public class MainGamePlayClass {
 
     public  MainGamePlayClass() {
         // remember to change this down
-        int iceCreameCounter = 15;
+        int iceCreameCounter = 5;
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later
@@ -87,9 +87,12 @@ public class MainGamePlayClass {
             if(iceCreameCounter > 0 && 0<currNode.getNewrange() && currNode.getNewrange()>=iceCremePrice){
                 iceCreameCounter --;
                 System.out.print(" buy");
+                // seeing if they buy
+                currNode.setBuy(true);
             }
             else{
                 System.out.print(" don't buy");
+                currNode.setBuy(false);
             }
             System.out.println();
             currNode = currNode.getNext();
