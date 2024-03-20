@@ -21,18 +21,40 @@ public class RecipeCreation {
 	/** Stores the measurement of vanilla to be used in one cone */
 	private double vanillaMes;
 	
+	final double maxConePrice = 10;
+	final double minConePrice = 0;
+	private double conePrice;
+
+	
 	public void setCream(double cream) {
 		double numCream = getCream();
-		
-		creamMes = cream;
+		if (cream <= numCream) {
+			creamMes = cream;
+		}
 	}
 	
 	public void setSugar(double sugar) {
-		sugarMes = sugar;
+		double numSugar = getSugar();
+		if (sugar <= numSugar) {
+			sugarMes = sugar;
+		}
 	}
 	
 	public void setVanilla(double vanilla) {
-		vanillaMes = vanilla;
+		double numVanilla = getVanilla();
+		if (vanilla <= numVanilla) {
+			vanillaMes = vanilla;
+		}
+	}
+	
+	public void setConePrice(double price) {
+		if (price <= maxConePrice && price >= minConePrice) {
+			conePrice = price;
+		}
+	}
+	
+	public double getConePrice() {
+		return conePrice;
 	}
 	
 	
