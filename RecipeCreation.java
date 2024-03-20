@@ -21,5 +21,19 @@ public class RecipeCreation {
 	/** Stores the measurement of vanilla to be used in one cone */
 	private double vanillaMes;
 	
+	public void setCream(double cream) {
+		double numCream = getCream();
+		
+		creamMes = cream;
+	}
+	
+	public void setSugar(double sugar) {
+		sugarMes = sugar;
+	}
+	
+	public void setVanilla(double vanilla) {
+		vanillaMes = vanilla;
+	}
+	
 	
 }
