@@ -16,6 +16,7 @@ public class SpriteNode<Color,range> {
     // var that determines the color
     private Color color;
 
+    private  boolean buy;
     // var that determines the range
     private range range;
 
@@ -69,6 +70,14 @@ public class SpriteNode<Color,range> {
 
     public int getNewrange(){
         return newrange;
+    }
+
+    public boolean getbuy(){
+        return this.buy;
+    }
+
+    public void setBuy(boolean val){
+        this.buy = val;
     }
 
 }
