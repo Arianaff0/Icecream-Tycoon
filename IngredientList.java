@@ -4,9 +4,9 @@ import java.util.Stack;
  * <p>
  * This class also handles the increases and decreases of each ingredient's reserves, and calculates
  * <p>
- * Current version 1.0.0 is the first implementation of the IngredientList class, and is likely subject to large changes
+ * Current version 1.0.1 is still building the main methods of the class
  * 
- * @version 1.0.0
+ * @version 1.0.1
  * @author Matthew Molloy
  */
 public class IngredientList {
@@ -41,15 +41,17 @@ public class IngredientList {
 	 * Sets numCones to an updated number of ice cream cones
 	 * 
 	 * @param numCones number of ice cream cones
+	 * @param price is how much transaction cost
 	 * @return void
 	 */
 	public void addCones(int numCones, int price){
-		if (true /*change to totalMoney < price*/ ) {  
-			//totalMoney -= price
+		if (true /*change to totalMoney < price*/ ) {
+			/** Update respective qty and balance variables */
+			Balance -= price;
 			this.numCones += numCones;
+			/** Create a transaction object and push it to the Transaction Stack*/
+			Transaction transaction = new Transaction("Cone", numCones, price);
 		}
-		
-		
 	}
 	
 	/**
@@ -58,8 +60,13 @@ public class IngredientList {
 	 * @param numCream measurement of cream in cups
 	 * @return void
 	 */
-	public void addCream(int numCream){
-		this.numCream = (double)numCream;
+	public void addCream(int numCream, int price){
+		if (true /*change to totalMoney < price*/ ) {  
+			Balance -= price;
+			this.numCream += numCream;
+			/** Create a transaction object and push it to the Transaction Stack*/
+			Transaction transaction = new Transaction("Cream", numCream, price);
+		}
 	}
 	
 	/**
@@ -68,8 +75,13 @@ public class IngredientList {
 	 * @param numSugar measurement of cream in tablespoons
 	 * @return void
 	 */
-	public void addSugar(int numSugar){
-		this.numSugar = (double)numSugar;
+	public void addSugar(int numSugar, int price){
+		if (true /*change to totalMoney < price*/ ) {  
+			Balance -= price;
+			this.numSugar += numSugar;
+			/** Create a transaction object and push it to the Transaction Stack*/
+			Transaction transaction = new Transaction("Sugar", numSugar, price);
+		}
 	}
 	
 	/**
@@ -78,8 +90,13 @@ public class IngredientList {
 	 * @param numVanilla measurement of cream in cups
 	 * @return void
 	 */
-	public void addVanilla(int numVanilla){
-		this.numVanilla  = (double)numVanilla;
+	public void addVanilla(int numVanilla, int price){
+		if (true /*change to totalMoney < price*/ ) {  
+			Balance -= price;
+			this.numVanilla += numVanilla;
+			/** Create a transaction object and push it to the Transaction Stack*/
+			Transaction transaction = new Transaction("Vanilla", numVanilla, price);
+		}
 	}
 	
 	/**
@@ -87,7 +104,7 @@ public class IngredientList {
 	 * 
 	 * @return cones in inventory
 	 */
-	private double getCones(){
+	public double getCones(){
 		return numCones;
 	}
 	
@@ -105,7 +122,7 @@ public class IngredientList {
 	 * 
 	 * @return Sugar in inventory
 	 */
-	private double getSugar(){
+	public double getSugar(){
 		return numSugar;
 	}
 	
@@ -114,7 +131,7 @@ public class IngredientList {
 	 * 
 	 * @return Vanilla in inventory 
 	 */
-	private double getVanilla(){
+	public double getVanilla(){
 		return numVanilla;
 	}
 	
@@ -125,8 +142,39 @@ public class IngredientList {
 	 * 
 	 * @return maximumn sellable ice cream cones
 	 */
-	private double getMaxSellableProduct(){
+	public double getMaxSellableProduct(){
 		return maxSellableProduct;
+	}
+	
+	/**
+	 * When player pushes the "Undo Purchase" button pops the last transaction off the stack and
+	 * refunds the player and decreases the quantity of the ingredient last pruchased.
+	 * 
+	 * If the stack is empty, do nothing.
+	 */
+	public void undoPurchase() {
+		/** If transactions stack is empty, do some GUI stuff and exit*/
+		if (transactions.isEmpty()) {
+			// GUI METHOD
+			return;
+		}
+		/** Otherwise, take the top Transaction object off the stack*/
+		Transaction popped = transactions.pop();
+		switch (popped.getIngredient()) {
+		case "Cone":
+			addCones(-1 * popped.getQuantity(), -1 * popped.getPrice());
+			break;
+		case "Cream":
+			addCream(-1 * popped.getQuantity(), -1 * popped.getPrice());
+			break;
+		case "Sugar":
+			addSugar(-1 * popped.getQuantity(), -1 * popped.getPrice());
+			break;
+		default:
+			addCream(-1 * popped.getQuantity(), -1 * popped.getPrice());
+			break;
+		}
+		return;
 	}
 	
 }
