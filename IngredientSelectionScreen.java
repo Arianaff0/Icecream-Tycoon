@@ -1,4 +1,3 @@
-package lukas;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,8 +13,9 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 	private JPanel panel = new JPanel();
 	private JPanel ingredientPanel = new JPanel();
 
-	private JLabel title = new JLabel("Ingredient Selection", SwingConstants.CENTER);
+	private JLabel title = new JLabel("Select Your Ingredients", SwingConstants.CENTER);
 	private JLabel cash = new JLabel("<html>Cash:&nbsp;" + String.format("%.2f", 30.00) + "<html/>");
+	private JLabel infoLabel = new JLabel("<html><center>Pick how much of each ingredient you'd like to purchase for the day!<center/><html>");
 
 	private Font startFont = new Font("Calibri", Font.BOLD, 36);
 	private Font cashAndIngredientFont = new Font("Calibri", Font.BOLD, 48);
@@ -89,7 +89,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		setTitle("Ice Cream Truck Tycoon - Lukas, Sabrina, Kevin, Matthew, & Ariana"); // set the title of the window
 		setResizable(false); // disallow resizing the window
 
-		setIconImage(ImageIO.read(new File("images/icecreamcone.png")));
+		setIconImage(ImageIO.read(new File("files/icecreamcone.png")));
 
 		setDefaultCloseOperation(TitleScreen.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -141,6 +141,13 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		cash.setFont(cashAndIngredientFont);
 		cash.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		ingredientPanel.add(cash);
+		
+		infoLabel.setBounds(400, 7, 1100, 100);
+		infoLabel.setForeground(Color.BLACK);
+		infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		infoLabel.setVerticalAlignment(SwingConstants.CENTER);
+		infoLabel.setFont(startFont);
+		ingredientPanel.add(infoLabel);
 
 		conesLabel.setBounds(0, 165, 300, 100);
 		conesLabel.setFont(cashAndIngredientFont);
@@ -331,7 +338,8 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		} else if (e.getSource() == buy40Cones) {
 			System.out.println("buy 40 cones");
 		} else if (e.getSource() == makeRecipe) {
-			//new RecipeCreationScreen();
+			setVisible(false);
+			new RecipeCreationScreen();
 		}
 
 	}

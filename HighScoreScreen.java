@@ -1,4 +1,4 @@
-package lukas;
+
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,8 +18,8 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 
 	private JPanel panel = new JPanel();
 	private JPanel scorePanel = new JPanel();
-	private JLabel iceCreamConePhotoR = new JLabel(new ImageIcon("images/icecreamcone.png"));
-	private JLabel iceCreamConePhotoL = new JLabel(new ImageIcon("images/icecreamcone.png"));
+	private JLabel iceCreamConePhotoR = new JLabel(new ImageIcon("files/icecreamcone.png"));
+	private JLabel iceCreamConePhotoL = new JLabel(new ImageIcon("files/icecreamcone.png"));
 	private JLabel title = new JLabel("High Scores", SwingConstants.CENTER);
 
 	private Font backFont = new Font("Calibri", Font.BOLD, 48);
@@ -77,7 +77,7 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 		setTitle("Ice Cream Truck Tycoon - Lukas, Sabrina, Kevin, Matthew, & Ariana"); // set the title of the window
 		setResizable(false); // disallow resizing the window
 
-		setIconImage(ImageIO.read(new File("images/icecreamcone.png")));
+		setIconImage(ImageIO.read(new File("files/icecreamcone.png")));
 
 		setDefaultCloseOperation(HighScoreScreen.EXIT_ON_CLOSE);
 		setVisible(true);

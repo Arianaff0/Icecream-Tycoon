@@ -1,4 +1,4 @@
-package lukas;
+
 
 import java.awt.Color;
 import java.awt.Font;
@@ -66,7 +66,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		setTitle("Ice Cream Truck Tycoon - Lukas, Sabrina, Kevin, Matthew, & Ariana"); // set the title of the window
 		setResizable(false); // disallow resizing the window
 
-		setIconImage(ImageIO.read(new File("images/icecreamcone.png")));
+		setIconImage(ImageIO.read(new File("files/icecreamcone.png")));
 
 		setDefaultCloseOperation(TitleScreen.EXIT_ON_CLOSE);
 		setVisible(true);

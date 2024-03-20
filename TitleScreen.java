@@ -13,9 +13,9 @@ import javax.swing.*;
 public class TitleScreen extends JFrame implements ActionListener {
 
 	private JPanel panel = new JPanel();
-	private JLabel truckPhoto = new JLabel(new ImageIcon("images/icecreamtruck.png"));
-	private JLabel iceCreamConePhotoR = new JLabel(new ImageIcon("images/icecreamcone.png"));
-	private JLabel iceCreamConePhotoL = new JLabel(new ImageIcon("images/icecreamcone.png"));
+	private JLabel truckPhoto = new JLabel(new ImageIcon("files/icecreamtruck.png"));
+	private JLabel iceCreamConePhotoR = new JLabel(new ImageIcon("files/icecreamcone.png"));
+	private JLabel iceCreamConePhotoL = new JLabel(new ImageIcon("files/icecreamcone.png"));
 	private JLabel title = new JLabel("Ice Cream Truck Tycoon", SwingConstants.CENTER);
 
 	private Font sideButtonFont = new Font("Calibri", Font.BOLD, 36);
@@ -37,11 +37,11 @@ public class TitleScreen extends JFrame implements ActionListener {
 			frameSetup();
 			assembleWindow();
 		} catch (IOException e) {
-			System.out.println("Error: IOException, error code 2.1");
+			System.out.println("Error: IOException, error code 6.1");
 			e.printStackTrace();
 
 		} catch (Exception e) {
-			System.out.println("Error: Unknown exception, error code 2.2");
+			System.out.println("Error: Unknown exception, error code 6.2");
 			e.printStackTrace();
 		}
 	}
@@ -58,7 +58,7 @@ public class TitleScreen extends JFrame implements ActionListener {
 		setTitle("Ice Cream Truck Tycoon - Lukas, Sabrina, Kevin, Matthew, & Ariana"); // set the title of the window
 		setResizable(false); // disallow resizing the window
 
-		setIconImage(ImageIO.read(new File("images/icecreamcone.png")));
+		setIconImage(ImageIO.read(new File("files/icecreamcone.png")));
 
 		setDefaultCloseOperation(TitleScreen.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -135,7 +135,7 @@ public class TitleScreen extends JFrame implements ActionListener {
 		} else if (e.getSource() == credits) {
 			JOptionPane.showMessageDialog(panel,
 					"This game was made by the following developers:\nLukas Bozinov\nAriana Feng\nSabrina Lee\nMatthew Molloy\nKevin Russel",
-					"Credits", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/icecreamconeicon.png"));
+					"Credits", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("files/icecreamconeicon.png"));
 		} else if (e.getSource() == highScores) {
 			new HighScoreScreen();
 		}
