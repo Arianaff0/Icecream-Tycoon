@@ -4,7 +4,7 @@ import java.util.Stack;
  * <p>
  * This class also handles the increases and decreases of each ingredient's reserves, and calculates
  * <p>
- * Current version 1.0.1 is still building the main methods of the class
+ * Current version 1.0.2 has some building the main methods of the class
  * 
  * @version 1.0.1
  * @author Matthew Molloy

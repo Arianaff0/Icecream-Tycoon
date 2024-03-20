@@ -5,20 +5,22 @@
  */
 
 public class Player {
-    private int totalMoney;
+    private int balance;
     private String playerInitials;
     private int numIceCreams;
     public IngredientList inventory;
+    public RecipeCreation recipe;
 
     /**
      * Player Constructor
      * @param totalMoney
      * @param playerInitials
      */
-    public Player(int totalMoney, String playerInitials) {
-        this.totalMoney = totalMoney;
+    public Player(int balance, String playerInitials) {
+        this.balance = balance;
         this.playerInitials = playerInitials;
         this.inventory = new IngredientList();
+        this.recipe = new RecipeCreation();
     }
 
     /**
@@ -26,8 +28,8 @@ public class Player {
      * @return
      */
     /////////////////////////////////////////////////////////////
-    public int setTotalMoney() {
-        this.totalMoney = totalMoney;
+    public void setBalance() {
+        this.balance = balance;
 
     }
     ////////////////////////////////////////////////////////////
@@ -36,8 +38,8 @@ public class Player {
      * Getters and setters
      * @return
      */
-    public int getTotalMoney() {
-        return totalMoney;
+    public int getBalance() {
+        return balance;
     }
 
     /**
