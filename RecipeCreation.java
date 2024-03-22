@@ -12,6 +12,7 @@
  * 
  * @version 1.0.0
  * @author Matthew Molloy
+ * @author Sabrina Lee
  */
 public class RecipeCreation {
 	/** Stores the measurement of cream to be used in one cone */
@@ -27,30 +28,20 @@ public class RecipeCreation {
 
 	
 	public void setCream(double cream) {
-		double numCream = getCream();
-		if (cream <= numCream) {
-			creamMes = cream;
-		}
+		creamMes = cream;
+		
 	}
 	
 	public void setSugar(double sugar) {
-		double numSugar = getSugar();
-		if (sugar <= numSugar) {
-			sugarMes = sugar;
-		}
+		sugarMes = sugar;
 	}
 	
 	public void setVanilla(double vanilla) {
-		double numVanilla = getVanilla();
-		if (vanilla <= numVanilla) {
-			vanillaMes = vanilla;
-		}
+		vanillaMes = vanilla;
 	}
 	
 	public void setConePrice(double price) {
-		if (price <= maxConePrice && price >= minConePrice) {
-			conePrice = price;
-		}
+		conePrice = price;
 	}
 	
 	public double getConePrice() {
