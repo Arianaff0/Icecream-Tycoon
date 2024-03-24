@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -79,7 +79,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -121,7 +121,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 		profileButton1.setBounds(350, 825, 150, 80);
 		profileButton1.setFont(buttonFont);
-		profileButton1.setBackground(Color.decode("#7CC6FE"));
+		profileButton1.setBackground(Color.decode("#9FDBFE"));
 		profileButton1.setForeground(Color.decode("#1D1128"));
 		profileButton1.setFocusPainted(false);
 		profileButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -133,7 +133,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 		profileButton2.setBounds(850, 825, 150, 80);
 		profileButton2.setFont(buttonFont);
-		profileButton2.setBackground(Color.decode("#7CC6FE"));
+		profileButton2.setBackground(Color.decode("#9FDBFE"));
 		profileButton2.setForeground(Color.decode("#1D1128"));
 		profileButton2.setFocusPainted(false);
 		profileButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -145,7 +145,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 		profileButton3.setBounds(1350, 825, 150, 80);
 		profileButton3.setFont(buttonFont);
-		profileButton3.setBackground(Color.decode("#7CC6FE"));
+		profileButton3.setBackground(Color.decode("#9FDBFE"));
 		profileButton3.setForeground(Color.decode("#1D1128"));
 		profileButton3.setFocusPainted(false);
 		profileButton3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));

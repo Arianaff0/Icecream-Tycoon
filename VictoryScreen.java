@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -69,7 +69,7 @@ public class VictoryScreen extends JFrame implements ActionListener {
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -84,7 +84,6 @@ public class VictoryScreen extends JFrame implements ActionListener {
 
 		quit.setBounds(745, 800, 400, 145);
 		quit.setFont(startFont);
-		quit.setBackground(Color.decode("#7CC6FE"));
 		quit.setForeground(Color.decode("#1D1128"));
 		quit.setFocusPainted(false);
 		quit.setHorizontalAlignment(SwingConstants.CENTER);

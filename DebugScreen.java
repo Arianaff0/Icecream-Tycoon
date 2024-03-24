@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -91,7 +91,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -103,7 +103,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		execute.setBounds(745, 800, 400, 100);
 		execute.setFont(startFont);
-		execute.setBackground(Color.decode("#7CC6FE"));
+		execute.setBackground(Color.decode("#9FDBFE"));
 		execute.setForeground(Color.decode("#1D1128"));
 		execute.setFocusPainted(false);
 		execute.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -111,7 +111,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		commandPanel.setBounds(125, 125, 1625, 650);
 		commandPanel.setLayout(null);
-		commandPanel.setBackground(Color.decode("#FFADAD"));
+		commandPanel.setBackground(Color.decode("#FDC6D8"));
 		commandPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 
 		panel.add(commandPanel);
@@ -171,7 +171,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		weatherDropdown.setBounds(0, 60, 250, 60);
 		weatherDropdown.setFont(dropDownFont);
-		weatherDropdown.setBackground(Color.decode("#7CC6FE"));
+		weatherDropdown.setBackground(Color.decode("#9FDBFE"));
 		weatherDropdown.setForeground(Color.decode("#1D1128"));
 		weatherDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		((JLabel) weatherDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
@@ -183,7 +183,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		
 		moneyDropdown.setBounds(275, 60, 250, 60);
 		moneyDropdown.setFont(dropDownFont);
-		moneyDropdown.setBackground(Color.decode("#7CC6FE"));
+		moneyDropdown.setBackground(Color.decode("#9FDBFE"));
 		moneyDropdown.setForeground(Color.decode("#1D1128"));
 		moneyDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
 		((JLabel) moneyDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
@@ -195,7 +195,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		
 		dayDropdown.setBounds(550, 60, 250, 60);
 		dayDropdown.setFont(dropDownFont);
-		dayDropdown.setBackground(Color.decode("#7CC6FE"));
+		dayDropdown.setBackground(Color.decode("#9FDBFE"));
 		dayDropdown.setForeground(Color.decode("#1D1128"));
 		dayDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
 		((JLabel) dayDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
@@ -207,7 +207,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		
 		reputationDropdown.setBounds(825, 60, 250, 60);
 		reputationDropdown.setFont(dropDownFont);
-		reputationDropdown.setBackground(Color.decode("#7CC6FE"));
+		reputationDropdown.setBackground(Color.decode("#9FDBFE"));
 		reputationDropdown.setForeground(Color.decode("#1D1128"));
 		reputationDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
 		((JLabel) reputationDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
@@ -219,7 +219,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		
 		difficultyDropdown.setBounds(1100, 60, 250, 60);
 		difficultyDropdown.setFont(dropDownFont);
-		difficultyDropdown.setBackground(Color.decode("#7CC6FE"));
+		difficultyDropdown.setBackground(Color.decode("#9FDBFE"));
 		difficultyDropdown.setForeground(Color.decode("#1D1128"));
 		difficultyDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
 		((JLabel) difficultyDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
@@ -231,7 +231,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		
 		profileDropdown.setBounds(1375, 60, 250, 60);
 		profileDropdown.setFont(dropDownFont);
-		profileDropdown.setBackground(Color.decode("#7CC6FE"));
+		profileDropdown.setBackground(Color.decode("#9FDBFE"));
 		profileDropdown.setForeground(Color.decode("#1D1128"));
 		profileDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
 		((JLabel) profileDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);

@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,7 +24,8 @@ public class TitleScreen extends JFrame implements ActionListener {
 
 	private JButton start = new JButton("Play");
 	private JButton highScores = new JButton("High Scores");
-	private JButton credits = new JButton("Credits");
+	private JButton tutorial = new JButton("Tutorial");
+	private JLabel credits = new JLabel("Made by Group 48 (Lukas Bozinov, Ariana Feng, Matthew Molloy, Kevin Russel, Sabrina Lee)");
 
 	
 	/**
@@ -69,7 +70,7 @@ public class TitleScreen extends JFrame implements ActionListener {
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -84,7 +85,7 @@ public class TitleScreen extends JFrame implements ActionListener {
 
 		start.setBounds(745, 800, 400, 145);
 		start.setFont(startFont);
-		start.setBackground(Color.decode("#7CC6FE"));
+		start.setBackground(Color.decode("#9FDBFE"));
 		start.setForeground(Color.decode("#1D1128"));
 		start.setFocusPainted(false);
 		start.setHorizontalAlignment(SwingConstants.CENTER);
@@ -94,7 +95,7 @@ public class TitleScreen extends JFrame implements ActionListener {
 
 		highScores.setBounds(370, 800, 350, 145);
 		highScores.setFont(sideButtonFont);
-		highScores.setBackground(Color.decode("#7CC6FE"));
+		highScores.setBackground(Color.decode("#9FDBFE"));
 		highScores.setForeground(Color.decode("#1D1128"));
 		highScores.setFocusPainted(false);
 		highScores.setHorizontalAlignment(SwingConstants.CENTER);
@@ -102,26 +103,31 @@ public class TitleScreen extends JFrame implements ActionListener {
 		highScores.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		highScores.addActionListener(this);
 
-		credits.setBounds(1170, 800, 350, 145);
-		credits.setFont(sideButtonFont);
-		credits.setBackground(Color.decode("#7CC6FE"));
-		credits.setForeground(Color.decode("#1D1128"));
-		credits.setFocusPainted(false);
-		credits.setHorizontalAlignment(SwingConstants.CENTER);
-		credits.setVerticalAlignment(SwingConstants.CENTER);
-		credits.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		credits.addActionListener(this);
+		tutorial.setBounds(1170, 800, 350, 145);
+		tutorial.setFont(sideButtonFont);
+		tutorial.setBackground(Color.decode("#9FDBFE"));
+		tutorial.setForeground(Color.decode("#1D1128"));
+		tutorial.setFocusPainted(false);
+		tutorial.setHorizontalAlignment(SwingConstants.CENTER);
+		tutorial.setVerticalAlignment(SwingConstants.CENTER);
+		tutorial.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		tutorial.addActionListener(this);
 
 		title.setBounds(230, 31, 1440, 100);
 		title.setForeground(Color.BLACK);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setFont(titleFont);
+		
+		credits.setBounds(5, 1022, 1440, 18);
+		credits.setForeground(Color.BLACK);
+		credits.setFont(new Font("Calibri", Font.BOLD, 18));
 
 		panel.add(start);
 		panel.add(highScores);
-		panel.add(credits);
+		panel.add(tutorial);
 		panel.add(title);
+		panel.add(credits);
 
 		panel.setVisible(true);
 	}
@@ -132,10 +138,9 @@ public class TitleScreen extends JFrame implements ActionListener {
 		if (e.getSource() == start) {
 			setVisible(false);
 			new SaveAndLoadScreen();
-		} else if (e.getSource() == credits) {
-			JOptionPane.showMessageDialog(panel,
-					"This game was made by the following developers:\nLukas Bozinov\nAriana Feng\nSabrina Lee\nMatthew Molloy\nKevin Russel",
-					"Credits", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("files/icecreamconeicon.png"));
+		} else if (e.getSource() == tutorial) {
+			new TutorialScreen();
+			
 		} else if (e.getSource() == highScores) {
 			new HighScoreScreen();
 		}

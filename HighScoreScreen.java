@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -95,7 +95,7 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -126,7 +126,7 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 		
 		scorePanel.setBounds(345, 150, 1200, 560);
 		scorePanel.setLayout(null);
-		scorePanel.setBackground(Color.decode("#FFADAD"));
+		scorePanel.setBackground(Color.decode("#FDC6D8"));
 		scorePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		panel.add(scorePanel);
 

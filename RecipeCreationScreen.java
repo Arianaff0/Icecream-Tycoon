@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -86,7 +86,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -98,7 +98,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		playGameButton.setBounds(745, 800, 400, 100);
 		playGameButton.setFont(startFont);
-		playGameButton.setBackground(Color.decode("#7CC6FE"));
+		playGameButton.setBackground(Color.decode("#9FDBFE"));
 		playGameButton.setForeground(Color.decode("#1D1128"));
 		playGameButton.setFocusPainted(false);
 		playGameButton.setHorizontalAlignment(SwingConstants.CENTER);
@@ -108,7 +108,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		recipePanel.setBounds(150, 125, 1600, 650);
 		recipePanel.setLayout(null);
-		recipePanel.setBackground(Color.decode("#FFADAD"));
+		recipePanel.setBackground(Color.decode("#FDC6D8"));
 		recipePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 
 		panel.add(recipePanel);
@@ -170,7 +170,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		creamSlider.setBounds(350, 110, 1085, 100);
 		creamSlider.setFont(titleFont);
-		creamSlider.setBackground(Color.decode("#7CC6FE"));
+		creamSlider.setBackground(Color.decode("#9FDBFE"));
 		creamSlider.setForeground(Color.decode("#1D1128"));
 		creamSlider.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		creamSlider.addChangeListener(this);
@@ -182,7 +182,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		vanillaSlider.setBounds(350, 250, 1085, 100);
 		vanillaSlider.setFont(startFont);
-		vanillaSlider.setBackground(Color.decode("#7CC6FE"));
+		vanillaSlider.setBackground(Color.decode("#9FDBFE"));
 		vanillaSlider.setForeground(Color.decode("#1D1128"));
 		vanillaSlider.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		vanillaSlider.addChangeListener(this);
@@ -194,7 +194,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		sugarSlider.setBounds(350, 390, 1085, 100);
 		sugarSlider.setFont(startFont);
-		sugarSlider.setBackground(Color.decode("#7CC6FE"));
+		sugarSlider.setBackground(Color.decode("#9FDBFE"));
 		sugarSlider.setForeground(Color.decode("#1D1128"));
 		sugarSlider.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		sugarSlider.addChangeListener(this);
@@ -206,7 +206,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 		priceSlider.setBounds(350, 530, 1085, 100);
 		priceSlider.setFont(startFont);
-		priceSlider.setBackground(Color.decode("#7CC6FE"));
+		priceSlider.setBackground(Color.decode("#9FDBFE"));
 		priceSlider.setForeground(Color.decode("#1D1128"));
 		priceSlider.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		priceSlider.addChangeListener(this);
@@ -222,7 +222,8 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == playGameButton) {
-			// new MainGameplayScreen();
+			
+			
 		}
 
 	}
@@ -230,24 +231,24 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		if (e.getSource() == creamSlider) {
-			
+
 			nCreamInRecipe = creamSlider.getValue();
-			creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe/10));
+			creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
 
 		} else if (e.getSource() == vanillaSlider) {
-			
+
 			nVanillaInRecipe = vanillaSlider.getValue();
-			vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe/10));
+			vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
 
 		} else if (e.getSource() == sugarSlider) {
-			
+
 			nSugarInRecipe = sugarSlider.getValue();
-			sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe/10));
+			sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
 
 		} else if (e.getSource() == priceSlider) {
-			
+
 			priceOfCone = priceSlider.getValue();
-			priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone/10));
+			priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone / 10));
 
 		}
 

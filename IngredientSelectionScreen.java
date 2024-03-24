@@ -1,4 +1,4 @@
-
+package application;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -100,7 +100,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
-		panel.setBackground(Color.decode("#70FFB3"));
+		panel.setBackground(Color.decode("#7CF3A0"));
 
 		add(panel);
 
@@ -112,7 +112,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 		makeRecipe.setBounds(745, 800, 400, 100);
 		makeRecipe.setFont(startFont);
-		makeRecipe.setBackground(Color.decode("#7CC6FE"));
+		makeRecipe.setBackground(Color.decode("#9FDBFE"));
 		makeRecipe.setForeground(Color.decode("#1D1128"));
 		makeRecipe.setFocusPainted(false);
 		makeRecipe.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,7 +122,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 		ingredientPanel.setBounds(150, 125, 1600, 650);
 		ingredientPanel.setLayout(null);
-		ingredientPanel.setBackground(Color.decode("#FFADAD"));
+		ingredientPanel.setBackground(Color.decode("#FDC6D8"));
 		ingredientPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 
 		panel.add(ingredientPanel);
@@ -211,7 +211,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 		buy10Cones.setBounds(350, 190, 175, 50);
 		buy10Cones.setFont(startFont);
-		buy10Cones.setBackground(Color.decode("#7CC6FE"));
+		buy10Cones.setBackground(Color.decode("#9FDBFE"));
 		buy10Cones.setForeground(Color.decode("#1D1128"));
 		buy10Cones.setFocusPainted(false);
 		buy10Cones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -220,7 +220,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy20Cones.setBounds(630, 190, 175, 50);
 		buy20Cones.setFont(startFont);
-		buy20Cones.setBackground(Color.decode("#7CC6FE"));
+		buy20Cones.setBackground(Color.decode("#9FDBFE"));
 		buy20Cones.setForeground(Color.decode("#1D1128"));
 		buy20Cones.setFocusPainted(false);
 		buy20Cones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -229,7 +229,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy40Cones.setBounds(910, 190, 175, 50);
 		buy40Cones.setFont(startFont);
-		buy40Cones.setBackground(Color.decode("#7CC6FE"));
+		buy40Cones.setBackground(Color.decode("#9FDBFE"));
 		buy40Cones.setForeground(Color.decode("#1D1128"));
 		buy40Cones.setFocusPainted(false);
 		buy40Cones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -238,7 +238,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy10Cream.setBounds(350, 290, 175, 50);
 		buy10Cream.setFont(startFont);
-		buy10Cream.setBackground(Color.decode("#7CC6FE"));
+		buy10Cream.setBackground(Color.decode("#9FDBFE"));
 		buy10Cream.setForeground(Color.decode("#1D1128"));
 		buy10Cream.setFocusPainted(false);
 		buy10Cream.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -247,7 +247,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy20Cream.setBounds(630, 290, 175, 50);
 		buy20Cream.setFont(startFont);
-		buy20Cream.setBackground(Color.decode("#7CC6FE"));
+		buy20Cream.setBackground(Color.decode("#9FDBFE"));
 		buy20Cream.setForeground(Color.decode("#1D1128"));
 		buy20Cream.setFocusPainted(false);
 		buy20Cream.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -256,7 +256,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy40Cream.setBounds(910, 290, 175, 50);
 		buy40Cream.setFont(startFont);
-		buy40Cream.setBackground(Color.decode("#7CC6FE"));
+		buy40Cream.setBackground(Color.decode("#9FDBFE"));
 		buy40Cream.setForeground(Color.decode("#1D1128"));
 		buy40Cream.setFocusPainted(false);
 		buy40Cream.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -265,7 +265,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy10Vanilla.setBounds(350, 390, 175, 50);
 		buy10Vanilla.setFont(startFont);
-		buy10Vanilla.setBackground(Color.decode("#7CC6FE"));
+		buy10Vanilla.setBackground(Color.decode("#9FDBFE"));
 		buy10Vanilla.setForeground(Color.decode("#1D1128"));
 		buy10Vanilla.setFocusPainted(false);
 		buy10Vanilla.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -274,7 +274,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy20Vanilla.setBounds(630, 390, 175, 50);
 		buy20Vanilla.setFont(startFont);
-		buy20Vanilla.setBackground(Color.decode("#7CC6FE"));
+		buy20Vanilla.setBackground(Color.decode("#9FDBFE"));
 		buy20Vanilla.setForeground(Color.decode("#1D1128"));
 		buy20Vanilla.setFocusPainted(false);
 		buy20Vanilla.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -283,7 +283,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy40Vanilla.setBounds(910, 390, 175, 50);
 		buy40Vanilla.setFont(startFont);
-		buy40Vanilla.setBackground(Color.decode("#7CC6FE"));
+		buy40Vanilla.setBackground(Color.decode("#9FDBFE"));
 		buy40Vanilla.setForeground(Color.decode("#1D1128"));
 		buy40Vanilla.setFocusPainted(false);
 		buy40Vanilla.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -292,7 +292,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy10Sugar.setBounds(350, 490, 175, 50);
 		buy10Sugar.setFont(startFont);
-		buy10Sugar.setBackground(Color.decode("#7CC6FE"));
+		buy10Sugar.setBackground(Color.decode("#9FDBFE"));
 		buy10Sugar.setForeground(Color.decode("#1D1128"));
 		buy10Sugar.setFocusPainted(false);
 		buy10Sugar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -301,7 +301,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy20Sugar.setBounds(630, 490, 175, 50);
 		buy20Sugar.setFont(startFont);
-		buy20Sugar.setBackground(Color.decode("#7CC6FE"));
+		buy20Sugar.setBackground(Color.decode("#9FDBFE"));
 		buy20Sugar.setForeground(Color.decode("#1D1128"));
 		buy20Sugar.setFocusPainted(false);
 		buy20Sugar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -310,7 +310,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		buy40Sugar.setBounds(910, 490, 175, 50);
 		buy40Sugar.setFont(startFont);
-		buy40Sugar.setBackground(Color.decode("#7CC6FE"));
+		buy40Sugar.setBackground(Color.decode("#9FDBFE"));
 		buy40Sugar.setForeground(Color.decode("#1D1128"));
 		buy40Sugar.setFocusPainted(false);
 		buy40Sugar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -319,7 +319,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		
 		undoButton.setBounds(1425, 600, 175, 50);
 		undoButton.setFont(startFont);
-		undoButton.setBackground(Color.decode("#7CC6FE"));
+		undoButton.setBackground(Color.decode("#9FDBFE"));
 		undoButton.setForeground(Color.decode("#1D1128"));
 		undoButton.setFocusPainted(false);
 		undoButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
