@@ -296,23 +296,19 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == profileButton1) {
-
-			// we will need to pass the data of the player into the game play through here
-			// or some other form of storage (for profile 1)
+			GameLauncher.currentPlayer = GameLauncher.player1;
+			// 
 
 			setVisible(false);
 			new IngredientSelectionScreen();
 		} else if (e.getSource() == profileButton2) {
+			GameLauncher.currentPlayer = GameLauncher.player2;
 
-			// we will need to pass the data of the player into the game play through here
-			// or some other form of storage (for profile 2)
 
 			setVisible(false);
 			new IngredientSelectionScreen();
 		} else if (e.getSource() == profileButton3) {
-
-			// we will need to pass the data of the player into the game play through here
-			// or some other form of storage (for profile 3)
+			GameLauncher.currentPlayer = GameLauncher.player3;
 
 			setVisible(false);
 			new IngredientSelectionScreen();
