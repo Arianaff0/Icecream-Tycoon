@@ -9,10 +9,13 @@ public class MainGamePlayClass {
 
     SpriteNode head;
     SpriteNode tail;
+    
+	/** simply a placeholder for the currentPlayer variable*/
+	private Player currentPlayer = GameLauncher.currentPlayer;
 
     public  MainGamePlayClass() {
         // remember to change this down
-        int iceCreameCounter = 5;
+        int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later

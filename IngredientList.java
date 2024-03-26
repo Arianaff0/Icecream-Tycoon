@@ -15,7 +15,7 @@ public class IngredientList {
 	
 	/** Number of ice cream cones purchased*/
 	private int numCones;
-	/** Number of Cups of crean purchased*/
+	/** Number of Cups of cream purchased*/
 	private double numCream;
 	/** Number of tablespoons of sugar purchased*/
 	private double numSugar;
@@ -71,7 +71,7 @@ public class IngredientList {
 		// Default case is a sale
 		default:
 			currentPlayer.changeBalance(price, type);
-			// Not sure if numCones is effected here
+			this.numCones -= numCones;
 		}
 	}
 	
@@ -103,7 +103,7 @@ public class IngredientList {
 		// Default case is a sale
 		default:
 			currentPlayer.changeBalance(price, type);
-			// Not sure if numCream is effected here
+			this.numCream -= numCream;
 		}
 	}
 	
@@ -135,7 +135,7 @@ public class IngredientList {
 		// Default case is a sale
 		default:
 			currentPlayer.changeBalance(price, type);
-			// Not sure if numCones is effected here
+			this.numSugar -= numSugar;
 		}
 	}
 	
@@ -167,7 +167,7 @@ public class IngredientList {
 		// Default case is a sale
 		default:
 			currentPlayer.changeBalance(price, type);
-			// Not sure if numCones is effected here
+			this.numVanilla -= numVanilla;
 		}
 	}
 	
@@ -246,7 +246,18 @@ public class IngredientList {
 	 * 
 	 * @return maximumn sellable ice cream cones
 	 */
-	public double getMaxSellableProduct(){
+	public int getMaxSellableProduct(){
+		/** The amount of each ingredient that can be portioned by the recipe*/
+		int amtCream = (int) Math.floor(numCream / currentPlayer.recipe.getCreamMes());
+		int amtSugar = (int) Math.floor(numSugar / currentPlayer.recipe.getSugarMes());
+		int amtVanilla = (int) Math.floor(numVanilla / currentPlayer.recipe.getVanillaMes());
+
+		if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1) {
+			maxSellableProduct = 0;
+		}
+		else {
+			maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), amtVanilla);
+		}
 		return maxSellableProduct;
 	}
 	
