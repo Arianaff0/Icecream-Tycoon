@@ -1,7 +1,7 @@
+package application;
 /**
  * @author Ariana Feng
  * Date: March 20, 2024
- * sugiubguwribgriuwbgiuewbg
  */
 
 public class Player {
@@ -33,6 +33,23 @@ public class Player {
 
     }
     ////////////////////////////////////////////////////////////
+    
+    /**
+     * Used to change the player's balance during a transaction, refund or sale during the day
+     * 
+     * @param price is either a positive or negative value
+     * @param type checks what the balance change is for
+     */
+    public void changeBalance(int price, String type) {
+    	// If purchase, remove money from balance
+    	if (type == "purchase") {
+    		balance -= price;
+    	}
+    	// If refund or sale, increase money
+    	else if (type == "refund" || type == "sale"){
+        	balance += price;
+    	}
+    }
 
     /**
      * Getters and setters

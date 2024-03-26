@@ -1,3 +1,4 @@
+package application;
 /**
  * This class is what creates the single linked list for the sprites.
  * "I cooked doing this class" - Kevin Russel

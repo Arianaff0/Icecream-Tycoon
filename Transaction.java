@@ -1,3 +1,4 @@
+package application;
 /**
  * This class stores each purchase that the player transacts from the Ingredient Selection screen <br>
  * Each transaction will be put on a stack so that players can undo their purchases<br><br>

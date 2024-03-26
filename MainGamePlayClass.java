@@ -1,3 +1,4 @@
+package application;
 /**
  * This is the main gameplay class
  * Remember to fix the weater and the reputation.

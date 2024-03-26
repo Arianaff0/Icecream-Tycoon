@@ -1,3 +1,4 @@
+package application;
 /**
  * RecipeCreation class handles the ratios of ingredients required to make an ice cream cone. 
  * <p>

@@ -1,4 +1,6 @@
+package application;
 /**
+
  * This is the fine class which is designed to check if the user has paid to pay a fine or not.
  * This method wil ONLY be called if the user did not pay the license for the day.
  * TO-DO, this class doesn't check if the user paid or not yet.
