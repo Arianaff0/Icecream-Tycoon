@@ -252,18 +252,19 @@ public class IngredientList {
 		int amtSugar = (int) Math.floor(numSugar / currentPlayer.recipe.getSugarMes());
 		int amtVanilla = (int) Math.floor(numVanilla / currentPlayer.recipe.getVanillaMes());
 
-		if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1) {
+		if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1 || numCones < 1) {
 			maxSellableProduct = 0;
 		}
 		else {
-			maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), amtVanilla);
+			/** The limiting variable determines how many ice creams can actually be made*/
+			maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), Math.min(numCones, amtVanilla));
 		}
 		return maxSellableProduct;
 	}
 	
 	/**
 	 * When player pushes the "Undo Purchase" button pops the last transaction off the stack, refunding 
-	 * the player and decreasing the quantity of the ingredient last pruchased.
+	 * the player and decreasing the quantity of the ingredient last purchased.
 	 * 
 	 * If the stack is empty, do nothing.
 	 */
