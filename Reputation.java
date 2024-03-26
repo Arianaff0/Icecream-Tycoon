@@ -1,4 +1,4 @@
-package application;
+
 /**
  * This class is used to set the reputation of the storefront. This can be used as a multiplier for either buying the
  * product.
