@@ -27,24 +27,70 @@ public class RecipeCreation {
 	final double minConePrice = 0;
 	private double conePrice;
 
-	
-	public void setCream(double cream) {
+	/**
+	 * Used to set cream measurement for recipe from RecipeCreationScreen.java
+	 * @param cream
+	 */
+	public void setCreamMes(double cream) {
 		creamMes = cream;
-		
 	}
 	
-	public void setSugar(double sugar) {
+	/**
+	 * Returns the measurement of cream in the recipe
+	 * 
+	 * @return Cream in inventory
+	 */
+	public double getCreamMes() {
+		return creamMes;
+	}
+	
+	/**
+	 * Used to set sugar measurement for recipe from RecipeCreationScreen.java
+	 * @param sugar
+	 */
+	public void setSugarMes(double sugar) {
 		sugarMes = sugar;
 	}
 	
-	public void setVanilla(double vanilla) {
+	/**
+	 * Returns the measurement of sugar in the recipe
+	 * 
+	 * @return Sugar in inventory
+	 */
+	public double getSugarMes() {
+		return sugarMes;
+	}
+	
+	/**
+	 * Used to set vanilla measurement for recipe from RecipeCreationScreen.java
+	 * @param vanilla
+	 */
+	public void setVanillaMes(double vanilla) {
 		vanillaMes = vanilla;
 	}
 	
+	/**
+	 * Returns the measurement of vanilla in the recipe
+	 * 
+	 * @return Vanilla in inventory
+	 */
+	public double getVanillaMes() {
+		return vanillaMes;
+	}
+	
+	/**
+	 * Used to set price for a cone of ice cream from RecipeCreationScreen.java
+	 * @param price
+	 */
 	public void setConePrice(double price) {
 		conePrice = price;
 	}
 	
+	/**
+	 * Returns the price for a cone of ice cream
+	 * 
+	 * @return Price for one cone of ice cream
+	 */
 	public double getConePrice() {
 		return conePrice;
 	}

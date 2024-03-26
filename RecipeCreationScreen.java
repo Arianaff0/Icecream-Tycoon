@@ -230,26 +230,32 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
+		/** the recipe belonging to the player of the current save/load profile*/
+		RecipeCreation pRecipe = GameLauncher.currentPlayer.recipe;
+		
 		if (e.getSource() == creamSlider) {
-
 			nCreamInRecipe = creamSlider.getValue();
 			creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
+			
+			pRecipe.setCreamMes(nCreamInRecipe);
 
 		} else if (e.getSource() == vanillaSlider) {
-
 			nVanillaInRecipe = vanillaSlider.getValue();
 			vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
 
+			pRecipe.setSugarMes(nSugarInRecipe);
+			
 		} else if (e.getSource() == sugarSlider) {
-
 			nSugarInRecipe = sugarSlider.getValue();
 			sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
 
+			pRecipe.setVanillaMes(nVanillaInRecipe);
+			
 		} else if (e.getSource() == priceSlider) {
-
 			priceOfCone = priceSlider.getValue();
 			priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone / 10));
 
+			pRecipe.setConePrice(priceOfCone);
 		}
 
 	}
