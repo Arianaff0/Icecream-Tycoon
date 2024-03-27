@@ -7,9 +7,10 @@ package application;
 
 public class MainGamePlayClass {
 
-    SpriteNode head;
-    SpriteNode tail;
+    private SpriteNode head;
+    private SpriteNode tail;
 
+    public boolean SpriteOrder[] = new boolean[20];
     /** simply a placeholder for the currentPlayer variable*/
     private Player currentPlayer = GameLauncher.currentPlayer;
 
@@ -101,6 +102,22 @@ public class MainGamePlayClass {
             }
             System.out.println();
             currNode = currNode.getNext();
+        }
+
+
+        // this is for the boolean
+        SpriteNode BooleanNode = head;
+        int arrayCount = 0;
+        while(BooleanNode!= null){
+            // this is an if statement to stimulate if they will buy or not.
+            if(!BooleanNode.getbuy()){
+                SpriteOrder[arrayCount] = false;
+            }
+            else{
+                SpriteOrder[arrayCount] = true;
+            }
+            arrayCount = arrayCount +1;
+            BooleanNode = BooleanNode.getNext();
         }
 
     }
