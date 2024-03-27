@@ -1,7 +1,8 @@
-package application;
+import java.awt.*;
+
 /**
  * This is the main gameplay class
- * Remember to fix the weater and the reputation.
+ * Remember to fix the weather and the reputation.
  *
  */
 
@@ -9,25 +10,24 @@ public class MainGamePlayClass {
 
     SpriteNode head;
     SpriteNode tail;
-    
-	/** simply a placeholder for the currentPlayer variable*/
-	private Player currentPlayer = GameLauncher.currentPlayer;
+    private Reputation reputation;
 
     public  MainGamePlayClass() {
+        //maybe change?
+        reputation = new Reputation();
+        reputation.setReputation(1.0);
+        int repNum =(int)reputation.getReputation();
+
         // remember to change this down
-        int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
+        int iceCreameCounter = 5;
+
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
+        System.out.println(weatherNum);
+
         // change this later
         int iceCremePrice = 2;
 
-        Reputation rep = new Reputation();
-        // remember to change this
-        rep.setReputation(1.0);
-        int repNum =(int)rep.getReputation();
-
-
-        System.out.println(weatherNum);
         // this is going to be a customer counter for the sprite, can't let it go over 20.
         int customerCounter;
 
@@ -101,7 +101,6 @@ public class MainGamePlayClass {
             System.out.println();
             currNode = currNode.getNext();
         }
-
     }
 
     /**
