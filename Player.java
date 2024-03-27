@@ -32,11 +32,14 @@ public class Player {
         this.currentDay = day;
         this.filename = filename;
         this.balance = 30;
+        this.recipe = new RecipeCreation();
+
 //        this.inventory = 0;
         // TODO: remember to change the diff and the user, this is hardcoded rn. - Kevin
         newFile = new CSVFile(filename);
         newFile.CSVWriter(user,diff,1,0,0,60,0,0,0,0);
         inventory = new IngredientList(this);
+        
 
 
     }
