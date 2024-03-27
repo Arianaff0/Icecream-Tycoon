@@ -7,15 +7,15 @@ package application;
 public class Player {
 
     private String filename;
-    private int balance;
     private String playerInitials;
+    private int difficulty;
+    private int day; 
+    private double weather;
+    private double reputation;
+    private double balance;
     private int numIceCreams;
     public IngredientList inventory;
     public RecipeCreation recipe;
-
-    private int diff;
-
-    private int currentDay;
 
 
     /**
@@ -26,11 +26,12 @@ public class Player {
      */
     public Player(String filename,String user,int diff,int day){
         this.playerInitials = user;
-        this.diff = diff;
-        this.currentDay = day;
+        this.difficulty = diff;
+        this.day = day;
         this.filename = filename;
         // TODO: remember to change the diff and the user, this is hardcoded rn. - Kevin
         CSVFile newFile = new CSVFile(filename);
+        // UserID, Difficulty, Day Num, Weather Num, Rep, Retained money, cones, Sugar, Vanilla, Cream
         newFile.CSVWriter(user,diff,1,0,0,0,0,0,0,0);
     }
     /**
@@ -38,28 +39,61 @@ public class Player {
      * @param totalMoney
      * @param playerInitials
      */
-    public Player(int balance, String playerInitials) {
-        this.balance = balance;
+    public Player(String filename, String playerInitials, int diff, int day, double weather, 
+    		double reputation, double balance, int numCones, double numSugar, double numVanilla, double numCream) {
+        // Store parameters into proper instance variables
         this.playerInitials = playerInitials;
-        this.inventory = new IngredientList();
+        this.difficulty = diff;
+        this.day = day;
+        this.weather = weather;
+        this.reputation = reputation;
+        this.balance = balance;
+        this.inventory = new IngredientList(numCones, numCream, numSugar, numVanilla);
         this.recipe = new RecipeCreation();
+        
+        // add the csv - Kevin Russel
 
     }
-
-    public Player() {
-
+    
+    /**
+     * 
+     * @param Sets the day of the game
+     */
+    public void setDay(int day) {
+    	this.day = day;
     }
-
+    
+    /**
+     * 
+     * @return the current day
+     */
+    public int getDay() {
+    	return day;
+    }
+    
+    /**
+     * 
+     * @param weather rating
+     */
+    public void setWeather(double weather) {
+    	this.weather = weather;
+    }
+    
+    /**
+     * 
+     * @return the weather rating
+     */
+    public double getWeather() {
+    	return weather;
+    }
+    
     /**
      * Getters and setters
      * @return
      */
-    /////////////////////////////////////////////////////////////
     public void setBalance() {
         this.balance = balance;
-
     }
-    ////////////////////////////////////////////////////////////
 
     /**
      * Used to change the player's balance during a transaction, refund or sale during the day
@@ -67,7 +101,7 @@ public class Player {
      * @param price is either a positive or negative value
      * @param type checks what the balance change is for
      */
-    public void changeBalance(int price, String type) {
+    public void changeBalance(double price, String type) {
         // If purchase, remove money from balance
         if (type == "purchase") {
             balance -= price;
@@ -79,10 +113,10 @@ public class Player {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * 
+     * @return Player's balance
      */
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 

@@ -25,7 +25,7 @@ public class IngredientList {
 	private int maxSellableProduct;
 	
 	/** A stack that tracks the order in which ingredients were purchased */
-	private Stack<Transaction> transactionStack =  new Stack<Transaction>();
+	private Stack<Transaction> transactionStack;
 	/**
 	 * IngredientList constructor method. 
 	 * Sets all private variables to 0 (nothing has been purchased by the user the first time around)
@@ -34,11 +34,12 @@ public class IngredientList {
 	/** simply a placeholder for the currentPlayer variable*/
 	private Player currentPlayer = GameLauncher.currentPlayer;
 			
-	public IngredientList() {
-		numCones = 0;
-		numCream = 0;
-		numSugar = 0;
-		numVanilla = 0;
+	public IngredientList(int numCones, double numCream, double numSugar, double numVanilla) {
+		this.numCones = numCones;
+		this.numCream = numCream;
+		this.numSugar = numSugar;
+		this.numVanilla = numVanilla;
+		transactionStack = new Stack<Transaction>();
 	}
 	
 	/**
