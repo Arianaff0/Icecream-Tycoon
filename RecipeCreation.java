@@ -27,6 +27,13 @@ public class RecipeCreation {
 	final double minConePrice = 0;
 	private double conePrice;
 
+	public RecipeCreation() {
+		creamMes = 0;
+		sugarMes = 0;
+		vanillaMes = 0;
+		conePrice = 0;
+	}
+	
 	/**
 	 * Used to set cream measurement for recipe from RecipeCreationScreen.java
 	 * @param cream
