@@ -99,6 +99,10 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
         totalCash = Totalcash;
     }
 
+//    private void changeCones(int cones){
+//        nCones.
+//    }
+
     /**
      * This helper method sets up the basics of the JFrame that this class extends.
      * Sets the size of the window, makes it unresizable, and sets titles as well as
@@ -357,54 +361,55 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
         // price for 10 cones $2.00
         if (e.getSource() == buy10Cones) {
             System.out.println(currentPlayer.inventory.getCones());
-            currentPlayer.inventory.changeConeQty(10, 1, "purchase");
+            if(currentPlayer.inventory.changeConeQty(10, 1, "purchase")==1){
             cashChange(totalCash-1);
+            System.out.println(currentPlayer.getBalance());}
 
             // price for 20 cones $3.00
         } else if (e.getSource() == buy20Cones) {
-            currentPlayer.inventory.changeConeQty(20, 2, "purchase");
-            cashChange(totalCash-2);
+            if(currentPlayer.inventory.changeConeQty(20, 2, "purchase")==1){
+            cashChange(totalCash-2);}
             // price for 40 cones $5.00
         } else if (e.getSource() == buy40Cones) {
-            currentPlayer.inventory.changeConeQty(40, 4, "purchase");
-            cashChange(totalCash-2);
+            if(currentPlayer.inventory.changeConeQty(40, 4, "purchase")==1){
+            cashChange(totalCash-2);}
 
             // price for 10 cream $5.00
         } else if (e.getSource() == buy10Cream) {
-            currentPlayer.inventory.changeCreamQty(10, 5, "purchase");
-            cashChange(totalCash-5);
+            if(currentPlayer.inventory.changeCreamQty(10, 5, "purchase")==1){;
+            cashChange(totalCash-5);}
             // price for 20 cream $8.00
         } else if (e.getSource() == buy20Cream) {
-            currentPlayer.inventory.changeCreamQty(20, 10, "purchase");
-            cashChange(totalCash-10);
+            if(currentPlayer.inventory.changeCreamQty(20, 10, "purchase")==1){;
+            cashChange(totalCash-10);}
             // price for 40 cream $15.00
         } else if (e.getSource() == buy40Cream) {
-            currentPlayer.inventory.changeCreamQty(40, 20, "purchase");
-            cashChange(totalCash-20);
+            if(currentPlayer.inventory.changeCreamQty(40, 20, "purchase")==1){;
+            cashChange(totalCash-20);}
             // price for 10 sugar $3.00
         } else if (e.getSource() == buy10Sugar) {
-            currentPlayer.inventory.changeSugarQty(10, 2, "purchase");
-            cashChange(totalCash-2);
+            if(currentPlayer.inventory.changeSugarQty(10, 2, "purchase")==1){;
+            cashChange(totalCash-2);}
             // price for 20 sugar $5.00
         } else if (e.getSource() == buy20Sugar) {
-            currentPlayer.inventory.changeSugarQty(20, 4, "purchase");
-            cashChange(totalCash-4);
+            if(currentPlayer.inventory.changeSugarQty(20, 4, "purchase")==1){;
+            cashChange(totalCash-4);}
             // price for 40 sugar $8.00
         } else if (e.getSource() == buy40Sugar) {
-            currentPlayer.inventory.changeSugarQty(40, 8, "purchase");
-            cashChange(totalCash-8);
+            if(currentPlayer.inventory.changeSugarQty(40, 8, "purchase")==1){
+            cashChange(totalCash-8);}
             // price 10 vanilla $2.00
         } else if (e.getSource() == buy10Vanilla) {
-            currentPlayer.inventory.changeVanillaQty(10, 10, "purchase");
-            cashChange(totalCash-10);
+            if(currentPlayer.inventory.changeVanillaQty(10, 10, "purchase")==1){
+            cashChange(totalCash-10);}
             // price 20 vanilla $3.00
         } else if (e.getSource() == buy20Vanilla) {
-            currentPlayer.inventory.changeVanillaQty(20, 20, "purchase");
-            cashChange(totalCash-20);
+            if(currentPlayer.inventory.changeVanillaQty(20, 20, "purchase")==1){;
+            cashChange(totalCash-20);}
             // price 40 vanilla $5.00
         } else if (e.getSource() == buy40Vanilla) {
-            currentPlayer.inventory.changeVanillaQty(40, 5, "purchase");
-            cashChange(totalCash-40);
+            if(currentPlayer.inventory.changeVanillaQty(40, 40, "purchase")==1){;
+            cashChange(totalCash-40);}
         } else if (e.getSource() == undoButton) {
             currentPlayer.inventory.undoPurchase();
 

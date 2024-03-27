@@ -61,31 +61,37 @@ public class IngredientList {
      * @param transactionType checks if this was a purchase (true) or refund (false)
      * @return void
      */
-    public void changeConeQty(int numCones, int price, String type){
-        System.out.println("hitting in here");
+    public int changeConeQty(int numCones, int price, String type){
         // Purpose of change
         switch (type) {
             case "purchase":
-                if (currentPlayer.getBalance() > price) {
+                if (currentPlayer.getBalance() >= price) {
+                    System.out.println("purchase hitting");
                     currentPlayer.changeBalance(price, type);
                     this.numCones += numCones;
 
                     // Create transaction object and push onto the transactionStack
                     Transaction purchase = new Transaction("Cone", numCones, price);
                     transactionStack.push(purchase);
+                    return 1;
                 }
-                break;
+                else{
+                    return 0;
+                }
 
             case "refund":
                 currentPlayer.changeBalance(price, type);
                 this.numCones -= numCones;
                 break;
 
-            // Default case is a sale
+            // Default case is a sale For sprite - Kevin
             default:
+                System.out.println("default hitting");
                 currentPlayer.changeBalance(price, type);
                 this.numCones -= numCones;
+                return 1;
         }
+       return 0;
     }
 
     /**
@@ -94,19 +100,22 @@ public class IngredientList {
      * @param numCream measurement of cream in cups
      * @return void
      */
-    public void changeCreamQty(int numCream, int price, String type){
+    public int changeCreamQty(int numCream, int price, String type){
         // Purpose of change
         switch (type) {
             case "purchase":
-                if (currentPlayer.getBalance() > price) {
+                if (currentPlayer.getBalance() >= price) {
                     currentPlayer.changeBalance(price, type);
                     this.numCream += numCream;
 
                     // Create transaction object and push onto the transactionStack
                     Transaction purchase = new Transaction("Cream", numCream, price);
                     transactionStack.push(purchase);
+                    return 1;
                 }
-                break;
+                else{
+                    return 0;
+                }
 
             case "refund":
                 currentPlayer.changeBalance(price, type);
@@ -117,7 +126,9 @@ public class IngredientList {
             default:
                 currentPlayer.changeBalance(price, type);
                 this.numCream -= numCream;
+                return 1;
         }
+        return 0;
     }
 
     /**
@@ -126,19 +137,22 @@ public class IngredientList {
      * @param numSugar measurement of cream in tablespoons
      * @return void
      */
-    public void changeSugarQty(int numSugar, int price, String type){
+    public int changeSugarQty(int numSugar, int price, String type){
         // Purpose of change
         switch (type) {
             case "purchase":
-                if (currentPlayer.getBalance() > price) {
+                if (currentPlayer.getBalance() >= price) {
                     currentPlayer.changeBalance(price, type);
                     this.numSugar+= numSugar;
 
                     // Create transaction object and push onto the transactionStack
                     Transaction purchase = new Transaction("Sugar", numSugar, price);
                     transactionStack.push(purchase);
+                    return 1;
                 }
-                break;
+                else{
+                    return 0;
+                }
 
             case "refund":
                 currentPlayer.changeBalance(price, type);
@@ -149,7 +163,9 @@ public class IngredientList {
             default:
                 currentPlayer.changeBalance(price, type);
                 this.numSugar -= numSugar;
+                return 1;
         }
+        return 0;
     }
 
     /**
@@ -158,19 +174,22 @@ public class IngredientList {
      * @param numVanilla measurement of cream in cups
      * @return void
      */
-    public void changeVanillaQty(int numVanilla, int price, String type){
+    public int changeVanillaQty(int numVanilla, int price, String type){
         // Purpose of change
         switch (type) {
             case "purchase":
-                if (currentPlayer.getBalance() > price) {
+                if (currentPlayer.getBalance() >= price) {
                     currentPlayer.changeBalance(price, type);
                     this.numVanilla += numVanilla;
 
                     // Create transaction object and push onto the transactionStack
                     Transaction purchase = new Transaction("Vanilla", numVanilla, price);
                     transactionStack.push(purchase);
+                    return 1;
                 }
-                break;
+                else{
+                    return 0;
+                }
 
             case "refund":
                 currentPlayer.changeBalance(price, type);
@@ -181,7 +200,9 @@ public class IngredientList {
             default:
                 currentPlayer.changeBalance(price, type);
                 this.numVanilla -= numVanilla;
+                return 1;
         }
+    return 0;
     }
 
     /**
