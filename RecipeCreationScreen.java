@@ -222,7 +222,6 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == playGameButton) {
-        	System.out.print(Double.toString(GameLauncher.currentPlayer.recipe.getCreamMes()));
             new MainGamePlayClass();
 
         }
