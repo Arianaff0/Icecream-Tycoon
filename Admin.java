@@ -14,37 +14,37 @@ public class Admin {
 	 */
 	public void command(String cmd) {
 		String[] cmdList = cmd.split(" ");
-		String weather; // FIGURE OUT WHAT TO DO WITH THIS????????
+		String weatherData; // FIGURE OUT WHAT TO DO WITH THIS????????
 		
 		if (cmdList[0].equalsIgnoreCase("setweather")){ // got to make this into a button?
-			Weather weather = new Weather; // work on this after (kevin) we need to ensure that it returns
+			Weather weather = new Weather(); // work on this after (kevin) we need to ensure that it returns
 											//the range, I really do not want to hard code this.
-			double tmp = cmdList[1];
+			double tmp = Double.parseDouble(cmdList[1]);
 			if(tmp == 0){
-				weather = "Freezing";
+				weatherData = "Freezing";
 			}
 			else if(tmp >0 && tmp <= 5){
-				weather = "cold";
+				weatherData = "cold";
 			} else if (tmp >6 && tmp <= 10) {
-				weather = "cool";
+				weatherData = "cool";
 
 			} else if (tmp >10 && tmp <= 15) {
-				weather = "warm";
+				weatherData = "warm";
 			} else if (tmp >15 && tmp <=20 ) {
-				weather = "hot";
+				weatherData = "hot";
 			}
 			else{
-				weather = "scolding hot";
+				weatherData = "scolding hot";
 			}
 
 			// 
 		}
 		else if (cmdList[0].equalsIgnoreCase("setday")) {
-			int day = cmdList[1];
+			int day = Integer.parseInt(cmdList[1]);
 			//
 		}
 		else if (cmdList[0].equalsIgnoreCase("setmoney")) {
-			double money = cmdList[1];
+			double money = Double.parseDouble(cmdList[1]);
 			//
 		}
 		else if (cmdList[0].equalsIgnoreCase("setdifficulty")) {
