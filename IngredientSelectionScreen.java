@@ -25,7 +25,9 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 	private int nCones = 0, nCream = 0, nVanilla = 0, nSugar = 0;
 	private double conePrice = 0.0, creamPrice = 0.0, vanillaPrice = 0.0, sugarPrice = 0.0;
+	public Player currentPlayer = GameLauncher.currentPlayer;
 
+	
 	private JLabel conesLabel = new JLabel("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
 	private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + Integer.toString(nCream));
 	private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + Integer.toString(nVanilla));
@@ -330,13 +332,57 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		// price for 10 cones $2.00
 		if (e.getSource() == buy10Cones) {
-			System.out.println("buy 10 cones");
+			currentPlayer.inventory.changeConeQty(10, 2, "purchase");
+			
+		// price for 20 cones $3.00
 		} else if (e.getSource() == buy20Cones) {
-			System.out.println("buy 20 cones");
+			currentPlayer.inventory.changeConeQty(20, 3, "purchase");
+			
+		// price for 40 cones $5.00
 		} else if (e.getSource() == buy40Cones) {
-			System.out.println("buy 40 cones");
+			currentPlayer.inventory.changeConeQty(40, 5, "purchase");
+			
+		// price for 10 cream $5.00
+		} else if (e.getSource() == buy10Cream) {
+			currentPlayer.inventory.changeCreamQty(10, 5, "purchase");
+			
+		// price for 20 cream $8.00	
+		} else if (e.getSource() == buy20Cream) {
+			currentPlayer.inventory.changeCreamQty(20, 8, "purchase");
+			
+		// price for 40 cream $15.00
+		} else if (e.getSource() == buy40Cream) {
+			currentPlayer.inventory.changeCreamQty(40, 15, "purchase");
+			
+		// price for 10 sugar $3.00
+		} else if (e.getSource() == buy10Sugar) {
+			currentPlayer.inventory.changeSugarQty(10, 3, "purchase");
+			
+		// price for 20 sugar $5.00
+		} else if (e.getSource() == buy20Sugar) {
+			currentPlayer.inventory.changeSugarQty(20, 5, "purchase");
+			
+		// price for 40 sugar $8.00
+		} else if (e.getSource() == buy40Sugar) {
+			currentPlayer.inventory.changeSugarQty(40, 8, "purchase");
+			
+		// price 10 vanilla $2.00
+		} else if (e.getSource() == buy10Vanilla) {
+			currentPlayer.inventory.changeVanillaQty(10, 2, "purchase");
+			
+		// price 20 vanilla $3.00
+		} else if (e.getSource() == buy20Vanilla) {
+			currentPlayer.inventory.changeVanillaQty(20, 3, "purchase");
+			
+		// price 40 vanilla $5.00
+		} else if (e.getSource() == buy40Vanilla) {
+			currentPlayer.inventory.changeVanillaQty(40, 5, "purchase");
+			
+		} else if (e.getSource() == undoButton) {
+			currentPlayer.inventory.undoPurchase();
+			
 		} else if (e.getSource() == makeRecipe) {
 			setVisible(false);
 			new RecipeCreationScreen();
