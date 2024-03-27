@@ -301,20 +301,21 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
             //
 
             setVisible(false);
-            new IngredientSelectionScreen();
+//            new IngredientList(GameLauncher.currentPlayer);
+            new IngredientSelectionScreen(GameLauncher.currentPlayer);
         } else if (e.getSource() == profileButton2) {
             GameLauncher.player2 = new Player("Player2.csv","user2",1,1);
             GameLauncher.currentPlayer = GameLauncher.player2;
 
 
             setVisible(false);
-            new IngredientSelectionScreen();
+            new IngredientSelectionScreen(GameLauncher.currentPlayer);
         } else if (e.getSource() == profileButton3) {
             GameLauncher.player3 = new Player("Player3.csv","user3",1,1);
             GameLauncher.currentPlayer = GameLauncher.player3;
 
             setVisible(false);
-            new IngredientSelectionScreen();
+            new IngredientSelectionScreen(GameLauncher.currentPlayer);
         }
 
     }

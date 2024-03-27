@@ -1,9 +1,7 @@
 package application;
-import java.awt.*;
-
 /**
  * This is the main gameplay class
- * Remember to fix the weather and the reputation.
+ * Remember to fix the weater and the reputation.
  *
  */
 
@@ -11,31 +9,33 @@ public class MainGamePlayClass {
 
     SpriteNode head;
     SpriteNode tail;
-    private Reputation reputation;
+
+    /** simply a placeholder for the currentPlayer variable*/
+    private Player currentPlayer = GameLauncher.currentPlayer;
 
     public  MainGamePlayClass() {
-        //maybe change?
-        reputation = new Reputation();
-        reputation.setReputation(1.0);
-        int repNum =(int)reputation.getReputation();
-
+        System.out.println(currentPlayer.recipe.getConePrice());
         // remember to change this down
-        int iceCreameCounter = 5;
-
+        int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
-        System.out.println(weatherNum);
-
         // change this later
         int iceCremePrice = 2;
 
+        Reputation rep = new Reputation();
+        // TODO remember to change this
+        rep.setReputation(1.0);
+        int repNum =(int)rep.getReputation();
+
+
+        System.out.println(weatherNum);
         // this is going to be a customer counter for the sprite, can't let it go over 20.
         int customerCounter;
 
         head = null;
         tail = null;
 
-        // this gets the Sprites hardness, then creates a new Sprite Linked list.
+        // this gets the Sprites hardness, then creates a new application.Sprite Linked list.
         for (customerCounter = 0; customerCounter < 20; customerCounter++) {
             int range;
             String hard;
@@ -102,6 +102,7 @@ public class MainGamePlayClass {
             System.out.println();
             currNode = currNode.getNext();
         }
+
     }
 
     /**

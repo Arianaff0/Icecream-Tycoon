@@ -1,4 +1,4 @@
-package application;
+
 /**
  * This class is used to set the reputation of the storefront. This can be used as a multiplier for either buying the
  * product.
@@ -6,6 +6,8 @@ package application;
  * TO- DO: we are going to make this an addivite multiplier instead of multiplicative. Probably easier
  * TO-DO make the graphic for the multipler.
  */
+
+package application;
 public class Reputation {
 
     double currReputation;

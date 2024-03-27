@@ -1,8 +1,9 @@
 package application;
+
 import java.util.ArrayList;
 import java.util.*;
 import java.math.*;
-
+//package application;
 /**
  * This is the class that determines what the weather for the next work day will be.
  */

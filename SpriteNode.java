@@ -1,4 +1,3 @@
-package application;
 /**
  * This class is what creates the single linked list for the sprites.
  * "I cooked doing this class" - Kevin Russel
@@ -7,7 +6,7 @@ package application;
  *               and can be used in the GUI.
  * @param <range> - gives the range of the sprite (Before Range additives).
  */
-
+package application;
 
 
 public class SpriteNode<Color,range> {
