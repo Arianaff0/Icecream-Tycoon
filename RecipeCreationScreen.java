@@ -222,6 +222,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == playGameButton) {
+        	System.out.print(Double.toString(GameLauncher.currentPlayer.recipe.getCreamMes()));
             new MainGamePlayClass();
 
         }
@@ -234,28 +235,28 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
         RecipeCreation pRecipe = GameLauncher.currentPlayer.recipe;
 
         if (e.getSource() == creamSlider) {
-            nCreamInRecipe = creamSlider.getValue() / 10;
+            nCreamInRecipe = creamSlider.getValue();
             creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
 
-            pRecipe.setCreamMes(nCreamInRecipe);
+            pRecipe.setCreamMes(nCreamInRecipe / 10);
 
         } else if (e.getSource() == vanillaSlider) {
-            nVanillaInRecipe = vanillaSlider.getValue() / 10;
+            nVanillaInRecipe = vanillaSlider.getValue();
             vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
 
-            pRecipe.setSugarMes(nSugarInRecipe);
+            pRecipe.setSugarMes(nVanillaInRecipe / 10);
 
         } else if (e.getSource() == sugarSlider) {
-            nSugarInRecipe = sugarSlider.getValue() / 10;
+            nSugarInRecipe = sugarSlider.getValue();
             sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
 
-            pRecipe.setVanillaMes(nVanillaInRecipe);
+            pRecipe.setVanillaMes(nSugarInRecipe / 10);
 
         } else if (e.getSource() == priceSlider) {
-            priceOfCone = priceSlider.getValue() / 10;
+            priceOfCone = priceSlider.getValue();
             priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone / 10));
 
-            pRecipe.setConePrice(priceOfCone);
+            pRecipe.setConePrice(priceOfCone / 10);
         }
 
     }
