@@ -5,12 +5,34 @@ package application;
  */
 
 public class Player {
+
+    private String filename;
     private int balance;
     private String playerInitials;
     private int numIceCreams;
     public IngredientList inventory;
     public RecipeCreation recipe;
 
+    private int diff;
+
+    private int currentDay;
+
+
+    /**
+     *This is for the very first creation of the player! they will have predetermined values
+     * @param user
+     * @param diff
+     * @param day
+     */
+    public Player(String filename,String user,int diff,int day){
+        this.playerInitials = user;
+        this.diff = diff;
+        this.currentDay = day;
+        this.filename = filename;
+        // TODO: remember to change the diff and the user, this is hardcoded rn. - Kevin
+        CSVFile newFile = new CSVFile(filename);
+        newFile.CSVWriter(user,diff,1,0,0,0,0,0,0,0);
+    }
     /**
      * Player Constructor
      * @param totalMoney
@@ -21,6 +43,11 @@ public class Player {
         this.playerInitials = playerInitials;
         this.inventory = new IngredientList();
         this.recipe = new RecipeCreation();
+
+    }
+
+    public Player() {
+
     }
 
     /**
@@ -33,22 +60,22 @@ public class Player {
 
     }
     ////////////////////////////////////////////////////////////
-    
+
     /**
      * Used to change the player's balance during a transaction, refund or sale during the day
-     * 
+     *
      * @param price is either a positive or negative value
      * @param type checks what the balance change is for
      */
     public void changeBalance(int price, String type) {
-    	// If purchase, remove money from balance
-    	if (type == "purchase") {
-    		balance -= price;
-    	}
-    	// If refund or sale, increase money
-    	else if (type == "refund" || type == "sale"){
-        	balance += price;
-    	}
+        // If purchase, remove money from balance
+        if (type == "purchase") {
+            balance -= price;
+        }
+        // If refund or sale, increase money
+        else if (type == "refund" || type == "sale"){
+            balance += price;
+        }
     }
 
     /**
