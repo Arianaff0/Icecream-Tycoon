@@ -53,7 +53,7 @@ public class IngredientList {
 		// Purpose of change
 		switch (type) {
 		case "purchase":
-			if (currentPlayer.getBalance() > price) {
+			if (currentPlayer.getBalance() >= price) {
 				currentPlayer.changeBalance(price, type);
 				this.numCones += numCones;
 				
@@ -85,7 +85,7 @@ public class IngredientList {
 		// Purpose of change
 		switch (type) {
 		case "purchase":
-			if (currentPlayer.getBalance() > price) {
+			if (currentPlayer.getBalance() >= price) {
 				currentPlayer.changeBalance(price, type);
 				this.numCream += numCream;
 				
@@ -117,7 +117,7 @@ public class IngredientList {
 		// Purpose of change
 		switch (type) {
 		case "purchase":
-			if (currentPlayer.getBalance() > price) {
+			if (currentPlayer.getBalance() >= price) {
 				currentPlayer.changeBalance(price, type);
 				this.numSugar+= numSugar;
 				
@@ -149,7 +149,7 @@ public class IngredientList {
 		// Purpose of change
 		switch (type) {
 		case "purchase":
-			if (currentPlayer.getBalance() > price) {
+			if (currentPlayer.getBalance() >= price) {
 				currentPlayer.changeBalance(price, type);
 				this.numVanilla += numVanilla;
 				
