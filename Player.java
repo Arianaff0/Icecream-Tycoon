@@ -29,6 +29,8 @@ public class Player {
         this.difficulty = diff;
         this.day = day;
         this.filename = filename;
+        this.inventory = new IngredientList(0, 0, 0, 0);
+  
         // TODO: remember to change the diff and the user, this is hardcoded rn. - Kevin
         CSVFile newFile = new CSVFile(filename);
         // UserID, Difficulty, Day Num, Weather Num, Rep, Retained money, cones, Sugar, Vanilla, Cream
