@@ -18,6 +18,7 @@ public class MainGamePlayClass {
         this.currentPlayer = player;
         // remember to change this down
         int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
+        System.out.println(currentPlayer.inventory.getCones());
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later

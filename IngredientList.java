@@ -282,18 +282,20 @@ public class IngredientList {
         /**
          * TODO remember to change this back!!!!!!!!!!!!!!!!!!!!
          */
-//        int amtCream = (int) Math.floor(numCream / currentPlayer.recipe.getCreamMes());
-//        int amtSugar = (int) Math.floor(numSugar / currentPlayer.recipe.getSugarMes());
-//        int amtVanilla = (int) Math.floor(numVanilla / currentPlayer.recipe.getVanillaMes());
-//
-//        if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1 || numCones < 1) {
-//            maxSellableProduct = 0;
-//        }
-//        else {
-//            /** The limiting variable determines how many ice creams can actually be made*/
-//            maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), Math.min(numCones, amtVanilla));
-//        }
-        return 15;
+
+        int amtCream = (int) Math.floor(numCream / currentPlayer.recipe.getCreamMes());
+        int amtSugar = (int) Math.floor(numSugar / currentPlayer.recipe.getSugarMes());
+        int amtVanilla = (int) Math.floor(numVanilla / currentPlayer.recipe.getVanillaMes());
+
+
+        if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1 || numCones < 1) {
+            maxSellableProduct = 0;
+        }
+        else {
+            /** The limiting variable determines how many ice creams can actually be made*/
+            maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), Math.min(numCones, amtVanilla));
+        }
+        return maxSellableProduct;
     }
 
     /**

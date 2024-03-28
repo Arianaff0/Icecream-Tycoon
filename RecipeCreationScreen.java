@@ -252,15 +252,13 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
             nVanillaInRecipe = vanillaSlider.getValue();
             pRecipe.setVanillaMes(nVanillaInRecipe);
             vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
-
-            pRecipe.setSugarMes(nVanillaInRecipe / 10);
+            pRecipe.setVanillaMes(nVanillaInRecipe / 10);
 
         } else if (e.getSource() == sugarSlider) {
             nSugarInRecipe = sugarSlider.getValue();
             pRecipe.setSugarMes(nSugarInRecipe);
             sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
-
-            pRecipe.setVanillaMes(nSugarInRecipe / 10);
+            pRecipe.setSugarMes(nSugarInRecipe / 10);
 
         } else if (e.getSource() == priceSlider) {
             priceOfCone = priceSlider.getValue();
