@@ -34,11 +34,12 @@ public class IngredientList {
     /** simply a placeholder for the currentPlayer variable*/
     private Player currentPlayer;
 
-    public IngredientList(int cones, double cream, double sugar, double vanilla) {
+    public IngredientList(int cones, double cream, double sugar, double vanilla,Player player) {
         this.numCones = cones;
         this.numCream = cream;
         this.numSugar = sugar;
         this.numVanilla = vanilla;
+        this.currentPlayer = player;
     }
 
     public IngredientList(Player player) {
