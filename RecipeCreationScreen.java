@@ -1,4 +1,5 @@
 package application;
+import com.sun.tools.javac.Main;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -39,14 +40,16 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     private JSlider vanillaSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 40, 20);
     private JSlider sugarSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 40, 20);
     private JSlider priceSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 100, 50);
-
+    private Player currentPlayer;
     /**
      * This constructor runs everything required in the RecipeCreationScreen. This
      * method runs the frameSetup and assembleWindow methods. This method also
      * catches exceptions thrown by these other helper methods.
      */
-    public RecipeCreationScreen() {
+    public RecipeCreationScreen(Player currentPlayer) {
         try {
+                this.currentPlayer = currentPlayer;
+
             frameSetup();
             assembleWindow();
             recipePanelSetup();
@@ -222,21 +225,22 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == playGameButton) {
-            new MainGamePlayClass();
+            setVisible(false);
+            new MainGamePlayClass(currentPlayer);
+            new MainGameplayScreen(currentPlayer);
 
         }
 
     }
-
+        // TODO change it so the ingredients also go down by the end of the day.
     @Override
     public void stateChanged(ChangeEvent e) {
         /** the recipe belonging to the player of the current save/load profile*/
-        RecipeCreation pRecipe = GameLauncher.currentPlayer.recipe;
+        RecipeCreation pRecipe = currentPlayer.recipe;
 
         if (e.getSource() == creamSlider) {
             nCreamInRecipe = creamSlider.getValue();
             creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
-
             pRecipe.setCreamMes(nCreamInRecipe / 10);
 
         } else if (e.getSource() == vanillaSlider) {
@@ -254,7 +258,6 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
         } else if (e.getSource() == priceSlider) {
             priceOfCone = priceSlider.getValue();
             priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone / 10));
-
             pRecipe.setConePrice(priceOfCone / 10);
         }
 

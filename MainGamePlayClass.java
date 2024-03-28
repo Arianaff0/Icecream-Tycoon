@@ -10,26 +10,26 @@ public class MainGamePlayClass {
     private SpriteNode head;
     private SpriteNode tail;
 
-    public boolean SpriteOrder[] = new boolean[20];
+    public static boolean SpriteOrder[] = new boolean[10];
     /** simply a placeholder for the currentPlayer variable*/
-    private Player currentPlayer = GameLauncher.currentPlayer;
+    private Player currentPlayer;
 
-    public  MainGamePlayClass() {
-        System.out.println(currentPlayer.recipe.getConePrice());
+    public  MainGamePlayClass(Player player) {
+        this.currentPlayer = player;
         // remember to change this down
         int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
+        System.out.println(iceCreameCounter);
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later
-        int iceCremePrice = 2;
+        double iceCremePrice = currentPlayer.recipe.getConePrice();
+
 
         Reputation rep = new Reputation();
         // TODO remember to change this
         rep.setReputation(1.0);
         int repNum =(int)rep.getReputation();
 
-
-        System.out.println(weatherNum);
         // this is going to be a customer counter for the sprite, can't let it go over 20.
         int customerCounter;
 
@@ -37,7 +37,7 @@ public class MainGamePlayClass {
         tail = null;
 
         // this gets the Sprites hardness, then creates a new application.Sprite Linked list.
-        for (customerCounter = 0; customerCounter < 20; customerCounter++) {
+        for (customerCounter = 0; customerCounter < 10; customerCounter++) {
             int range;
             String hard;
             int test =(int) SpriteHardnessMaker();
@@ -119,7 +119,15 @@ public class MainGamePlayClass {
             arrayCount = arrayCount +1;
             BooleanNode = BooleanNode.getNext();
         }
-
+        currentPlayer.getNewFile().CSVWriter(currentPlayer.getNewFile().returnLastDay()[0] ,
+                Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[1]),
+                Integer.valueOf(currentPlayer.getNewFile().returnLastDay()[2])+1,
+                 Integer.valueOf((int) weatherNum),
+                repNum, currentPlayer.getBalance(),
+                currentPlayer.inventory.getCones(),
+                currentPlayer.inventory.getSugar(),
+                currentPlayer.inventory.getVanilla(),
+                currentPlayer.inventory.getCream());
     }
 
     /**
