@@ -18,12 +18,22 @@ public class MainGamePlayClass {
         this.currentPlayer = player;
         // remember to change this down
         int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
-        System.out.println(iceCreameCounter);
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later
         double iceCremePrice = currentPlayer.recipe.getConePrice();
 
+        double currCreme = currentPlayer.inventory.getCream();
+
+        double currVan = currentPlayer.inventory.getVanilla();
+
+        double currSugar = currentPlayer.inventory.getSugar();
+        System.out.println("creme:"+currCreme);
+        System.out.println("sugar:"+currSugar);
+        System.out.println("van: "+currVan);
+        System.out.println("cones:" + iceCreameCounter);
+
+        System.out.println("money:" + currentPlayer.getBalance());
 
         Reputation rep = new Reputation();
         // TODO remember to change this
@@ -42,10 +52,10 @@ public class MainGamePlayClass {
             String hard;
             int test =(int) SpriteHardnessMaker();
             if (test == 1) {
-                range = -2;
+                range = -1;
                 hard = " red ";
             } else if (test == 2) {
-                range = -1;
+                range = 0;
                 hard = " blue ";
             } else if (test == 3) {
                 range = 1;
@@ -91,8 +101,22 @@ public class MainGamePlayClass {
 
             // this is an if statement to stimulate if they will buy or not.
             if(iceCreameCounter > 0 && 0<currNode.getNewrange() && currNode.getNewrange()>=iceCremePrice){
-                iceCreameCounter --;
+                iceCreameCounter = iceCreameCounter-1;
                 System.out.print(" buy");
+                currentPlayer.inventory.setCones(iceCreameCounter);
+
+                currentPlayer.inventory.setCream(currCreme- currentPlayer.recipe.getCreamMes());
+                currCreme = currentPlayer.inventory.getCream();
+
+                currentPlayer.inventory.setVanilla(currVan-currentPlayer.recipe.getVanillaMes());
+                currVan = currentPlayer.inventory.getCream();
+
+                currentPlayer.inventory.setSugar(currSugar-currentPlayer.recipe.getSugarMes());
+                currSugar = currentPlayer.inventory.getSugar();
+
+                currentPlayer.setBalance(currentPlayer.getBalance() + currentPlayer.recipe.getConePrice());
+
+
                 // seeing if they buy
                 currNode.setBuy(true);
             }
@@ -103,6 +127,7 @@ public class MainGamePlayClass {
             System.out.println();
             currNode = currNode.getNext();
         }
+
 
 
         // this is for the boolean
@@ -128,6 +153,19 @@ public class MainGamePlayClass {
                 currentPlayer.inventory.getSugar(),
                 currentPlayer.inventory.getVanilla(),
                 currentPlayer.inventory.getCream());
+        System.out.println("test count: " + iceCreameCounter);
+        System.out.println("Current Ice creme count :" + currentPlayer.inventory.getCones());
+
+        System.out.println("test sugar:"+ currSugar);
+        System.out.println("Currount Sugar: " + currentPlayer.inventory.getSugar());
+
+        System.out.println("test van: " + currVan);
+        System.out.println("currount van: " + currentPlayer.inventory.getCream());
+
+        System.out.println("curr creme" + currCreme);
+        System.out.println("current Creame: "+ currentPlayer.inventory.getCream());
+
+        System.out.println("balance: "+ currentPlayer.getBalance());
     }
 
     /**

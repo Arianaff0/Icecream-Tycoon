@@ -49,6 +49,10 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     public RecipeCreationScreen(Player currentPlayer) {
         try {
                 this.currentPlayer = currentPlayer;
+                currentPlayer.recipe.setCreamMes(2);
+                currentPlayer.recipe.setSugarMes(2);
+                currentPlayer.recipe.setVanillaMes(2);
+                currentPlayer.recipe.setConePrice(5);
 
             frameSetup();
             assembleWindow();
@@ -240,17 +244,20 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
         if (e.getSource() == creamSlider) {
             nCreamInRecipe = creamSlider.getValue();
+            pRecipe.setCreamMes(nCreamInRecipe);
             creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
             pRecipe.setCreamMes(nCreamInRecipe / 10);
 
         } else if (e.getSource() == vanillaSlider) {
             nVanillaInRecipe = vanillaSlider.getValue();
+            pRecipe.setVanillaMes(nVanillaInRecipe);
             vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
 
             pRecipe.setSugarMes(nVanillaInRecipe / 10);
 
         } else if (e.getSource() == sugarSlider) {
             nSugarInRecipe = sugarSlider.getValue();
+            pRecipe.setSugarMes(nSugarInRecipe);
             sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
 
             pRecipe.setVanillaMes(nSugarInRecipe / 10);
