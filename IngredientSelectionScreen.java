@@ -29,15 +29,16 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
     private JButton makeRecipe = new JButton("<html><center>Make Recipe<center/><html/>");
 
-    private int nCones = 0, nCream = 0, nVanilla = 0, nSugar = 0;
+    private int nCones = 0; 
+    private double nCream = 0, nVanilla = 0, nSugar = 0;
     private double conePrice = 0.10, creamPrice = 0.50, vanillaPrice = 1.0, sugarPrice = 0.20;
     public Player currentPlayer;
 
 
     private JLabel conesLabel = new JLabel("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
-    private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + Integer.toString(nCream));
-    private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + Integer.toString(nVanilla));
-    private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + Integer.toString(nSugar));
+    private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + Double.toString(nCream));
+    private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanilla));
+    private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
 
     private JLabel conesPriceLabel = new JLabel("<html>($"+Double.toString(conePrice)+"&nbsp;per cone)&nbsp;<html/>");
     private JLabel creamPriceLabel = new JLabel("<html>($"+Double.toString(creamPrice)+"&nbsp;per cup)&nbsp;<html/>");
@@ -92,24 +93,24 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
         cash.setText("<html>Cash:&nbsp;" + String.format("%.2f", cashDouble) + "<html/>");
     }
 
-    private void changeCones(int cones){
-        nCones = cones;
+    private void changeCones(){
+        nCones = currentPlayer.inventory.getCones();
         conesLabel.setText("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
     }
 
-    private void changeCreme(int creme){
-        nCream = creme;
-        creamLabel.setText("<html>Cream:&nbsp;<html/>" + Integer.toString(nCream));
+    private void changeCreme(){
+        nCream = currentPlayer.inventory.getCream();
+        creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCream));
     }
 
-    private void changeVanila(int vanilla){
-        nVanilla = vanilla;
-        vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Integer.toString(nVanilla));
+    private void changeVanila(){
+        nVanilla = currentPlayer.inventory.getVanilla();
+        vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanilla));
     }
 
-    private void changeSugar(int sugar){
-        nSugar = sugar;
-        sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Integer.toString(nSugar));
+    private void changeSugar(){
+        nSugar = currentPlayer.inventory.getSugar();
+        sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
     }
 
     /**
@@ -371,76 +372,95 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
         if (e.getSource() == buy10Cones) {
             if(currentPlayer.inventory.changeConeQty(10, 1, "purchase")==1){
             cashChange();
-            changeCones(nCones + 10);
+            changeCones();
             }
             // price for 20 cones $3.00
         } else if (e.getSource() == buy20Cones) {
             if(currentPlayer.inventory.changeConeQty(20, 2, "purchase")==1){
             cashChange();
-            changeCones(nCones + 20);
+            changeCones();
             }
             // price for 40 cones $5.00
         } else if (e.getSource() == buy40Cones) {
             if(currentPlayer.inventory.changeConeQty(40, 4, "purchase")==1){
             cashChange();
-            changeCones(nCones + 40);
+            changeCones();
             }
 
             // price for 10 cream $5.00
         } else if (e.getSource() == buy10Cream) {
             if(currentPlayer.inventory.changeCreamQty(10, 5, "purchase")==1){;
             cashChange();
-            changeCreme(nCream+10);
+            changeCreme();
             }
             // price for 20 cream $8.00
         } else if (e.getSource() == buy20Cream) {
             if(currentPlayer.inventory.changeCreamQty(20, 10, "purchase")==1){;
             cashChange();
-            changeCreme(nCream+20);
+            changeCreme();
             }
             // price for 40 cream $15.00
         } else if (e.getSource() == buy40Cream) {
             if(currentPlayer.inventory.changeCreamQty(40, 20, "purchase")==1){;
             cashChange();
-            changeCreme(nCream+40);
+            changeCreme();
             }
             // price for 10 sugar $3.00
         } else if (e.getSource() == buy10Sugar) {
             if(currentPlayer.inventory.changeSugarQty(10, 2, "purchase")==1){;
             cashChange();
-            changeSugar(nSugar +10);
+            changeSugar();
             }
             // price for 20 sugar $5.00
         } else if (e.getSource() == buy20Sugar) {
             if(currentPlayer.inventory.changeSugarQty(20, 4, "purchase")==1){;
             cashChange();
-            changeSugar(nSugar+20);}
+            changeSugar();}
             // price for 40 sugar $8.00
         } else if (e.getSource() == buy40Sugar) {
             if(currentPlayer.inventory.changeSugarQty(40, 8, "purchase")==1){
             cashChange();
-            changeSugar(nSugar+40);
+            changeSugar();
             }
             // price 10 vanilla $2.00
         } else if (e.getSource() == buy10Vanilla) {
             if(currentPlayer.inventory.changeVanillaQty(10, 10, "purchase")==1){
             cashChange();
-            changeVanila(nVanilla+10);
+            changeVanila();
             }
             // price 20 vanilla $3.00
         } else if (e.getSource() == buy20Vanilla) {
             if(currentPlayer.inventory.changeVanillaQty(20, 20, "purchase")==1){;
             cashChange();
-            changeVanila(nVanilla+20);
+            changeVanila();
             }
             // price 40 vanilla $5.00
         } else if (e.getSource() == buy40Vanilla) {
             if(currentPlayer.inventory.changeVanillaQty(40, 40, "purchase")==1){;
             cashChange();
-            changeVanila(nVanilla+40);
+            changeVanila();
             }
         } else if (e.getSource() == undoButton) {
-            currentPlayer.inventory.undoPurchase();
+            String refundItem = currentPlayer.inventory.undoPurchase();
+            switch (refundItem) {
+            case "Cone":
+            	changeCones();
+            	break;
+            case "Cream":
+            	changeCreme();
+            	break;
+            case "Sugar":
+            	changeSugar();
+            	break;
+            case "Vanilla":
+            	changeVanila();
+            	break;
+            default:
+            	System.out.print("Default");
+            	break;
+            }
+            cashChange();
+           // System.out.print(currentPlayer.getBalance());
 
         } else if (e.getSource() == makeRecipe) {
             setVisible(false);

@@ -64,7 +64,6 @@ public class IngredientList {
         switch (type) {
             case "purchase":
                 if (currentPlayer.getBalance() >= price) {
-                    System.out.println("purchase hitting");
                     currentPlayer.changeBalance(price, type);
                     this.numCones += numCones;
 
@@ -80,11 +79,11 @@ public class IngredientList {
             case "refund":
                 currentPlayer.changeBalance(price, type);
                 this.numCones -= numCones;
+                System.out.print(this.numCones);
                 break;
 
             // Default case is a sale For sprite - Kevin
             default:
-                System.out.println("default hitting");
                 currentPlayer.changeBalance(price, type);
                 this.numCones -= numCones;
                 return 1;
@@ -303,29 +302,28 @@ public class IngredientList {
      *
      * If the stack is empty, do nothing.
      */
-    public void undoPurchase() {
+    public String undoPurchase() {
         /** If transactions stack is empty, do some GUI stuff and exit*/
         if (transactionStack.isEmpty()) {
             // GUI METHOD
-            return ;
+            return "";
         }
         /** Otherwise, take the top Transaction object off the stack*/
         Transaction popped = transactionStack.pop();
         switch (popped.getIngredient()) {
             case "Cone":
                 changeConeQty(popped.getQuantity(), popped.getPrice(), "refund");
-                break;
+                return "Cone";
             case "Cream":
                 changeCreamQty(popped.getQuantity(), popped.getPrice(), "refund");
-                break;
+                return "Cream";
             case "Sugar":
                 changeSugarQty(popped.getQuantity(), popped.getPrice(), "refund");
-                break;
+                return "Sugar";
             default:
                 changeVanillaQty(popped.getQuantity(), popped.getPrice(), "refund");
-                break;
+                return "Vanilla";
         }
-        return;
     }
 
 }
