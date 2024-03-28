@@ -7,19 +7,20 @@ package application;
 public class Player {
 
     private String filename;
-    private int balance;
+    private double balance;
     private String playerInitials;
     private int numIceCreams;
+    private int difficulty;
+    private int day; 
+    private double weather;
+    private double reputation;
+    private int diff;
+    private int currentDay;
     public IngredientList inventory;
     public RecipeCreation recipe;
 
-    private int diff;
-
-    private int currentDay;
-
     private CSVFile newFile;
 
-//    public Player hype;
     /**
      *This is for the very first creation of the player! they will have predetermined values
      * @param user
@@ -30,35 +31,41 @@ public class Player {
         this.playerInitials = user;
         this.diff = diff;
         this.currentDay = day;
-        this.filename = filename;
+        this.weather = 0;
+        this.reputation = 0;
         this.balance = 30;
+        inventory = new IngredientList(this);
+        
         this.recipe = new RecipeCreation();
+        this.filename = filename;
 
-//        this.inventory = 0;
         // TODO: remember to change the diff and the user, this is hardcoded rn. - Kevin
         newFile = new CSVFile(filename);
-        newFile.CSVWriter(user,diff,1,0,0,60,0,0,0,0);
-        inventory = new IngredientList(this);
+        // UserID, Difficulty, Day Num, Weather Num, Rep, Balance, cones, Sugar, Vanilla, Cream
+        newFile.CSVWriter(user,diff,1,0,0,30,0,0,0,0);
         
 
 
     }
     /**
-     * Player Constructor
+     * Player Constructor for an existing profile
      * @param balance
      * @param playerInitials
      */
-    public Player(int balance, String playerInitials) {
+    public Player(String filename, String playerInitials, int diff, int day, double weather, 
+    		double reputation, double balance, int numCones, double numSugar, double numVanilla, double numCream) {
         this.balance = balance;
         this.playerInitials = playerInitials;
-//        this.inventory = new IngredientList();
+        this.diff = diff;
+        this.currentDay = day;
+        this.weather = weather;
+        this.reputation = reputation;
+        this.balance = balance;
+        this.inventory = new IngredientList(numCones, numCream, numSugar, numVanilla);
         this.recipe = new RecipeCreation();
 
     }
 
-    public Player() {
-
-    }
 
     public CSVFile getNewFile(){
         return newFile;
@@ -96,7 +103,7 @@ public class Player {
      * Getters and setters
      * @return
      */
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 

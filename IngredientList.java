@@ -34,16 +34,14 @@ public class IngredientList {
     /** simply a placeholder for the currentPlayer variable*/
     private Player currentPlayer;
 
-//    public IngredientList() {
-//        System.out.println("second");
-//        numCones = 10;
-//        numCream = 0;
-//        numSugar = 0;
-//        numVanilla = 0;
-//    }
+    public IngredientList(int cones, double cream, double sugar, double vanilla) {
+        this.numCones = cones;
+        this.numCream = cream;
+        this.numSugar = sugar;
+        this.numVanilla = vanilla;
+    }
 
     public IngredientList(Player player) {
-        System.out.println("hello");
         this.currentPlayer = player;
         numCones = 0;
         numCream = 0;
