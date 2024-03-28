@@ -9,7 +9,6 @@ public class Player {
     private String filename;
     private double balance;
     private String playerInitials;
-    private int numIceCreams;
     private int difficulty;
     private int day; 
     private double weather;
@@ -63,25 +62,32 @@ public class Player {
         this.balance = balance;
         this.inventory = new IngredientList(numCones, numCream, numSugar, numVanilla);
         this.recipe = new RecipeCreation();
-
     }
 
-
+    /**
+     * 
+     * @return
+     */
     public CSVFile getNewFile(){
         return newFile;
+    }
+    
+    /**
+     * Getters and setters
+     * @return
+     */
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     /**
      * Getters and setters
      * @return
      */
-    /////////////////////////////////////////////////////////////
-    public void setBalance() {
-        this.balance = balance;
-
+    public double getBalance() {
+        return balance;
     }
-    ////////////////////////////////////////////////////////////
-
+    
     /**
      * Used to change the player's balance during a transaction, refund or sale during the day
      *
@@ -100,21 +106,37 @@ public class Player {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * 
+     * @param Sets the day of the game
      */
-    public double getBalance() {
-        return balance;
+    public void setDay(int day) {
+    	this.day = day;
     }
-
+    
     /**
-     * Getters and setters
-     * @return
+     * 
+     * @return the current day
      */
-    public int getNumIceCreams() {
-        return numIceCreams;
+    public int getDay() {
+    	return day;
     }
-
+    
+    /**
+     * 
+     * @param weather rating
+     */
+    public void setWeather(double weather) {
+    	this.weather = weather;
+    }
+    
+    /**
+     * 
+     * @return the weather rating
+     */
+    public double getWeather() {
+    	return weather;
+    }
+    
     /**
      * Getters and setters
      * @param Initials
