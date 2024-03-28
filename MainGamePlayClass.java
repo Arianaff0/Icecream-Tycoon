@@ -22,6 +22,8 @@ public class MainGamePlayClass {
         Weather weather = new Weather();
         double weatherNum= (double) weather.getWeatherInt()[2];
         // change this later
+
+        Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
         double iceCremePrice = currentPlayer.recipe.getConePrice();
 
         double currCreme = currentPlayer.inventory.getCream();
@@ -36,10 +38,8 @@ public class MainGamePlayClass {
 
         System.out.println("money:" + currentPlayer.getBalance());
 
-        Reputation rep = new Reputation();
         // TODO remember to change this
-        rep.setReputation(1.0);
-        int repNum =(int)rep.getReputation();
+
 
         // this is going to be a customer counter for the sprite, can't let it go over 20.
         int customerCounter;
@@ -90,7 +90,7 @@ public class MainGamePlayClass {
                 }
                 currNode.setNext(newNode);
                 tail = newNode;
-                newNode.setNewRange((int)weatherNum + repNum);
+                newNode.setNewRange((int) (weatherNum + rep.getReputation()));
             }
         }
 
@@ -104,6 +104,7 @@ public class MainGamePlayClass {
             if(iceCreameCounter > 0 && 0<currNode.getNewrange() && currNode.getNewrange()>=iceCremePrice){
                 iceCreameCounter = iceCreameCounter-1;
                 System.out.print(" buy");
+                rep.setReputation(0.5);
                 currentPlayer.inventory.setCones(iceCreameCounter);
 
                 currentPlayer.inventory.setCream(currCreme- currentPlayer.recipe.getCreamMes());
@@ -118,12 +119,16 @@ public class MainGamePlayClass {
                 currentPlayer.setBalance(currentPlayer.getBalance() + currentPlayer.recipe.getConePrice());
 
 
+
+
                 // seeing if they buy
                 currNode.setBuy(true);
             }
             else{
                 System.out.print(" don't buy");
+                rep.setReputation(-0.25);
                 currNode.setBuy(false);
+
             }
             System.out.println();
             currNode = currNode.getNext();
@@ -149,7 +154,7 @@ public class MainGamePlayClass {
                 Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[1]),
                 Integer.valueOf(currentPlayer.getNewFile().returnLastDay()[2])+1,
                  Integer.valueOf((int) weatherNum),
-                repNum, currentPlayer.getBalance(),
+                rep.getReputation(), currentPlayer.getBalance(),
                 currentPlayer.inventory.getCones(),
                 currentPlayer.inventory.getSugar(),
                 currentPlayer.inventory.getVanilla(),

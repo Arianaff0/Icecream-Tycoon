@@ -18,14 +18,25 @@ public class Reputation {
         currReputation = 0;
     }
 
+    public void setReputation (double Rep){
+        this.currReputation =  currReputation+ Rep;
+    }
+    public Reputation(double rep){
+        this.currReputation = rep;
+    }
+
+
+
+    public double getCurrReputation() {
+        return currReputation;
+    }
+
     /**
      * this class sets the reputation of the shop
      * @param num, this is how much the currReputation is going to change by.
      * @return void.
      */
-    public void setReputation(double num){
-        currReputation = currReputation + num;
-    }
+
 
     /**
      * Method that returns the reputation
