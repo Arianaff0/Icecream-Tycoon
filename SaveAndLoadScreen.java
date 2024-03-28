@@ -21,6 +21,11 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
     private JPanel profilePanel2 = new JPanel();
     private JPanel profilePanel3 = new JPanel();
     private JLabel title = new JLabel("Save or Load Game", SwingConstants.CENTER);
+    private Player currentPlayer = GameLauncher.currentPlayer;
+    private Player player1 = GameLauncher.player1;
+    private Player player2 = GameLauncher.player2;
+    private Player player3 = GameLauncher.player3;
+
 
     private Font buttonFont = new Font("Calibri", Font.BOLD, 48);
     private Font profileFont = new Font("Calibri", Font.BOLD, 24);
@@ -296,10 +301,14 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == profileButton1) {
-            GameLauncher.player1 = new Player("Player1.csv","user1",1,1);
-            GameLauncher.currentPlayer = GameLauncher.player1;
-            //
-
+        	if (currentPlayer.getNewFile().returnLastDay()[0] == "userid") { 	// PLEASE CHECK IF THIS IS RIGHT
+	        	// create new profile
+	            player1 = new Player("Player1.csv","user1",1,1);
+	            currentPlayer = player1;
+	            
+	            // load existing profile
+        	}
+        	
             setVisible(false);
 //            new IngredientList(GameLauncher.currentPlayer);
             new IngredientSelectionScreen(GameLauncher.currentPlayer);
