@@ -23,20 +23,27 @@ public class RecipeCreation {
     /** Stores the measurement of vanilla to be used in one cone */
     private double vanillaMes;
 
+    /** the max price of a cone that a user can select */
     final double maxConePrice = 10;
+    /** the min price of a cone that a user can select */
     final double minConePrice = 0;
+    /** the price of a cone of icecream */
     private double conePrice;
 
     
+    /**
+     * Constructor initializes measurements of all ingredients
+     */
     public RecipeCreation() {
     	creamMes = 0;
     	sugarMes = 0;
     	vanillaMes = 0;
     	conePrice = 0;
     }
+    
     /**
      * Used to set cream measurement for recipe from RecipeCreationScreen.java
-     * @param cream
+     * @param cream the measurement of cream to set the recipe to
      */
     public void setCreamMes(double cream) {
         creamMes = cream;
@@ -44,7 +51,6 @@ public class RecipeCreation {
 
     /**
      * Returns the measurement of cream in the recipe
-     *
      * @return Cream in inventory
      */
     public double getCreamMes() {
@@ -53,7 +59,7 @@ public class RecipeCreation {
 
     /**
      * Used to set sugar measurement for recipe from RecipeCreationScreen.java
-     * @param sugar
+     * @param sugar the measurement of sugar to set the recipe to
      */
     public void setSugarMes(double sugar) {
         sugarMes = sugar;
@@ -61,8 +67,7 @@ public class RecipeCreation {
 
     /**
      * Returns the measurement of sugar in the recipe
-     *
-     * @return Sugar in inventory
+     * @return sugarMes Sugar in inventory
      */
     public double getSugarMes() {
         return sugarMes;
@@ -70,7 +75,7 @@ public class RecipeCreation {
 
     /**
      * Used to set vanilla measurement for recipe from RecipeCreationScreen.java
-     * @param vanilla
+     * @param vanilla is the measurement of vanilla to set the recipe of an icecream cone to
      */
     public void setVanillaMes(double vanilla) {
         vanillaMes = vanilla;
@@ -78,8 +83,7 @@ public class RecipeCreation {
 
     /**
      * Returns the measurement of vanilla in the recipe
-     *
-     * @return Vanilla in inventory
+     * @return Vanillames is the measurement of vanilla to be used in recipe
      */
     public double getVanillaMes() {
         return vanillaMes;
@@ -87,7 +91,7 @@ public class RecipeCreation {
 
     /**
      * Used to set price for a cone of ice cream from RecipeCreationScreen.java
-     * @param price
+     * @param price the price of a cone of icecream
      */
     public void setConePrice(double price) {
         conePrice = price;
@@ -95,7 +99,6 @@ public class RecipeCreation {
 
     /**
      * Returns the price for a cone of ice cream
-     *
      * @return Price for one cone of ice cream
      */
     public double getConePrice() {
