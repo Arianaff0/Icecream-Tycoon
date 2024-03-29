@@ -26,7 +26,7 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 	private JButton highScores = new JButton("High Scores");
 	private JButton tutorial = new JButton("Tutorial");
 	private JLabel credits = new JLabel(
-			"Made by Group 48 (Lukas Bozinov, Ariana Feng, Matthew Molloy, Kevin Russel, Sabrina Lee)");
+			"Made by Group 48 (Lukas Bozinov, Ariana Feng, Matthew Molloy, Kevin Russel, Sabrina Lee) for CS2212 Winter/Spring 2024 Term.");
 
 	private static StringBuilder typedKeys = new StringBuilder();
 
