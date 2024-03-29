@@ -25,6 +25,8 @@ public class MainGamePlayClass {
 		// change this later
 
 		Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
+
+		Results results = new Results(rep.getReputation(), currentPlayer.getBalance());
 		double iceCremePrice = currentPlayer.recipe.getConePrice();
 
 		double currCreme = currentPlayer.inventory.getCream();
@@ -107,6 +109,8 @@ public class MainGamePlayClass {
 				iceCreameCounter = iceCreameCounter - 1;
 				System.out.print(" buy");
 				rep.setReputation(0.5);
+				results.addRep(rep.getReputation());
+
 				currentPlayer.inventory.setCones(iceCreameCounter);
 
 				currentPlayer.inventory.setCream(currCreme - currentPlayer.recipe.getCreamMes());
@@ -119,12 +123,13 @@ public class MainGamePlayClass {
 				currSugar = currentPlayer.inventory.getSugar();
 
 				currentPlayer.setBalance(currentPlayer.getBalance() + currentPlayer.recipe.getConePrice());
-
+				results.addCash(currentPlayer.getBalance());
 				// seeing if they buy
 				currNode.setBuy(true);
 			} else {
 				System.out.print(" don't buy");
 				rep.setReputation(-0.25);
+				results.addRep(rep.getReputation());
 				currNode.setBuy(false);
 
 			}
@@ -164,6 +169,8 @@ public class MainGamePlayClass {
 		System.out.println("current Creame: " + currentPlayer.inventory.getCream());
 
 		System.out.println("balance: " + currentPlayer.getBalance());
+
+		results.printResults();
 	}
 
 	/**

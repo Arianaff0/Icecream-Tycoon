@@ -10,7 +10,7 @@
 package application;
 public class Reputation {
 
-    double currReputation;
+    private double currReputation;
 
 
     // constructor of this class that sets the current reputation to 0.
@@ -27,9 +27,7 @@ public class Reputation {
 
 
 
-    public double getCurrReputation() {
-        return currReputation;
-    }
+
 
     /**
      * this class sets the reputation of the shop
