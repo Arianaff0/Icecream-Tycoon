@@ -1,7 +1,5 @@
 package application;
 
-import java.util.Arrays;
-
 /**
  * @author Ariana Feng Date: March 20, 2024
  */

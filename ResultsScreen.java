@@ -1,7 +1,7 @@
 package application;
 
 import java.awt.Color;
-import javafx.scene.text.Font;
+import java.awt.Font;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
@@ -9,13 +9,11 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import javafx.application.Platform;
-import javafx.embed.swing.*;
-import javafx.scene.Group;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.text.*;
 
 @SuppressWarnings("serial")
 public class ResultsScreen extends JFrame implements ActionListener {
@@ -32,13 +30,11 @@ public class ResultsScreen extends JFrame implements ActionListener {
 																		// (proft y, days x)
 	private JComboBox<String> graphDropdown = new JComboBox<String>(graphOptions);
 
-	private java.awt.Font startFont = new java.awt.Font("Calibri", 1, 36);
-	private java.awt.Font dropDownLabelFont = new java.awt.Font("Calibri", 1, 28);
-	private java.awt.Font titleFont = new java.awt.Font("Calibri", 1, 96);
+	private Font startFont = new Font("Calibri", 1, 36);
+	private Font dropDownLabelFont = new Font("Calibri", 1, 28);
+	private Font titleFont = new Font("Calibri", 1, 96);
 
 	private JLabel selectionLabel = new JLabel("Generate Graph");
-
-	private JButton makeRecipe = new JButton("Make Recipe");
 
 	/**
 	 * This constructor runs everything required in the TitleScreen. This method
@@ -55,6 +51,9 @@ public class ResultsScreen extends JFrame implements ActionListener {
 				}
 			});
 			addLabelsAndDropDown();
+			panel.repaint();
+			revalidate();
+			repaint();
 		} catch (IOException e) {
 			System.out.println("Error: IOException, error code 4.1");
 			e.printStackTrace();
@@ -105,23 +104,12 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setFont(titleFont);
 
-		makeRecipe.setBounds(745, 800, 400, 100);
-		makeRecipe.setFont(startFont);
-		makeRecipe.setBackground(Color.decode("#9FDBFE"));
-		makeRecipe.setForeground(Color.decode("#1D1128"));
-		makeRecipe.setFocusPainted(false);
-		makeRecipe.setHorizontalAlignment(SwingConstants.CENTER);
-		makeRecipe.setVerticalAlignment(SwingConstants.CENTER);
-		makeRecipe.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		makeRecipe.addActionListener(this);
-
 		resultsPanel.setBounds(250, 125, 300, 650);
 		resultsPanel.setLayout(null);
 		resultsPanel.setBackground(Color.decode("#FDC6D8"));
 		resultsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 
 		panel.add(title);
-		panel.add(makeRecipe);
 		panel.add(resultsPanel);
 
 		panel.setVisible(true);
@@ -145,15 +133,14 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		((JLabel) graphDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
 		((JLabel) graphDropdown.getRenderer()).setVerticalAlignment(SwingConstants.CENTER);
 		graphDropdown.setSelectedIndex(-1);
-		
+
 		graphDropdown.addActionListener(this);
-		
 
 		separator.setBounds(300, 0, 2, 650);
 		separator.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		resultsPanel.add(separator);
 		resultsPanel.add(graphDropdown);
-		
+
 		graphDropdown.revalidate();
 		graphDropdown.repaint();
 
@@ -205,23 +192,25 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		xAxis.setLabel("Days");
 		yAxis.setLabel("Reputation");
 		// creating the chart
-		
+
 		lineChart.setTitle("Reputation over time");
 		// defining a series
 		XYChart.Series series = new XYChart.Series();
-		
+
 		series.setName("Reputation Marker");
 		// populating the series with data
-		for (int i = 0; i < 10; i++) {
+		
+		
 
-			series.getData().add(new XYChart.Data(i, i));
+		for (int i = 0; i < 11; i++) {
 
+			series.getData().add(new XYChart.Data(i, Results.repArray[i]));
 		}
 		lineChart.getData().add(series);
 
 		return (scene);
 	}
-	
+
 	private static void initFXIndex2(JFXPanel fxPanel) {
 		// This method is invoked on the JavaFX thread
 		Scene scene = createSceneIndex2();
@@ -239,18 +228,18 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		Scene scene = new Scene(lineChart, 800, 600);
 
 		xAxis.setLabel("Days");
-		yAxis.setLabel("Profit");
+		yAxis.setLabel("Profit ($)");
 		// creating the chart
-		
+
 		lineChart.setTitle("Profit over time");
 		// defining a series
 		XYChart.Series series = new XYChart.Series();
-		
+
 		series.setName("Profit Marker");
 		// populating the series with data
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 11; i++) {
 
-			series.getData().add(new XYChart.Data(i+2, i));
+			series.getData().add(new XYChart.Data(i, Results.dayCash[i]));
 
 		}
 		lineChart.getData().add(series);

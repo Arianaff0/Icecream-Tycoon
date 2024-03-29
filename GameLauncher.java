@@ -25,12 +25,6 @@ public class GameLauncher {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println(Arrays.toString(player1csv.returnLastDay()));
-		System.out.println(Arrays.toString(player2csv.returnLastDay()));
-		System.out.println(Arrays.toString(player3csv.returnLastDay()));
-
-		
-
 		if (player1csv.returnLastDay().length == 10 && player1csv.returnLastDay()[0].equals("UserID")) {
 			System.out.println("player1csv was empty, made new player");
 			player1 = new Player(player1csv, "user1", 1, 1);
@@ -47,8 +41,9 @@ public class GameLauncher {
 			double numCream = Double.parseDouble(params[9]);
 			double numSugar = Double.parseDouble(params[7]);
 			double numVanilla = Double.parseDouble(params[8]);
-			
-			player1 = new Player(player1csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones, numSugar, numVanilla, numCream);
+
+			player1 = new Player(player1csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones,
+					numSugar, numVanilla, numCream);
 		}
 		if (player2csv.returnLastDay().length == 10 && player2csv.returnLastDay()[0].equals("UserID")) {
 			System.out.println("player2csv was empty, made new player");
@@ -66,7 +61,8 @@ public class GameLauncher {
 			double numCream = Double.parseDouble(params[9]);
 			double numSugar = Double.parseDouble(params[7]);
 			double numVanilla = Double.parseDouble(params[8]);
-			player2 = new Player(player2csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones, numSugar, numVanilla, numCream);
+			player2 = new Player(player2csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones,
+					numSugar, numVanilla, numCream);
 		}
 		if (player3csv.returnLastDay().length == 10 && player3csv.returnLastDay()[0].equals("UserID")) {
 			System.out.println("player3csv was empty, made new player");
@@ -84,10 +80,10 @@ public class GameLauncher {
 			double numCream = Double.parseDouble(params[9]);
 			double numSugar = Double.parseDouble(params[7]);
 			double numVanilla = Double.parseDouble(params[8]);
-			
-			player3 = new Player(player3csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones, numSugar, numVanilla, numCream);
-		}
 
+			player3 = new Player(player3csv, playerInitials, diff, currentDay, weather, reputation, balance, numCones,
+					numSugar, numVanilla, numCream);
+		}
 
 		new TitleScreen();
 	}

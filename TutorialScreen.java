@@ -27,8 +27,8 @@ public class TutorialScreen extends JFrame implements ActionListener {
                     + "With your ingredients, recipes, and prices all set, you're ready to hit the streets and start serving up delicious treats to your eager customers."
                     + "&nbsp;So put on your apron, fire up the freezer, and get ready to become the ultimate ice cream trucker!</p></html>");
 
-    private JLabel topPicture = new JLabel(new ImageIcon("files/placeholder300x300.png"));
-    private JLabel bottomPicture = new JLabel(new ImageIcon("files/placeholder300x300.png"));
+    private JLabel topPicture = new JLabel(new ImageIcon("files/SpriteGold1.png"));
+    private JLabel bottomPicture = new JLabel(new ImageIcon("files/SpriteGold1.png"));
 
     private Font startFont = new Font("Calibri", Font.BOLD, 36);
     private Font tutFont = new Font("Calibri", Font.BOLD, 25);
