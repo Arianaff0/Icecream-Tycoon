@@ -19,17 +19,15 @@ public class DebugScreen extends JFrame implements ActionListener {
 	private final String[] weatherOptions = { "Freezing (0 deg)", "Cold (1-5 deg)", "Cool (6-10 deg)",
 			"Warm (11-15 deg)", "Hot (16-20 deg)", "Scalding (>20 deg)" };
 	private final Double[] moneyOptions = { 0.0, 10.0, 50.0, 100.0, 1000.0 }; // 0.10.50.100.1000
-	private final Integer[] dayOptions = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 }; // 1-14
+	private final Integer[] dayOptions = { 1, 2, 3 }; // 1-3
 	private final Integer[] reputationOptions = { -10, -5, 0, 5, 10 }; // -10/-5/0/5/10
 	private final String[] difficultyOptions = { "Easy", "Medium", "Hard" }; // easy/med/hard
-	private final Integer[] profileOptions = { 1, 2, 3 };
 
 	private JComboBox<String> weatherDropdown = new JComboBox<String>(weatherOptions);
 	private JComboBox<Double> moneyDropdown = new JComboBox<Double>(moneyOptions);
 	private JComboBox<Integer> dayDropdown = new JComboBox<Integer>(dayOptions);
 	private JComboBox<Integer> reputationDropdown = new JComboBox<Integer>(reputationOptions);
 	private JComboBox<String> difficultyDropdown = new JComboBox<String>(difficultyOptions);
-	private JComboBox<Integer> profileDropdown = new JComboBox<Integer>(profileOptions);
 
 	private Font startFont = new Font("Calibri", Font.BOLD, 36);
 	private Font dropDownFont = new Font("Calibri", Font.BOLD, 24);
@@ -41,7 +39,6 @@ public class DebugScreen extends JFrame implements ActionListener {
 	private JLabel dayLabel = new JLabel("Select Day", SwingConstants.CENTER);
 	private JLabel reputationLabel = new JLabel("Select Reputation", SwingConstants.CENTER);
 	private JLabel difficultyLabel = new JLabel("Select Difficulty", SwingConstants.CENTER);
-	private JLabel profileLabel = new JLabel("Select Profile", SwingConstants.CENTER);
 
 	private JButton execute = new JButton("Execute");
 
@@ -95,7 +92,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		add(panel);
 
-		title.setBounds(230, 31, 1440, 100);
+		title.setBounds(230, 31, 1440, 100); // x, y, width, height 
 		title.setForeground(Color.BLACK);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
@@ -123,53 +120,47 @@ public class DebugScreen extends JFrame implements ActionListener {
 	
 	private void addDropDownLabels() {
 		
-		weatherLabel.setBounds(0, 4, 250, 60);
+		weatherLabel.setBounds(137, 4, 250, 60);
 		weatherLabel.setForeground(Color.BLACK);
 		weatherLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		weatherLabel.setVerticalAlignment(SwingConstants.CENTER);
 		weatherLabel.setFont(dropDownLabelFont);
 		commandPanel.add(weatherLabel);
 		
-		moneyLabel.setBounds(275, 4, 250, 60);
+		moneyLabel.setBounds(412, 4, 250, 60);
 		moneyLabel.setForeground(Color.BLACK);
 		moneyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		moneyLabel.setVerticalAlignment(SwingConstants.CENTER);
 		moneyLabel.setFont(dropDownLabelFont);
 		commandPanel.add(moneyLabel);
 		
-		dayLabel.setBounds(550, 4, 250, 60);
+		dayLabel.setBounds(687, 4, 250, 60);
 		dayLabel.setForeground(Color.BLACK);
 		dayLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dayLabel.setVerticalAlignment(SwingConstants.CENTER);
 		dayLabel.setFont(dropDownLabelFont);
 		commandPanel.add(dayLabel);
 		
-		reputationLabel.setBounds(825, 4, 250, 60);
+		reputationLabel.setBounds(962, 4, 250, 60);
 		reputationLabel.setForeground(Color.BLACK);
 		reputationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		reputationLabel.setVerticalAlignment(SwingConstants.CENTER);
 		reputationLabel.setFont(dropDownLabelFont);
 		commandPanel.add(reputationLabel);
 		
-		difficultyLabel.setBounds(1100, 4, 250, 60);
+		difficultyLabel.setBounds(1237, 4, 250, 60);
 		difficultyLabel.setForeground(Color.BLACK);
 		difficultyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		difficultyLabel.setVerticalAlignment(SwingConstants.CENTER);
 		difficultyLabel.setFont(dropDownLabelFont);
 		commandPanel.add(difficultyLabel);
 		
-		profileLabel.setBounds(1375, 4, 250, 60);
-		profileLabel.setForeground(Color.BLACK);
-		profileLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		profileLabel.setVerticalAlignment(SwingConstants.CENTER);
-		profileLabel.setFont(dropDownLabelFont);
-		commandPanel.add(profileLabel);
 		
 	}
 
 	private void addDropDowns() {
 
-		weatherDropdown.setBounds(0, 60, 250, 60);
+		weatherDropdown.setBounds(137, 60, 250, 60);
 		weatherDropdown.setFont(dropDownFont);
 		weatherDropdown.setBackground(Color.decode("#7CC6FE"));
 		weatherDropdown.setForeground(Color.decode("#1D1128"));
@@ -181,7 +172,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		weatherDropdown.revalidate();
 		weatherDropdown.repaint();
 		
-		moneyDropdown.setBounds(275, 60, 250, 60);
+		moneyDropdown.setBounds(412, 60, 250, 60);
 		moneyDropdown.setFont(dropDownFont);
 		moneyDropdown.setBackground(Color.decode("#7CC6FE"));
 		moneyDropdown.setForeground(Color.decode("#1D1128"));
@@ -193,7 +184,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		moneyDropdown.revalidate();
 		moneyDropdown.repaint();
 		
-		dayDropdown.setBounds(550, 60, 250, 60);
+		dayDropdown.setBounds(687, 60, 250, 60);
 		dayDropdown.setFont(dropDownFont);
 		dayDropdown.setBackground(Color.decode("#7CC6FE"));
 		dayDropdown.setForeground(Color.decode("#1D1128"));
@@ -205,7 +196,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		dayDropdown.revalidate();
 		dayDropdown.repaint();
 		
-		reputationDropdown.setBounds(825, 60, 250, 60);
+		reputationDropdown.setBounds(962, 60, 250, 60);
 		reputationDropdown.setFont(dropDownFont);
 		reputationDropdown.setBackground(Color.decode("#7CC6FE"));
 		reputationDropdown.setForeground(Color.decode("#1D1128"));
@@ -217,7 +208,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		reputationDropdown.revalidate();
 		reputationDropdown.repaint();
 		
-		difficultyDropdown.setBounds(1100, 60, 250, 60);
+		difficultyDropdown.setBounds(1237, 60, 250, 60);
 		difficultyDropdown.setFont(dropDownFont);
 		difficultyDropdown.setBackground(Color.decode("#7CC6FE"));
 		difficultyDropdown.setForeground(Color.decode("#1D1128"));
@@ -229,17 +220,6 @@ public class DebugScreen extends JFrame implements ActionListener {
 		difficultyDropdown.revalidate();
 		difficultyDropdown.repaint();
 		
-		profileDropdown.setBounds(1375, 60, 250, 60);
-		profileDropdown.setFont(dropDownFont);
-		profileDropdown.setBackground(Color.decode("#7CC6FE"));
-		profileDropdown.setForeground(Color.decode("#1D1128"));
-		profileDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));		
-		((JLabel) profileDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-		((JLabel) profileDropdown.getRenderer()).setVerticalAlignment(SwingConstants.CENTER);
-		profileDropdown.addActionListener(this);
-		commandPanel.add(profileDropdown);
-		profileDropdown.revalidate();
-		profileDropdown.repaint();
 
 	}
 
