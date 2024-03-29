@@ -5,30 +5,39 @@ package application;
  */
 
 public class Player {
-
-	// private String filename;
+	/** the player's balance including starting money and revenue */
 	private double balance;
+	/** the player's ID */
 	private String playerInitials;
+	/** the difficulty of the player's game */
 	private int difficulty;
-	private int day;
+	/** the weather of the last day of the player's game */
 	private double weather;
+	/** the reputation of the last day of the player's game */
 	private double reputation;
+	/** the difficulty of the last day of the player's game */
 	private int diff;
+	/** the last day of the player's game */
 	private int currentDay;
+	
+	/** the IngredientList object belonging to the player, accessible to all other classes */
 	public IngredientList inventory;
+	/** the RecipeCreation object belonging to the player, accessible to all other classes */
 	public RecipeCreation recipe;
 
+	/** the file that will contain the player's data */
 	private CSVFile newFile;
 
 	/**
-	 * This is for the very first creation of the player! they will have
-	 * predetermined values
+	 * This constructor is used for the very first creation of the player. They will have
+	 * predetermined default values, as initialized. 
 	 * 
-	 * @param user
-	 * @param diff
-	 * @param day
+	 * @param playercsv the .csv file containing the data for this player
+	 * @param user the id of this player
+	 * @param diff the difficulty level of the game for this player
+	 * @param day the day of gameplay for this player
 	 */
-	public Player(CSVFile player1csv, String user, int diff, int day) {
+	public Player(CSVFile playercsv, String user, int diff, int day) {
 		this.playerInitials = user;
 		this.diff = diff;
 		this.currentDay = day;
@@ -38,19 +47,29 @@ public class Player {
 		inventory = new IngredientList(this);
 
 		this.recipe = new RecipeCreation();
-		this.newFile = player1csv;
+		this.newFile = playercsv;
 
 		newFile.CSVWriter(user, diff, 1, 0, 0, 30, 0, 0, 0, 0);
 
 	}
 
 	/**
-	 * Player Constructor for an existing profile
+	 * This constructor is used to initialize a new player object with the data of an
+	 * existing profile. 
 	 * 
-	 * @param balance
-	 * @param playerInitials
+	 * @param playercsv the .csv file containing the data for this player
+	 * @param playerInitials the id of this player
+	 * @param diff the difficulty level of the game for this player
+	 * @param day the day of gameplay for this player
+	 * @param weather the weather of the last day of gameplay for the player
+	 * @param reputation the reputation of the last day of gameplay for the player
+	 * @param balance the player's balance including starting money and revenue
+	 * @param numCones the number of cones in the player's inventory
+	 * @param numSugar the number of sugar in the player's inventory
+	 * @param numVanilla the number of vanilla in the player's inventory
+	 * @param numCream the number of cream in the player's inventory
 	 */
-	public Player(CSVFile file, String playerInitials, int diff, int day, double weather, double reputation,
+	public Player(CSVFile playercsv, String playerInitials, int diff, int day, double weather, double reputation,
 			double balance, int numCones, double numSugar, double numVanilla, double numCream) {
 		this.balance = balance;
 		this.playerInitials = playerInitials;
@@ -59,38 +78,77 @@ public class Player {
 		this.weather = weather;
 		this.reputation = reputation;
 		this.inventory = new IngredientList(numCones, numCream, numSugar, numVanilla,this);
-		this.newFile = file;
+		this.newFile = playercsv;
 		this.recipe = new RecipeCreation();
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Method gets the .csv file for the player.
+	 * @return newFile the .csv file containing the data for the player
 	 */
 	public CSVFile getNewFile() {
 		return newFile;
 	}
-
+	
 	/**
-	 * Getters and setters
-	 * 
-	 * @return
+	 * Method gets the ID for the player.
+	 * @return ID the ID of the player
 	 */
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public String getPlayerInitials() {
+		return playerInitials;
 	}
 
 	/**
-	 * Getters and setters
-	 * 
-	 * @return
+	 * Method gets the current day for the player.
+	 * @return currentDay the current day of the game of the player
+	 */
+	public int getDay() {
+		return currentDay;
+	}
+	
+	/**
+	 * Method gets the current weather for the player.
+	 * @return weather the current weather of the game of the player
+	 */
+	public double getWeather() {
+		return weather;
+	}
+	
+	/**
+	 * Method gets the difficulty of the game for the player
+	 * @return "Easy" 	the easiest level of difficulty
+	 * @return "Medium" between the easiest and hardest level of difficulty
+	 * @return "Hard" 	the hardest level of difficulty
+	 */
+	public String getDifficultyAsString() {
+		if (diff == 0) {
+			return "Easy";
+		} else if (diff == 1) {
+			return "Medium";
+		} else {
+			return "Hard";
+		}
+	}
+	
+	/**
+	 * Method gets the reputation for the player.
+	 * @return newFile the reputation of the player
+	 */
+	public double getReputation() {
+		return reputation;
+	}
+	
+	/**
+	 * Method gets the balance for the player.
+	 * @return balance the balance of the player
 	 */
 	public double getBalance() {
 		return balance;
 	}
 
+	
 	/**
-	 * Used to change the player's balance during a transaction, refund or sale
+	 * Setter method is used to change the player's balance during a transaction, refund or sale
 	 * during the day
 	 *
 	 * @param price is either a positive or negative value
@@ -106,43 +164,35 @@ public class Player {
 			balance += price;
 		}
 	}
+	
+	/**
+	 * Method sets the balance of the player from the .csv file when initializing an existing profile
+	 * @param balance the balance of the player from their last day of gameplay
+	 */
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 
 	/**
-	 * 
-	 * @param Sets the day of the game
+	 * Method sets the day of the player from the .csv file when initializing an existing profile
+	 * @param day sets the day of the game
 	 */
 	public void setDay(int day) {
-		this.day = day;
+		this.currentDay = day;
 	}
+	
 
 	/**
-	 * 
-	 * @return the current day
-	 */
-	public int getDay() {
-		return day;
-	}
-
-	/**
-	 * 
-	 * @param weather rating
+	 * Method sets the weather of the player from the .csv file when initializing an existing profile
+	 * @param weather the weather of the last day of gameplay of the player
 	 */
 	public void setWeather(double weather) {
 		this.weather = weather;
 	}
 
 	/**
-	 * 
-	 * @return the weather rating
-	 */
-	public double getWeather() {
-		return weather;
-	}
-
-	/**
-	 * Getters and setters
-	 * 
-	 * @param Initials
+	 * Method sets the ID of the player from the .csv file when initializing an existing profile
+	 * @param Initials the ID of the player
 	 */
 	public void setPlayerInitials(String Initials) {
 		this.playerInitials = Initials;
@@ -150,28 +200,12 @@ public class Player {
 	}
 
 	/**
-	 * Getters and setters
-	 * 
-	 * @return
+	 * Method returns a string containing all the player's data
+	 * @return a string containing all the player's data
 	 */
-	public String getPlayerInitials() {
-		return playerInitials;
-	}
-
-	public String getDifficultyAsString() {
-		if (diff == 0) {
-			return "Easy";
-		} else if (diff == 1) {
-			return "Medium";
-		} else {
-			return "Hard";
-		}
-	}
-
-	@Override
 	public String toString() {
 		return "Player [balance=" + balance + ", playerInitials=" + playerInitials + ", difficulty=" + difficulty
-				+ ", day=" + day + ", weather=" + weather + ", reputation=" + reputation + ", diff=" + diff
+				+ ", day=" + currentDay + ", weather=" + weather + ", reputation=" + reputation + ", diff=" + diff
 				+ ", currentDay=" + currentDay + ", newFile=" + newFile + "]";
 	}
 
