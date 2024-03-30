@@ -213,14 +213,21 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		else if (e.getSource() == startNextDayButton) {
 			setVisible(false);
 
-			new MainGamePlayClass(currentPlayer);
-			new MainGameplayScreen(currentPlayer);
+			if(currentPlayer.getDay() == 3){
+				if(currentPlayer.getBalance()>= 30){
+					new VictoryScreen();
+				}
+				else{
+					new DefeatScreen();
+				}
+			}
+			else{
 			Player newDay = new Player(currentPlayer.getNewFile(), currentPlayer.getPlayerInitials(),
 					currentPlayer.getDay(), currentPlayer.getDay(), currentPlayer.getWeather(),
 					currentPlayer.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getCones(),
 					currentPlayer.inventory.getSugar(), currentPlayer.inventory.getVanilla(),
 					currentPlayer.inventory.getCream());
-			new IngredientSelectionScreen(newDay);
+			new IngredientSelectionScreen(newDay);}
 
 		} else if (e.getSource() == infoDropdown && infoDropdown.getSelectedIndex() == 0) {
 			SwingUtilities.invokeLater(new Runnable() {

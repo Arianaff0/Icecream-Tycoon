@@ -24,7 +24,7 @@ public class MainGamePlayClass {
 		System.out.println(currentPlayer.inventory.getCones());
 		Weather weather = new Weather();
 		double weatherNum = (double) weather.getWeatherInt()[2];
-		currentPlayer.setWeather(weatherNum);
+		currentPlayer.setWeather((double)weather.getWeatherInt()[0]);
 		// change this later
 
 		Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
@@ -165,7 +165,7 @@ public class MainGamePlayClass {
 		}
 		currentPlayer.getNewFile().CSVWriter(currentPlayer.getPlayerInitials(),
 				Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[1]),
-				Integer.valueOf(currentPlayer.getNewFile().returnLastDay()[2]) + 1, Integer.valueOf((int) weatherNum),
+				Integer.valueOf(currentPlayer.getNewFile().returnLastDay()[2]) + 1,(int) currentPlayer.getWeather(),
 				rep.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getCones(),
 				currentPlayer.inventory.getSugar(), currentPlayer.inventory.getVanilla(),
 				currentPlayer.inventory.getCream());

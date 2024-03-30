@@ -693,7 +693,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                     
                     removeAll();
                     setVisible(false);
-                    
+
                     new ResultsScreen(currentPlayer);
 
 
