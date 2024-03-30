@@ -20,6 +20,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 	private JPanel panel = new JPanel();
 	private JPanel resultsPanel = new JPanel();
+	private JPanel infoPanel = new JPanel();
 	private JPanel separator = new JPanel();
 
 	private JFXPanel fxpanel = new JFXPanel();
@@ -29,12 +30,14 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	private final String[] graphOptions = { "Reputation", "Profit" }; // rep v days (days x, profit y) and profit v days
 																		// (proft y, days x)
 	private JComboBox<String> graphDropdown = new JComboBox<String>(graphOptions);
+	private JComboBox<String> infoDropdown = new JComboBox<String>(graphOptions);
 
 	private Font startFont = new Font("Calibri", 1, 36);
 	private Font dropDownLabelFont = new Font("Calibri", 1, 28);
 	private Font titleFont = new Font("Calibri", 1, 96);
 
 	private JLabel selectionLabel = new JLabel("Generate Graph");
+	private JLabel infoSelectionLabel = new JLabel("Information");
 	private JButton startNextDayButton = new JButton("<html><center>Start Next Day<center/><html/>");
 	private Player currentPlayer;
 
@@ -42,10 +45,14 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	 * This constructor runs everything required in the TitleScreen. This method
 	 * runs the frameSetup and assembleWindow methods. This method also catches
 	 * exceptions thrown by these other helper methods.
+	 * 
+	 * @param currentPlayer
 	 */
-	public ResultsScreen(Player player) {
+	public ResultsScreen(Player currentPlayer) {
 		try {
-				this.currentPlayer = player;
+
+			this.currentPlayer = currentPlayer;
+
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
@@ -97,8 +104,13 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		fxpanel.setBounds(549, 125, 1100, 650);
 		fxpanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 
+		infoPanel.setBounds(549, 125, 1100, 650);
+		infoPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+
 		add(fxpanel);
+		add(infoPanel);
 		add(panel);
+		infoPanel.setVisible(false);
 
 		title.setBounds(230, 31, 1440, 100);
 		title.setForeground(Color.BLACK);
@@ -146,16 +158,30 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		((JLabel) graphDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
 		((JLabel) graphDropdown.getRenderer()).setVerticalAlignment(SwingConstants.CENTER);
 		graphDropdown.setSelectedIndex(-1);
-
 		graphDropdown.addActionListener(this);
+
+		infoSelectionLabel.setBounds(0, 194, 300, 60);
+		infoSelectionLabel.setForeground(Color.BLACK);
+		infoSelectionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		infoSelectionLabel.setVerticalAlignment(SwingConstants.CENTER);
+		infoSelectionLabel.setFont(startFont);
+		resultsPanel.add(infoSelectionLabel);
+
+		infoDropdown.setBounds(25, 240, 250, 60);
+		infoDropdown.setFont(dropDownLabelFont);
+		infoDropdown.setBackground(Color.decode("#9FDBFE"));
+		infoDropdown.setForeground(Color.decode("#1D1128"));
+		infoDropdown.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		((JLabel) infoDropdown.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+		((JLabel) infoDropdown.getRenderer()).setVerticalAlignment(SwingConstants.CENTER);
+		infoDropdown.setSelectedIndex(-1);
+		infoDropdown.addActionListener(this);
 
 		separator.setBounds(300, 0, 2, 650);
 		separator.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		resultsPanel.add(separator);
 		resultsPanel.add(graphDropdown);
-
-		graphDropdown.revalidate();
-		graphDropdown.repaint();
+		resultsPanel.add(infoDropdown);
 
 	}
 
@@ -186,9 +212,68 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 		else if (e.getSource() == startNextDayButton) {
 			setVisible(false);
-			Player newDay = new Player(currentPlayer.getNewFile(), currentPlayer.getPlayerInitials(),currentPlayer.getDay(),currentPlayer.getDay(),currentPlayer.getWeather(),currentPlayer.getReputation(),currentPlayer.getBalance(),currentPlayer.inventory.getCones(),currentPlayer.inventory.getSugar(),
-					currentPlayer.inventory.getVanilla(),currentPlayer.inventory.getCream());
+
+			new MainGamePlayClass(currentPlayer);
+			new MainGameplayScreen(currentPlayer);
+			Player newDay = new Player(currentPlayer.getNewFile(), currentPlayer.getPlayerInitials(),
+					currentPlayer.getDay(), currentPlayer.getDay(), currentPlayer.getWeather(),
+					currentPlayer.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getCones(),
+					currentPlayer.inventory.getSugar(), currentPlayer.inventory.getVanilla(),
+					currentPlayer.inventory.getCream());
 			new IngredientSelectionScreen(newDay);
+
+		} else if (e.getSource() == infoDropdown && infoDropdown.getSelectedIndex() == 0) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					fxpanel.setVisible(false);
+					infoPanel.removeAll();
+					infoPanel.setBackground(Color.decode("#9FDBFE"));
+					
+					JLabel infoLabel = new JLabel("<html>To increase reputation, you need to sell more ice cream!<br>"
+							+ "Try the following strategies:&nbsp;<br>"
+							+ "&nbsp;- Lower your prices, so more people buy the ice cream. <br>"
+							+ "&nbsp;&nbsp;&nbsp;Word-of-mouth goes a long way!<br>"
+							+ "&nbsp;- Increase the amount of ingredients you use in your recipe! <br>"
+							+ "&nbsp;&nbsp;&nbsp;People want tasty ice cream.</html>");
+
+					infoLabel.setBounds(0, 0, 1095, 650);
+					infoLabel.setForeground(Color.BLACK);
+					infoLabel.setFont(new Font("Calibri", Font.BOLD, 36));
+					infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+					infoLabel.setVerticalAlignment(SwingConstants.TOP);
+					infoPanel.add(infoLabel);
+					infoPanel.setVisible(true);
+					infoPanel.repaint();
+					infoLabel.repaint();
+				}
+			});
+		} else if (e.getSource() == infoDropdown && infoDropdown.getSelectedIndex() == 1) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					fxpanel.setVisible(false);
+					infoPanel.removeAll();
+					infoPanel.setBackground(Color.decode("#9FDBFE"));
+
+					JLabel infoLabel = new JLabel("<html>To increase profits, you need to increase prices!<br>"
+							+ "Try the following other strategies, too:&nbsp;<br>"
+							+ "&nbsp;- Decrease the amount of ingredients you use in your recipe! <br>"
+							+ "&nbsp;&nbsp;&nbsp;This saves on cost.<br>"
+							+ "&nbsp;- Try not to spend all your money buying more ingredients! <br>"
+							+ "&nbsp;&nbsp;&nbsp;This helps you save money, too.</html>");
+
+					infoLabel.setBounds(0, 0, 1095, 650);
+					infoLabel.setForeground(Color.BLACK);
+					infoLabel.setFont(new Font("Calibri", Font.BOLD, 36));
+					infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+					infoLabel.setVerticalAlignment(SwingConstants.TOP);
+					infoPanel.add(infoLabel);
+					infoPanel.setVisible(true);
+					infoPanel.repaint();
+					infoLabel.repaint();
+				}
+			});
 		}
 
 	}
