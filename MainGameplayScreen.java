@@ -62,6 +62,14 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
     private double currentCash;
 
+    private double currentCones;
+
+    private double currentVan;
+
+    private double currCreme;
+
+    private double currSugar;
+
     int cashCounter;
     private Results rep;
     //private boolean[] spriteOrder = { true, false, true, false, true, false, true, false, true, false };
@@ -76,16 +84,20 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
         try {
             cashCounter = 0;
             currentCash = Results.dayCash[cashCounter];
+            currentCones = Results.ConeArray[cashCounter];
+            currentVan = Results.VanArray[cashCounter];
+            currCreme = Results.CremeArray[cashCounter];
+            currSugar = Results.SugarArray[cashCounter];
 
             this.currentPlayer = currentPlayer;
             daysLabel.setText("DAY " + currentPlayer.getDay());
             weatherLabel.setText(currentPlayer.getWeather()+ " °");
             moneyLabel.setText("$ " + currentCash);
             inventoryLabel.setText("Inventory");
-            ingredientsLabel.setText("<html>Cones: " + currentPlayer.inventory.getCones() + "<br>" +
-                    "Cream: " + currentPlayer.inventory.getCream() + "<br>" +
-                    "Sugar: " + currentPlayer.inventory.getSugar() + "<br>" +
-                    "Vanilla: " + currentPlayer.inventory.getVanilla() + "</html>");
+            ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                    "Cream: " + currCreme + "<br>" +
+                    "Sugar: " + currSugar + "<br>" +
+                    "Vanilla: " + currentVan + "</html>");
 
             frameSetup();
             assembleWindow();
@@ -151,6 +163,16 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
 
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
+
                     } else {
                         System.out.println("nobuy");
                         nobuyBubble.setVisible(true);
@@ -200,6 +222,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -248,6 +279,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -296,6 +336,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -345,6 +394,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -397,6 +455,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -450,6 +517,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -503,6 +579,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -557,6 +642,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 
@@ -599,6 +693,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                     
                     removeAll();
                     setVisible(false);
+                    
                     new ResultsScreen(currentPlayer);
 
 
@@ -612,6 +707,15 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         cashCounter ++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
+                        currentVan = Results.VanArray[cashCounter];
+                        currCreme = Results.CremeArray[cashCounter];
+                        currentCones = Results.ConeArray[cashCounter];
+                        currSugar = Results.SugarArray[cashCounter];
+
+                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
+                                "Cream: " + currCreme + "<br>" +
+                                "Sugar: " + currSugar + "<br>" +
+                                "Vanilla: " + currentVan + "</html>");
 
                     } else {
 

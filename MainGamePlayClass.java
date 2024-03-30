@@ -16,17 +16,20 @@ public class MainGamePlayClass {
 	private Player currentPlayer;
 
 	public MainGamePlayClass(Player player) {
+
 		this.currentPlayer = player;
+		currentPlayer.setDay(Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[2]));
 		// remember to change this down
 		int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
 		System.out.println(currentPlayer.inventory.getCones());
 		Weather weather = new Weather();
 		double weatherNum = (double) weather.getWeatherInt()[2];
+		currentPlayer.setWeather(weatherNum);
 		// change this later
 
 		Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
 
-		Results results = new Results(rep.getReputation(), currentPlayer.getBalance());
+		Results results = new Results(rep.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getSugar(),currentPlayer.inventory.getCream(),currentPlayer.inventory.getCones(),currentPlayer.inventory.getVanilla());
 		double iceCremePrice = currentPlayer.recipe.getConePrice();
 
 		double currCreme = currentPlayer.inventory.getCream();
@@ -60,16 +63,16 @@ public class MainGamePlayClass {
 				range = -1;
 				hard = " red ";
 			} else if (test == 2) {
-				range = 0;
+				range = 1;
 				hard = " blue ";
 			} else if (test == 3) {
-				range = 1;
+				range = 2;
 				hard = " green ";
 			} else if (test == 4) {
-				range = 2;
+				range = 3;
 				hard = " black ";
 			} else {
-				range = 3;
+				range = 4;
 				hard = " gold ";
 
 			}
@@ -94,7 +97,8 @@ public class MainGamePlayClass {
 				}
 				currNode.setNext(newNode);
 				tail = newNode;
-				newNode.setNewRange((int) (weatherNum + rep.getReputation()));
+				// This is setting up the difficulty.
+				newNode.setNewRange((int) (weatherNum + rep.getReputation())-(Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[1])));
 			}
 		}
 
@@ -111,16 +115,20 @@ public class MainGamePlayClass {
 				rep.setReputation(0.5);
 				results.addRep(rep.getReputation());
 
-				currentPlayer.inventory.setCones(iceCreameCounter);
+				currentPlayer.inventory.setCones(currentPlayer.inventory.getCones() -1);
+				results.decreaseCones(currentPlayer.inventory.getCones());
 
 				currentPlayer.inventory.setCream(currCreme - currentPlayer.recipe.getCreamMes());
 				currCreme = currentPlayer.inventory.getCream();
+				results.decreaseCreme(currCreme);
 
 				currentPlayer.inventory.setVanilla(currVan - currentPlayer.recipe.getVanillaMes());
-				currVan = currentPlayer.inventory.getCream();
+				currVan = currentPlayer.inventory.getVanilla();
+				results.decreaseVan(currVan);
 
 				currentPlayer.inventory.setSugar(currSugar - currentPlayer.recipe.getSugarMes());
 				currSugar = currentPlayer.inventory.getSugar();
+				results.decreaseSugar(currSugar);
 
 				currentPlayer.setBalance(currentPlayer.getBalance() + currentPlayer.recipe.getConePrice());
 				results.addCash(currentPlayer.getBalance());
@@ -131,6 +139,10 @@ public class MainGamePlayClass {
 				rep.setReputation(-0.25);
 				results.addCash(currentPlayer.getBalance());
 				results.addRep(rep.getReputation());
+				results.decreaseCones(iceCreameCounter);
+				results.decreaseVan(currentPlayer.inventory.getVanilla());
+				results.decreaseSugar(currentPlayer.inventory.getSugar());
+				results.decreaseCreme(currentPlayer.inventory.getCream());
 				currNode.setBuy(false);
 
 			}
@@ -170,7 +182,7 @@ public class MainGamePlayClass {
 		System.out.println("current Creame: " + currentPlayer.inventory.getCream());
 
 		System.out.println("balance: " + currentPlayer.getBalance());
-		currentPlayer.setDay(currentPlayer.getDay()+1);
+
 
 		results.printResults();
 	}

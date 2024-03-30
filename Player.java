@@ -102,6 +102,7 @@ public class Player {
 	 * Method gets the current day for the player.
 	 * @return currentDay the current day of the game of the player
 	 */
+
 	public int getDay() {
 		return currentDay;
 	}
@@ -177,6 +178,7 @@ public class Player {
 	 * Method sets the day of the player from the .csv file when initializing an existing profile
 	 * @param day sets the day of the game
 	 */
+
 	public void setDay(int day) {
 		this.currentDay = day;
 	}
