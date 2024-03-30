@@ -35,6 +35,8 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	private Font titleFont = new Font("Calibri", 1, 96);
 
 	private JLabel selectionLabel = new JLabel("Generate Graph");
+	private JButton startNextDayButton = new JButton("<html><center>Start Next Day<center/><html/>");
+	private Player currentPlayer;
 
 	/**
 	 * This constructor runs everything required in the TitleScreen. This method
@@ -43,6 +45,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	 */
 	public ResultsScreen() {
 		try {
+			this.currentPlayer = currentPlayer;
 			frameSetup();
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
@@ -104,6 +107,16 @@ public class ResultsScreen extends JFrame implements ActionListener {
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setFont(titleFont);
 
+		startNextDayButton.setBounds(745, 800, 400, 100);
+		startNextDayButton.setFont(startFont);
+		startNextDayButton.setBackground(Color.decode("#9FDBFE"));
+		startNextDayButton.setForeground(Color.decode("#1D1128"));
+		startNextDayButton.setFocusPainted(false);
+		startNextDayButton.setHorizontalAlignment(SwingConstants.CENTER);
+		startNextDayButton.setVerticalAlignment(SwingConstants.CENTER);
+		startNextDayButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		startNextDayButton.addActionListener(this);
+
 		resultsPanel.setBounds(250, 125, 300, 650);
 		resultsPanel.setLayout(null);
 		resultsPanel.setBackground(Color.decode("#FDC6D8"));
@@ -111,6 +124,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 		panel.add(title);
 		panel.add(resultsPanel);
+		panel.add(startNextDayButton);
 
 		panel.setVisible(true);
 
@@ -170,6 +184,13 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 			panel.repaint();
 		}
+
+		if (e.getSource() == startNextDayButton) {
+			setVisible(false);
+			new MainGamePlayClass(currentPlayer);
+			new MainGameplayScreen(currentPlayer);
+		}
+
 
 	}
 

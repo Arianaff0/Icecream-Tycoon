@@ -6,9 +6,14 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import javax.swing.SwingConstants;
-import javax.swing.event.ChangeEvent;
+
+
 
 @SuppressWarnings("serial")
 public class MainGameplayScreen extends JFrame implements ActionListener {
@@ -78,6 +83,8 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
             frameSetup();
             assembleWindow();
+            playMusic();
+
 
             moveBlackSprite();
         } catch (IOException e) {
@@ -87,6 +94,21 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
         } catch (Exception e) {
             System.out.println("Error: Unknown exception, error code 10.2");
             e.printStackTrace();
+        }
+    }
+    private void playMusic() {
+        try {
+            // create a new input stream and grab the file from the sounds folder
+            AudioInputStream audio = AudioSystem
+                    .getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
+            Clip sound1 = AudioSystem.getClip(); // create a clip called startGame and get the clip from the
+            // "audio
+
+            sound1.open(audio);
+            sound1.start(); // play the clip/sound
+        } catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
+            System.out.println("Error playing sound.");
+            ex.printStackTrace();
         }
     }
 
@@ -456,6 +478,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
         });
         timer.start();
     }
+
 
     private void moveGoldSpriteSecondTime() {
 
