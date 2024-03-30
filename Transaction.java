@@ -7,6 +7,10 @@ package application;
  *
  * @version 1.0.0
  * @author Matthew Molloy
+ * CS2212 Spring 2024 term
+ * Group 48
+ * Prof. Servos
+ * Monday April 5, 2024
  */
 public class Transaction {
     private String ingredient;

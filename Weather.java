@@ -3,25 +3,33 @@ package application;
 import java.util.ArrayList;
 import java.util.*;
 import java.math.*;
-//package application;
 /**
- * This is the class that determines what the weather for the next work day will be.
- */
+* This is the class that determines what the weather for the next work day will be.
+* <p>
+* The weather is determined through a random number generator {@link weatherRandomizer} <br>
+* and each range represents a different weather condition, determined by {@link setWeatherData} <br>
+*<p>
+*
+* @version 
+* @author Kevin Russel
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 5, 2024
+*/
 public class Weather {
-
-    // this is the double weather that hold the weather
+    /** this is the double weather that hold the weather */
     private double weatherInt;
-
-    // this changes the range for each of the weathers
+    /** this changes the range for each of the weathers */
     private double rangemover;
-
+    /** this variable holds the name of the weather */
     private String weatherData;
 
     /**
      * This is the method that will be returning an object array
      * The 0th index will return a double that indicates the weather
      * the 1st index will return what kind of "weather" it is.
-     * @return an object arrays
+     * @return an object array containing info on the weather
      */
     public Object[] getWeatherInt(){
         Object[] arr = new Object[3];
@@ -36,13 +44,13 @@ public class Weather {
 
     /**
      * This function takes in the random value that was produced and finds its associating weather "descriptor"
-     * @param num the random number that was generated.
-     * @return a String with the associated descriptor
+     * @param num  	the random number that was generated.
+     * @return weather	a String with the associated descriptor
      */
     private String setWeatherData(double num){
         String weather;
 
-        // if else statments that take in the random number generated and returns the associated weather "descriptor".
+        // if else statements that take in the random number generated and returns the associated weather "descriptor".
         if(num == 0){
             weather = "Freezing";
             rangemover = -2.00;
@@ -79,9 +87,9 @@ public class Weather {
     }
 
     /**
-     * This is for the admin class if they want to set the weather
+     * This is for the debug class if they want to set the weather
      * @param num the temp they want to set it at
-     * @return an integer for the range
+     * @return rangemover an integer for the range
      */
 
     public double setWeather (int num){

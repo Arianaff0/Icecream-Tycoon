@@ -10,6 +10,11 @@ import java.util.Stack;
  *
  * @version 1.0.3
  * @author Matthew Molloy
+ * @author Sabrina Lee
+ * CS2212 Spring 2024 term
+ * Group 48
+ * Prof. Servos
+ * Monday April 5, 2024
  */
 public class IngredientList {
 
@@ -26,14 +31,18 @@ public class IngredientList {
 
     /** A stack that tracks the order in which ingredients were purchased */
     private Stack<Transaction> transactionStack =  new Stack<Transaction>();
-    /**
-     * IngredientList constructor method.
-     * Sets all private variables to 0 (nothing has been purchased by the user the first time around)
-     */
-
+ 
     /** simply a placeholder for the currentPlayer variable*/
     private Player currentPlayer;
 
+    /**
+     * Constructor for an existing player profile initializes ingredients from SaveAndLoadScreen.java
+     * @param cones
+     * @param cream
+     * @param sugar
+     * @param vanilla
+     * @param player
+     */
     public IngredientList(int cones, double cream, double sugar, double vanilla,Player player) {
         this.numCones = cones;
         this.numCream = cream;
@@ -42,6 +51,10 @@ public class IngredientList {
         this.currentPlayer = player;
     }
 
+    /**
+     * Constructor for an empty inventory initializes all ingredients to 0
+     * @param player
+     */
     public IngredientList(Player player) {
         this.currentPlayer = player;
         numCones = 0;
@@ -50,15 +63,12 @@ public class IngredientList {
         numVanilla = 0;
     }
 
-
-
     /**
      * Updates number of ice cream cones depending on reason for change
-     * TODO: make sure we catch the case if the user does not have enough money
      * @param numCones number of ice cream cones
      * @param price is how much transaction cost
      * @param transactionType checks if this was a purchase (true) or refund (false)
-     * @return void
+     * @return 0 if there is not enough balance to purchase, 1 otherwise
      */
     public int changeConeQty(int numCones, int price, String type){
         // Purpose of change
@@ -83,7 +93,7 @@ public class IngredientList {
                 System.out.print(this.numCones);
                 break;
 
-            // Default case is a sale For sprite - Kevin
+            // Default case is a sale by customer
             default:
                 currentPlayer.changeBalance(price, type);
                 this.numCones -= numCones;
@@ -94,7 +104,6 @@ public class IngredientList {
 
     /**
      * Sets numCream to an updated number specified by the 'numCream' argument
-     *
      * @param numCream measurement of cream in cups
      * @return void
      */
@@ -131,7 +140,6 @@ public class IngredientList {
 
     /**
      * Sets numSugar to an updated number specified by the 'numSugar' argument
-     *
      * @param numSugar measurement of cream in tablespoons
      * @return void
      */
@@ -168,7 +176,6 @@ public class IngredientList {
 
     /**
      * Sets numVanilla to an updated number specified by the 'numVanilla' argument
-     *
      * @param numVanilla measurement of cream in cups
      * @return void
      */
@@ -205,7 +212,6 @@ public class IngredientList {
 
     /**
      * Returns the amount of Cones in the player's inventory
-     *
      * @return cones in inventory
      */
     public int getCones(){
@@ -214,7 +220,6 @@ public class IngredientList {
 
     /**
      * Returns the amount of Cream in the player's inventory
-     *
      * @return cream in inventory
      */
     public double getCream(){
@@ -223,7 +228,6 @@ public class IngredientList {
 
     /**
      * Returns the amount of Sugar in the player's inventory
-     *
      * @return Sugar in inventory
      */
     public double getSugar(){
@@ -232,7 +236,6 @@ public class IngredientList {
 
     /**
      * Returns the amount of Vanilla in the player's inventory
-     *
      * @return Vanilla in inventory
      */
     public double getVanilla(){
@@ -273,27 +276,22 @@ public class IngredientList {
 
     /**
      * Returns the amount of sellable ice cream cones to customers
-     *
      * The maxSellableProduct is reliant on the ratios of ingredients created in the RecipeCreation class
      *
      * @return maximumn sellable ice cream cones
      */
     public int getMaxSellableProduct(){
-        /** The amount of each ingredient that can be portioned by the recipe*/
-        /**
-         * TODO remember to change this back!!!!!!!!!!!!!!!!!!!!
-         */
-
+        // The amount of each ingredient that can be portioned by the recipe
         int amtCream = (int) Math.floor(numCream / currentPlayer.recipe.getCreamMes());
         int amtSugar = (int) Math.floor(numSugar / currentPlayer.recipe.getSugarMes());
         int amtVanilla = (int) Math.floor(numVanilla / currentPlayer.recipe.getVanillaMes());
 
-
+        // no icecreams can be made if any ingredients are not available
         if (amtCream < 1 || amtSugar < 1 || amtVanilla < 1 || numCones < 1) {
             maxSellableProduct = 0;
         }
         else {
-            /** The limiting variable determines how many ice creams can actually be made*/
+            // The limiting variable determines how many ice creams can actually be made
             maxSellableProduct = Math.min(Math.min(amtCream, amtSugar), Math.min(numCones, amtVanilla));
         }
         return maxSellableProduct;
@@ -302,8 +300,8 @@ public class IngredientList {
     /**
      * When player pushes the "Undo Purchase" button pops the last transaction off the stack, refunding
      * the player and decreasing the quantity of the ingredient last purchased.
-     *
      * If the stack is empty, do nothing.
+     * @return a String representing the last purchased ingredient
      */
     public String undoPurchase() {
         /** If transactions stack is empty, do some GUI stuff and exit*/
