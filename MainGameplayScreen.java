@@ -9,7 +9,6 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import javax.swing.SwingConstants;
 
@@ -48,7 +47,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
     private JLabel bgPhoto = new JLabel(new ImageIcon("files/gameplaybg.png"));
 
     private JLabel buyBubble = new JLabel(new ImageIcon("files/buy.png"));
-    private JLabel nobuyBubble = new JLabel(new ImageIcon("files/Dontbuy.png"));
+    private JLabel nobuyBubble = new JLabel(new ImageIcon("files/nobuy.png"));
 
     // pics of sprites
     private JLabel blackSprite = new JLabel(new ImageIcon("files/SpriteBlack1.png"));
@@ -59,8 +58,13 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
     private Player currentPlayer;
 
-    // private boolean[] spriteOrder = MainGamePlayClass.SpriteOrder;
-    private boolean[] spriteOrderTest = { true, false, true, false, true, false, true, false, true, false };
+    private boolean[] spriteOrder = MainGamePlayClass.SpriteOrder;
+
+    private double currentCash;
+
+    int cashCounter;
+    private Results rep;
+    //private boolean[] spriteOrder = { true, false, true, false, true, false, true, false, true, false };
 
     /**
      * This constructor runs everything required in the TitleScreen. This method
@@ -70,11 +74,13 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
      */
     public MainGameplayScreen(Player currentPlayer) {
         try {
-            this.currentPlayer = currentPlayer;
+            cashCounter = 0;
+            currentCash = Results.dayCash[cashCounter];
 
+            this.currentPlayer = currentPlayer;
             daysLabel.setText("DAY " + currentPlayer.getDay());
             weatherLabel.setText(currentPlayer.getWeather()+ " °");
-            moneyLabel.setText("$ " + currentPlayer.getBalance());
+            moneyLabel.setText("$ " + currentCash);
             inventoryLabel.setText("Inventory");
             ingredientsLabel.setText("<html>Cones: " + currentPlayer.inventory.getCones() + "<br>" +
                     "Cream: " + currentPlayer.inventory.getCream() + "<br>" +
@@ -136,17 +142,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosBlackStart == 1115) {
 
-                    if (spriteOrderTest[0]) {
+                    if (spriteOrder[0]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
                         System.out.println("nobuy");
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -181,17 +192,21 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosBlueStart == 1116) {
 
-                    if (spriteOrderTest[1]) {
+                    if (spriteOrder[1]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
 
                     }
 
@@ -225,17 +240,21 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosRedStart == 1115) {
 
-                    if (spriteOrderTest[2]) {
+                    if (spriteOrder[2]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
 
                     }
 
@@ -269,17 +288,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosGoldStart == 1119) {
 
-                    if (spriteOrderTest[3]) {
+                    if (spriteOrder[3]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -313,17 +337,21 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosGreenStart == 1112) {
 
-                    if (spriteOrderTest[4]) {
+                    if (spriteOrder[4]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
 
                     }
 
@@ -361,17 +389,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosBlackStart == 1115) {
 
-                    if (spriteOrderTest[5]) {
+                    if (spriteOrder[5]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -409,17 +442,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosBlueStart == 1116) {
 
-                    if (spriteOrderTest[6]) {
+                    if (spriteOrder[6]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -457,17 +495,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosRedStart == 1115) {
 
-                    if (spriteOrderTest[7]) {
+                    if (spriteOrder[7]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -506,17 +549,22 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
 
                 } else if (xPosGoldStart == 1119) {
 
-                    if (spriteOrderTest[8]) {
+                    if (spriteOrder[8]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
@@ -548,21 +596,30 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                     // Stop the animation when label moves out of the screen
 
                     ((Timer) e.getSource()).stop();
+                    
+                    removeAll();
+                    setVisible(false);
+                    new ResultsScreen();
 
 
                 } else if (xPosGreenStart == 1112) {
 
-                    if (spriteOrderTest[9]) {
+                    if (spriteOrder[9]) {
 
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+                        currentCash = Results.dayCash[cashCounter];
+                        moneyLabel.setText("$ " + currentCash);
 
                     } else {
 
                         nobuyBubble.setVisible(true);
 
                         timer.setDelay(1000);
+                        cashCounter ++;
+
 
                     }
 
