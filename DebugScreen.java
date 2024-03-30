@@ -48,8 +48,18 @@ public class DebugScreen extends JFrame implements ActionListener {
 	private JLabel conesLabel = new JLabel("Add Cones", SwingConstants.CENTER);
 	private JLabel reputationLabel = new JLabel("Select Reputation", SwingConstants.CENTER);
 	private JLabel difficultyLabel = new JLabel("Select Difficulty", SwingConstants.CENTER);
-
+	private JLabel p1Label = new JLabel("Profile 1: ", SwingConstants.CENTER);
+	private JLabel p2Label = new JLabel("Profile 2: ", SwingConstants.CENTER);
+	private JLabel p3Label = new JLabel("Profile 3: ", SwingConstants.CENTER);
+	private JLabel p1Data = new JLabel();
+	private JLabel p2Data = new JLabel();
+	private JLabel p3Data = new JLabel();
+	
 	private JButton execute = new JButton("Execute");
+	
+	private Player player1 = GameLauncher.player1;
+	private Player player2 = GameLauncher.player2;
+	private Player player3 = GameLauncher.player3;
 
 	/**
 	 * This constructor runs everything required in the TitleScreen. This method
@@ -101,7 +111,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 		add(panel);
 
-		title.setBounds(230, 31, 1440, 100); // x, y, width, height
+		title.setBounds(230, 31, 1440, 100); 
 		title.setForeground(Color.BLACK);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
@@ -127,15 +137,15 @@ public class DebugScreen extends JFrame implements ActionListener {
 		panel.setVisible(true);
 	}
 
-	private void addDropDownLabels() {
 
+	private void addDropDownLabels() {
 		weatherLabel.setBounds(137, 4, 250, 60);
 		weatherLabel.setForeground(Color.BLACK);
 		weatherLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		weatherLabel.setVerticalAlignment(SwingConstants.CENTER);
 		weatherLabel.setFont(dropDownLabelFont);
 		commandPanel.add(weatherLabel);
-
+		
 		moneyLabel.setBounds(412, 4, 250, 60);
 		moneyLabel.setForeground(Color.BLACK);
 		moneyLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -149,24 +159,22 @@ public class DebugScreen extends JFrame implements ActionListener {
 		vanillaLabel.setVerticalAlignment(SwingConstants.CENTER);
 		vanillaLabel.setFont(dropDownLabelFont);
 		commandPanel.add(vanillaLabel);
-		
-		creamLabel.setBounds(687, 274, 250, 60);
+
+		creamLabel.setBounds(687, 174, 250, 60);
 		creamLabel.setForeground(Color.BLACK);
 		creamLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		creamLabel.setVerticalAlignment(SwingConstants.CENTER);
 		creamLabel.setFont(dropDownLabelFont);
 		commandPanel.add(creamLabel);
 		
-		
-		sugarLabel.setBounds(412, 274, 250, 60);
+		sugarLabel.setBounds(412, 174, 250, 60);
 		sugarLabel.setForeground(Color.BLACK);
 		sugarLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		sugarLabel.setVerticalAlignment(SwingConstants.CENTER);
 		sugarLabel.setFont(dropDownLabelFont);
 		commandPanel.add(sugarLabel);
-		
-		
-		conesLabel.setBounds(962, 274, 250, 60);
+
+		conesLabel.setBounds(962, 174, 250, 60);
 		conesLabel.setForeground(Color.BLACK);
 		conesLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		conesLabel.setVerticalAlignment(SwingConstants.CENTER);
@@ -187,10 +195,30 @@ public class DebugScreen extends JFrame implements ActionListener {
 		difficultyLabel.setFont(dropDownLabelFont);
 		commandPanel.add(difficultyLabel);
 
-	}
+		p1Label.setBounds(137, 400, 250, 60);
+		p1Label.setForeground(Color.BLACK);
+		p1Label.setVerticalAlignment(SwingConstants.CENTER);
+		p1Label.setHorizontalAlignment(SwingConstants.CENTER);
+		p1Label.setFont(dropDownLabelFont);
+		commandPanel.add(p1Label);
+
+		p2Label.setBounds(137, 475, 250, 60);
+		p2Label.setForeground(Color.BLACK);
+		p2Label.setVerticalAlignment(SwingConstants.CENTER);
+		p2Label.setHorizontalAlignment(SwingConstants.CENTER);
+		p2Label.setFont(dropDownLabelFont);
+		commandPanel.add(p2Label);
+
+		p3Label.setBounds(137, 550, 250, 60);
+		p3Label.setForeground(Color.BLACK);
+		p3Label.setVerticalAlignment(SwingConstants.CENTER);
+		p3Label.setHorizontalAlignment(SwingConstants.CENTER);
+		p3Label.setFont(dropDownLabelFont);
+		commandPanel.add(p3Label);
+	} 
+
 
 	private void addDropDowns() {
-
 		weatherDropdown.setBounds(137, 60, 250, 60);
 		weatherDropdown.setFont(dropDownFont);
 		weatherDropdown.setBackground(Color.decode("#7CC6FE"));
@@ -226,8 +254,8 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(vanillaDropdown);
 		vanillaDropdown.revalidate();
 		vanillaDropdown.repaint();
-		
-		creamDropdown.setBounds(687, 330, 250, 60);
+
+		creamDropdown.setBounds(687, 230, 250, 60);
 		creamDropdown.setFont(dropDownFont);
 		creamDropdown.setBackground(Color.decode("#7CC6FE"));
 		creamDropdown.setForeground(Color.decode("#1D1128"));
@@ -238,8 +266,8 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(creamDropdown);
 		creamDropdown.revalidate();
 		creamDropdown.repaint();
-		
-		sugarDropdown.setBounds(412, 330, 250, 60);
+
+		sugarDropdown.setBounds(412, 230, 250, 60);
 		sugarDropdown.setFont(dropDownFont);
 		sugarDropdown.setBackground(Color.decode("#7CC6FE"));
 		sugarDropdown.setForeground(Color.decode("#1D1128"));
@@ -250,8 +278,8 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(sugarDropdown);
 		sugarDropdown.revalidate();
 		sugarDropdown.repaint();
-		
-		conesDropdown.setBounds(962, 330, 250, 60);
+
+		conesDropdown.setBounds(962, 230, 250, 60);
 		conesDropdown.setFont(dropDownFont);
 		conesDropdown.setBackground(Color.decode("#7CC6FE"));
 		conesDropdown.setForeground(Color.decode("#1D1128"));
@@ -262,7 +290,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(conesDropdown);
 		conesDropdown.revalidate();
 		conesDropdown.repaint();
-
+		
 		reputationDropdown.setBounds(962, 60, 250, 60);
 		reputationDropdown.setFont(dropDownFont);
 		reputationDropdown.setBackground(Color.decode("#7CC6FE"));
@@ -274,7 +302,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(reputationDropdown);
 		reputationDropdown.revalidate();
 		reputationDropdown.repaint();
-
+		
 		difficultyDropdown.setBounds(1237, 60, 250, 60);
 		difficultyDropdown.setFont(dropDownFont);
 		difficultyDropdown.setBackground(Color.decode("#7CC6FE"));
@@ -286,7 +314,53 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(difficultyDropdown);
 		difficultyDropdown.revalidate();
 		difficultyDropdown.repaint();
+		
+		if (player1.getPlayerInitials().startsWith("user")) {
+			p1Data.setText("No Data");
+		}
+		else {
+			p1Data.setText("ID: " + player1.getPlayerInitials() + ",    Diff: " + player1.getDifficultyAsString() + ",    Day: " + player1.getDay() + ",    Wethr: "
+							+ player1.getWeather() + ",    Rep: " + player1.getReputation() + ",    $: " + player1.getBalance() + ",    Cones: " + player1.inventory.getCones()
+							+ ",    Sug: " + player1.inventory.getSugar() + ",    Van: " + player1.inventory.getVanilla() + ",    Crm: " + player1.inventory.getCream());
+		}
+		p1Data.setBounds(325, 400, 1110, 60);
+		p1Data.setFont(dropDownFont);
+		p1Data.setForeground(Color.BLACK);
+		
+		commandPanel.add(p1Data);
+		p1Data.revalidate();
+		p1Data.repaint();
 
+		if (player2.getPlayerInitials().startsWith("user")) {
+			p2Data.setText("No Data");
+		}
+		else {
+			p2Data.setText("ID: " + player2.getPlayerInitials() + ",    Diff: " + player2.getDifficultyAsString() + ",    Day: " + player2.getDay() + ",    Wethr: "
+							+ player2.getWeather() + ",    Rep: " + player2.getReputation() + ",    $: " + player2.getBalance() + ",    Cones: " + player2.inventory.getCones()
+							+ ",    Sug: " + player2.inventory.getSugar() + ",    Van: " + player2.inventory.getVanilla() + ",    Crm: " + player2.inventory.getCream());
+		}
+		p2Data.setBounds(325, 475, 1110, 60);
+		p2Data.setFont(dropDownFont);
+		p2Data.setForeground(Color.BLACK);
+		
+		commandPanel.add(p2Data);
+		p2Data.revalidate();
+		p2Data.repaint();
+		
+		if (player3.getPlayerInitials().startsWith("user")) {
+			p3Data.setText("No Data");	}
+		else {
+			p3Data.setText("ID: " + player3.getPlayerInitials() + ",    Diff: " + player3.getDifficultyAsString() + ",    Day: " + player3.getDay() + ",    Wethr: "
+							+ player3.getWeather() + ",    Rep: " + player3.getReputation() + ",    $: " + player3.getBalance() + ",    Cones: " + player3.inventory.getCones()
+							+ ",    Sug: " + player3.inventory.getSugar() + ",    Van: " + player3.inventory.getVanilla() + ",    Crm: " + player3.inventory.getCream());
+		}
+		p3Data.setBounds(325, 550, 1110, 60);
+		p3Data.setFont(dropDownFont);
+		p3Data.setForeground(Color.BLACK);
+		
+		commandPanel.add(p3Data);
+		p3Data.revalidate();
+		p3Data.repaint();
 	}
 
 	@Override
