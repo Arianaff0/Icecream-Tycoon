@@ -6,6 +6,9 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -66,6 +69,8 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 	private JButton buy40Sugar = new JButton("<html><center>+40 Sugar<center/><html/>");
 
 	private JButton undoButton = new JButton("<html><center>Undo<center/><html/>");
+
+	private Clip sound1;
 
 	/**
 	 * This constructor runs everything required in the TitleScreen. This method
@@ -128,6 +133,24 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
 	}
 
+	private void playMusic() {
+		try {
+			// create a new input stream and grab the file from the sounds folder
+			AudioInputStream audio = AudioSystem
+					.getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
+			sound1 = AudioSystem.getClip();
+
+			sound1.open(audio);
+			sound1.start();
+			sound1.loop(Clip.LOOP_CONTINUOUSLY);
+
+
+		} catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
+			System.out.println("Error playing sound.");
+			ex.printStackTrace();
+		}
+	}
+
 	/**
 	 * This helper method sets up the basics of the JFrame that this class extends.
 	 * Sets the size of the window, makes it unresizable, and sets titles as well as
@@ -150,7 +173,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 	// assembles basic parts of the window
 	private void assembleWindow() {
-
+		playMusic();
 		panel.setBounds(0, 0, 1920, 1080);
 		panel.setLayout(null);
 		panel.setBackground(Color.decode("#7CF3A0"));
@@ -487,6 +510,8 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 		} else if (e.getSource() == makeRecipe) {
 			setVisible(false);
+			sound1.stop();
+			sound1.close();
 			new RecipeCreationScreen(currentPlayer);
 		}
 

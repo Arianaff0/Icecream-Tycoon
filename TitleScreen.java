@@ -7,7 +7,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
+import javax.sound.sampled.Clip;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class TitleScreen extends JFrame implements ActionListener, KeyListener {
@@ -30,6 +34,7 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 			"Made by Group 48 (Lukas Bozinov, Ariana Feng, Matthew Molloy, Kevin Russel, Sabrina Lee) for CS2212 Winter/Spring 2024 Term.");
 
 	private static StringBuilder typedKeys = new StringBuilder();
+	private Clip sound1;
 
 	/**
 	 * This constructor runs everything required in the TitleScreen. This method
@@ -40,6 +45,7 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 		try {
 			frameSetup();
 			assembleWindow();
+			playMusic();
 		} catch (IOException e) {
 			System.out.println("Error: IOException, error code 6.1");
 			e.printStackTrace();
@@ -47,6 +53,24 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 		} catch (Exception e) {
 			System.out.println("Error: Unknown exception, error code 6.2");
 			e.printStackTrace();
+		}
+	}
+
+	private void playMusic() {
+		try {
+			// create a new input stream and grab the file from the sounds folder
+			AudioInputStream audio = AudioSystem
+					.getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
+			sound1 = AudioSystem.getClip();
+
+			sound1.open(audio);
+			sound1.start();
+			sound1.loop(Clip.LOOP_CONTINUOUSLY);
+
+
+		} catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
+			System.out.println("Error playing sound.");
+			ex.printStackTrace();
 		}
 	}
 
@@ -157,6 +181,8 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 
 		if (e.getSource() == start) {
 			setVisible(false);
+			sound1.stop();
+			sound1.close();
 			new SaveAndLoadScreen();
 		} else if (e.getSource() == tutorial) {
 			new TutorialScreen();

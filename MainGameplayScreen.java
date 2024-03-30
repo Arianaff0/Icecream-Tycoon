@@ -73,6 +73,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
     int cashCounter;
     private Results rep;
     //private boolean[] spriteOrder = { true, false, true, false, true, false, true, false, true, false };
+    private Clip sound1;
 
     /**
      * This constructor runs everything required in the TitleScreen. This method
@@ -118,8 +119,8 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
         try {
             // create a new input stream and grab the file from the sounds folder
             AudioInputStream audio = AudioSystem
-                    .getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
-            Clip sound1 = AudioSystem.getClip(); // create a clip called startGame and get the clip from the
+                    .getAudioInputStream(new File("files/DefaultScreenMusic.wav").getAbsoluteFile());
+            sound1 = AudioSystem.getClip(); // create a clip called startGame and get the clip from the
             // "audio
 
             sound1.open(audio);
@@ -693,7 +694,8 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                     
                     removeAll();
                     setVisible(false);
-
+                    sound1.stop();
+                    sound1.close();
                     new ResultsScreen(currentPlayer);
 
 

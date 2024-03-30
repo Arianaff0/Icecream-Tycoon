@@ -9,6 +9,9 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.event.*;
 
@@ -40,6 +43,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
     private JSlider sugarSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 40, 20);
     private JSlider priceSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 100, 50);
     private Player currentPlayer;
+    private Clip sound1;
     /**
      * This constructor runs everything required in the RecipeCreationScreen. This
      * method runs the frameSetup and assembleWindow methods. This method also
@@ -55,6 +59,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
             frameSetup();
             assembleWindow();
+            playMusic();
             recipePanelSetup();
             addSliders();
         } catch (IOException e) {
@@ -67,6 +72,24 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
         }
     }
 
+
+    private void playMusic() {
+        try {
+            // create a new input stream and grab the file from the sounds folder
+            AudioInputStream audio = AudioSystem
+                    .getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
+            sound1 = AudioSystem.getClip();
+
+            sound1.open(audio);
+            sound1.start();
+            sound1.loop(Clip.LOOP_CONTINUOUSLY);
+
+
+        } catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
+            System.out.println("Error playing sound.");
+            ex.printStackTrace();
+        }
+    }
     /**
      * This helper method sets up the basics of the JFrame that this class extends.
      * Sets the size of the window, makes it unresizable, and sets titles as well as
@@ -229,6 +252,8 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
         if (e.getSource() == playGameButton) {
             setVisible(false);
+            sound1.stop();
+            sound1.close();
             new MainGamePlayClass(currentPlayer);
             new MainGameplayScreen(currentPlayer);
 

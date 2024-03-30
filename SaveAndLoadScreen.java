@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 /**
@@ -33,6 +36,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	private JButton profileButton3 = new JButton();
 	
 	private Player currentPlay;
+	private Clip sound1;
 
 	/**
 	 * This is the constructor method for the Save and Load Screen. It handles
@@ -42,6 +46,7 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		try {
 			frameSetup();
 			assembleWindow();
+			playMusic();
 			assembleProfiles();
 
 			loadProfileData();
@@ -52,6 +57,24 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 		} catch (Exception e) {
 			System.out.println("Error: Unknown exception, error code 3.2");
 			e.printStackTrace();
+		}
+	}
+
+	private void playMusic() {
+		try {
+			// create a new input stream and grab the file from the sounds folder
+			AudioInputStream audio = AudioSystem
+					.getAudioInputStream(new File("files/MainGamePlayScreenMusic.wav").getAbsoluteFile());
+			sound1 = AudioSystem.getClip();
+
+			sound1.open(audio);
+			sound1.start();
+			sound1.loop(Clip.LOOP_CONTINUOUSLY);
+
+
+		} catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
+			System.out.println("Error playing sound.");
+			ex.printStackTrace();
 		}
 	}
 
@@ -288,6 +311,8 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		sound1.stop();
+		sound1.close();
 		if (e.getSource() == profileButton1) {
 			String playerInitials = "";
 			if (GameLauncher.player1.getPlayerInitials().startsWith("user")) {

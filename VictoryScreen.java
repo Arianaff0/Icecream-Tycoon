@@ -107,7 +107,7 @@ public class VictoryScreen extends JFrame implements ActionListener {
 		try {
 			// create a new input stream and grab the file from the sounds folder
 			AudioInputStream audio = AudioSystem
-					.getAudioInputStream(new File("files/victory.wav").getAbsoluteFile());
+					.getAudioInputStream(new File("files/victory music.wav").getAbsoluteFile());
 			Clip sound1 = AudioSystem.getClip(); // create a clip called startGame and get the clip from the
 													// "audio
 
