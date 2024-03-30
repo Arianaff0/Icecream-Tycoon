@@ -599,7 +599,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                     
                     removeAll();
                     setVisible(false);
-                    new ResultsScreen();
+                    new ResultsScreen(currentPlayer);
 
 
                 } else if (xPosGreenStart == 1112) {

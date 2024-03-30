@@ -43,23 +43,22 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	 * runs the frameSetup and assembleWindow methods. This method also catches
 	 * exceptions thrown by these other helper methods.
 	 */
-	public ResultsScreen() {
+	public ResultsScreen(Player player) {
 		try {
-			this.currentPlayer = currentPlayer;
-			frameSetup();
+				this.currentPlayer = player;
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
+					try {
+						frameSetup();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					assembleWindow();
+					addLabelsAndDropDown();
 				}
 			});
-			addLabelsAndDropDown();
-			panel.repaint();
-			revalidate();
-			repaint();
-		} catch (IOException e) {
-			System.out.println("Error: IOException, error code 4.1");
-			e.printStackTrace();
 
 		} catch (Exception e) {
 			System.out.println("Error: Unknown exception, error code 4.2");
@@ -185,12 +184,12 @@ public class ResultsScreen extends JFrame implements ActionListener {
 			panel.repaint();
 		}
 
-		if (e.getSource() == startNextDayButton) {
+		else if (e.getSource() == startNextDayButton) {
 			setVisible(false);
-			new MainGamePlayClass(currentPlayer);
-			new MainGameplayScreen(currentPlayer);
+			Player newDay = new Player(currentPlayer.getNewFile(), currentPlayer.getPlayerInitials(),currentPlayer.getDay(),currentPlayer.getDay(),currentPlayer.getWeather(),currentPlayer.getReputation(),currentPlayer.getBalance(),currentPlayer.inventory.getCones(),currentPlayer.inventory.getSugar(),
+					currentPlayer.inventory.getVanilla(),currentPlayer.inventory.getCream());
+			new IngredientSelectionScreen(newDay);
 		}
-
 
 	}
 
@@ -210,7 +209,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 		Scene scene = new Scene(lineChart, 800, 600);
 
-		xAxis.setLabel("Days");
+		xAxis.setLabel("Sprite #");
 		yAxis.setLabel("Reputation");
 		// creating the chart
 
@@ -220,8 +219,6 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 		series.setName("Reputation Marker");
 		// populating the series with data
-		
-		
 
 		for (int i = 0; i < 11; i++) {
 
@@ -248,7 +245,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 
 		Scene scene = new Scene(lineChart, 800, 600);
 
-		xAxis.setLabel("Days");
+		xAxis.setLabel("Sprite #");
 		yAxis.setLabel("Profit ($)");
 		// creating the chart
 

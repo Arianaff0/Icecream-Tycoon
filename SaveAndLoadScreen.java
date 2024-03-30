@@ -314,10 +314,8 @@ public class SaveAndLoadScreen extends JFrame implements ActionListener {
 
 			
 			currentPlay = GameLauncher.player2;
-
 			setVisible(false);
 			new IngredientList(GameLauncher.currentPlayer);
-			System.out.print("In here kevin:");
 			System.out.println(currentPlay.getNewFile().returnLastDay()[1]);
 		
 			new IngredientSelectionScreen(currentPlay);

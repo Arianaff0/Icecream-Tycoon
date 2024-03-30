@@ -129,6 +129,7 @@ public class MainGamePlayClass {
 			} else {
 				System.out.print(" don't buy");
 				rep.setReputation(-0.25);
+				results.addCash(currentPlayer.getBalance());
 				results.addRep(rep.getReputation());
 				currNode.setBuy(false);
 
@@ -169,6 +170,7 @@ public class MainGamePlayClass {
 		System.out.println("current Creame: " + currentPlayer.inventory.getCream());
 
 		System.out.println("balance: " + currentPlayer.getBalance());
+		currentPlayer.setDay(currentPlayer.getDay()+1);
 
 		results.printResults();
 	}
