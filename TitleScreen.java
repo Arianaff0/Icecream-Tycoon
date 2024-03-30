@@ -22,6 +22,7 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 	private Font startFont = new Font("Calibri", Font.BOLD, 72);
 	private Font titleFont = new Font("Calibri", Font.BOLD, 96);
 
+	private JButton quit = new JButton("Quit");
 	private JButton start = new JButton("Play");
 	private JButton highScores = new JButton("High Scores");
 	private JButton tutorial = new JButton("Tutorial");
@@ -123,6 +124,16 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setFont(titleFont);
 
+		quit.setBounds(0, 0, 100, 60);
+		quit.setFont(sideButtonFont);
+		quit.setBackground(Color.decode("#9FDBFE"));
+		quit.setForeground(Color.decode("#1D1128"));
+		quit.setFocusPainted(false);
+		quit.setHorizontalAlignment(SwingConstants.CENTER);
+		quit.setVerticalAlignment(SwingConstants.CENTER);
+		quit.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		quit.addActionListener(this);
+
 		credits.setBounds(5, 1022, 1440, 18);
 		credits.setForeground(Color.BLACK);
 		credits.setFont(new Font("Calibri", Font.BOLD, 18));
@@ -132,10 +143,11 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 		panel.add(tutorial);
 		panel.add(title);
 		panel.add(credits);
-		
+		panel.add(quit);
+
 		panel.addKeyListener(this);
-        panel.setFocusable(true);
-        panel.requestFocusInWindow();
+		panel.setFocusable(true);
+		panel.requestFocusInWindow();
 
 		panel.setVisible(true);
 	}
@@ -151,6 +163,8 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 
 		} else if (e.getSource() == highScores) {
 			new HighScoreScreen();
+		} else if (e.getSource() == quit) {
+			System.exit(0);
 		}
 
 	}
