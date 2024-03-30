@@ -208,7 +208,7 @@ public class ResultsScreen extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		sound1.stop();
-		sound1.close();
+		sound1.close();;
 		if (e.getSource() == graphDropdown && graphDropdown.getSelectedIndex() == 0) {
 			Platform.runLater(new Runnable() {
 				@Override

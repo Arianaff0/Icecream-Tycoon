@@ -365,10 +365,151 @@ public class DebugScreen extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		int diff = 0;
+		double cash = 0;
+		int weather= 0;
+		double rep= 0;
+		int cones= 0;
+		double sugar = 0;
+		double vanilla= 0;
+		double creme= 0;
 
 		if (e.getSource() == execute) {
-			setVisible(false);
+			if(difficultyDropdown.getSelectedIndex()==0){
+				diff = 1;
+			}
+			else if(difficultyDropdown.getSelectedIndex() == 1){
+			diff = 2;
+			}
+			else if (difficultyDropdown.getSelectedIndex() == 2){
+			diff = 3;
+			}
 
-		}
+			if(moneyDropdown.getSelectedIndex() == 0){
+				cash = 0.0;
+			}
+			else if(moneyDropdown.getSelectedIndex() == 1){
+				cash = 10.0;
+			}
+			else if(moneyDropdown.getSelectedIndex() == 2){
+				cash = 50.0;
+			}
+			else if(moneyDropdown.getSelectedIndex() == 3){
+				cash = 100.0;
+			}
+			else if(moneyDropdown.getSelectedIndex() == 4){
+				cash = 1000.0;
+			}
+
+			if(vanillaDropdown.getSelectedIndex() == 0){
+					vanilla = 0;
+			}
+			else if(vanillaDropdown.getSelectedIndex() == 1){
+				vanilla = 10;
+			}
+			else if(vanillaDropdown.getSelectedIndex() == 2){
+				vanilla = 50;
+			}
+			else if(vanillaDropdown.getSelectedIndex() == 3){
+				vanilla = 100;
+			}
+			else if(vanillaDropdown.getSelectedIndex() == 4){
+				vanilla = 100;
+			}
+
+			if(reputationDropdown.getSelectedIndex() == 0){
+				rep = -10;
+			}
+			else if(reputationDropdown.getSelectedIndex() == 1){
+				rep = -5;
+			}
+			else if(reputationDropdown.getSelectedIndex() == 2){
+				rep = 0;
+			}
+			else if(reputationDropdown.getSelectedIndex() == 3){
+				rep = 5;
+			}
+			else if(reputationDropdown.getSelectedIndex() == 4){
+				rep = 10;
+			}
+
+			if(weatherDropdown.getSelectedIndex() == 0){
+				weather = 0;
+			}
+			else if(weatherDropdown.getSelectedIndex() == 1){
+				weather = 4;
+			}
+			else if(weatherDropdown.getSelectedIndex() == 2){
+				weather = 7;
+			}
+			else if(weatherDropdown.getSelectedIndex() == 3){
+				weather = 13;
+			}
+			else if(weatherDropdown.getSelectedIndex() == 4){
+				weather = 17;
+			}
+			else if(weatherDropdown.getSelectedIndex() == 5){
+				weather = 20;
+			}
+
+			if(sugarDropdown.getSelectedIndex() == 0){
+				sugar = 0;
+			}
+			else if (sugarDropdown.getSelectedIndex() == 1){
+				sugar = 10;
+			}
+			else if (sugarDropdown.getSelectedIndex() == 2){
+				sugar = 50;
+			}
+			else if (sugarDropdown.getSelectedIndex() == 3){
+				sugar = 100;
+			}
+			else if (sugarDropdown.getSelectedIndex() == 4){
+				sugar = 1000;
+			}
+
+
+			if(creamDropdown.getSelectedIndex() == 0){
+				creme = 0;
+			}
+			else if (creamDropdown.getSelectedIndex() == 1){
+				creme = 10;
+			}
+			else if (creamDropdown.getSelectedIndex() == 2){
+				creme = 50;
+			}
+			else if (creamDropdown.getSelectedIndex() == 3){
+				creme = 100;
+			}
+			else if (creamDropdown.getSelectedIndex() == 4){
+				creme = 1000;
+			}
+
+
+			if(conesDropdown.getSelectedIndex() == 0){
+				cones = 0;
+			}
+			else if (conesDropdown.getSelectedIndex() == 1){
+				cones = 10;
+			}
+			else if (conesDropdown.getSelectedIndex() == 2){
+				cones = 50;
+			}
+			else if (conesDropdown.getSelectedIndex() == 3){
+				cones = 100;
+			}
+			else if (conesDropdown.getSelectedIndex() == 4){
+				cones = 1000;
+			}
+
+
+			setVisible(false);
+			new Debug(diff,cash,weather,rep,cones,sugar,vanilla,creme);
+				}
+
+
+
+
+
 	}
 }

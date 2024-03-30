@@ -13,6 +13,7 @@ public class Debug {
 		newfile = new CSVFile("Debug.csv");
 		currentPlayer = new Player(newfile, "Debug", diff, diff, weather, rep, cash, cones, sugar, vanilla, milk);
 		newfile.CSVWriter("debug", diff, diff, weather, rep, cash, cones, sugar, vanilla, milk);
+		new IngredientSelectionScreen(currentPlayer);
 	}
 
 }
