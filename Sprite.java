@@ -3,22 +3,43 @@ import java.awt.Image;
 import java.awt.Point;
 
 /**
+ * This class represents attributes of each sprite and their behaviour. <b>
+ * Attributes include the sprite's opinion of the icecream cost, the amount <b>
+ * of money it is allowed to use on a purchase, visual aspects of the sprite <b>
+ * on screen.
+ * <p>
+ * 
  * @author Ariana Feng
- * Date: March 18,2024
+ * CS2212 Spring 2024 term
+ * Group 48
+ * Prof. Servos
+ * Monday April 5, 2024
  */
 public class Sprite {
+	/** represents the name of the sprite */
     private String spriteName;
+    /** the on screen image of the sprite */
     private Image spriteImage;
+    /** the image of the sprite when moving across screen */
     private Image defaultSpriteImage;
-    private Image spriteImageDest; //Image when the sprite is at the truck
+    /** the image of the sprite when at the icecream truck */
+    private Image spriteImageDest; 
+    /** the reputation that is judged by the sprite*/
     private double currReputation;
+    /** the allowance of spending by the sprite */
     private double moneyAllowance;
+    /** the sprite's opinion of the price of icecream */
     private int spriteOpinion;
 
+    /** the on screen location where the sprite will stop for icecream */
     private Point iceCreamTruck;
+    /** represents a point on screen */
     private Point position;
+    /** the time  for arrival of the sprite */
     private long arrivalTime;
-    private boolean isOnScreen; //flag for determining if the Sprite is on screen or not
+    /** determines if the sprite is visible on screen*/
+    private boolean isOnScreen; 
+    /** width of the screen, to be kept constant */
     private static final int SCREEN_WIDTH = 1920;
 
 
@@ -47,15 +68,15 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the default sprite image
+     * @return defaultSpriteImage
      */
     private Image getDefaultSpriteImage() {
         return defaultSpriteImage;
     }
 
     /**
-     * Getters and setters
+     * Sets the image of the sprite at the destination
      * @param spriteImageDest
      */
     public void setSpriteImageDest(Image spriteImageDest) {
@@ -63,15 +84,15 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the image of the sprite at the destination
+     * @return spriteImageDest
      */
     public Image getSpriteImageDest() {
         return spriteImageDest;
     }
 
     /**
-     * Getters and setters
+     * Sets the name of the sprite
      * @param spriteName
      */
     public void setSpriteName(String spriteName) {
@@ -79,8 +100,8 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the name of the sprite
+     * @return spriteName
      */
     public String getSpriteName() {
         return spriteName;
@@ -88,7 +109,7 @@ public class Sprite {
 
 
     /**
-     * Getters and setters
+     * Sets the image of the sprite
      * @param spriteImage
      */
     public void setSpriteImage(Image spriteImage) {
@@ -96,8 +117,8 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the image of the sprite
+     * @return spriteImage
      */
     public Image getSpriteImage() {
         return spriteImage;
@@ -151,7 +172,7 @@ public class Sprite {
 
     /**
      * Boolean method, is the sprite at the icecream truck? True or False.
-     * @return
+     * @return true if the sprite is at the icecream truck or false otherwise
      */
     private boolean spriteIsAtDestination() {
         return position.equals(iceCreamTruck);
@@ -165,7 +186,7 @@ public class Sprite {
     }
 
     /**
-     * Getters and Setters
+     * Sets the reputation 
      * @param reputation
      */
     public void setReuptation(double reputation) {
@@ -173,15 +194,15 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the reputation
+     * @return currReputation
      */
     public double getReputation() {
         return currReputation;
     }
 
     /**
-     * Getters and setters
+     * Sets the amount a sprite is allowed to spend on an icecream
      * @param allowance
      */
     public void setAllowance(double allowance) {
@@ -189,23 +210,23 @@ public class Sprite {
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns the amount the sprite is allowed to spend on an icecream
+     * @return moneyAllowance
      */
     public double getAllowance() {
         return moneyAllowance;
     }
 
     /**
-     * Getters and setters
-     * @return
+     * Returns sprite opinion of price of icecream
+     * @return SpriteOpinion 
      */
     public int getOpinion() {
         return spriteOpinion;
     }
 
     /**
-     * Getters and setters
+     * Sets sprite opinion of price of icecream
      * @param opinion
      */
     private void setOpinion(int opinion) {
