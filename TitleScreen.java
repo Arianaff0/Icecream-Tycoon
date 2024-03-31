@@ -203,7 +203,10 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 		if (typedKeys.toString().contains("qwertyuiop")) {
 			// Reset the buffer
 			typedKeys.setLength(0);
+			sound1.stop();
+			sound1.close();
 			// Action to perform when "qwerty" is typed
+			setVisible(false);
 			new DebugScreen();
 		}
 
