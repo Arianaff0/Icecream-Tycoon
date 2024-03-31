@@ -1,50 +1,65 @@
 package application;
 
 /**
- * This is the main gameplay class Remember to fix the weater and the
- * reputation.
+ * @author Kevin Russel
+ * @date March/30/2024
+ * @Version 1.01
  *
  */
 
+
+
 public class MainGamePlayClass {
 
+
+	// this is for the sprite linkedlist head.
 	private SpriteNode head;
+	// this is for the sprite linked list tail
 	private SpriteNode tail;
 
+	/** the static method is for the order in which the sprites buy */
 	public static boolean SpriteOrder[] = new boolean[10];
+
 	/** simply a placeholder for the currentPlayer variable */
 	private Player currentPlayer;
 
+	/**
+	 * Constructor that does the calculations in the back-end to see if the sprite buys or not.
+	 * @param player the player object with all the values from the excel sheet.
+	 */
 	public MainGamePlayClass(Player player) {
 
+		// sets the parameter to this player object.
 		this.currentPlayer = player;
+		// this sets the current day using the excel sheet.
 		currentPlayer.setDay(Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[2]));
-		// remember to change this down
+		// this gets a number of the max ice cremes we can sell without ingredients going into negatives.
 		int iceCreameCounter = currentPlayer.inventory.getMaxSellableProduct();
-		System.out.println(currentPlayer.inventory.getCones());
-		Weather weather = new Weather();
-		double weatherNum = (double) weather.getWeatherInt()[2];
-		currentPlayer.setWeather((double)weather.getWeatherInt()[0]);
-		// change this later
 
+		// this gets the weather and how much the weather is going to affect the sprite range.
+		Weather weather = new Weather();
+
+		// this is to get the actual degrees that the weather is.
+		double weatherNum = (double) weather.getWeatherInt()[2];
+
+		// to set the weather of the current game.
+		currentPlayer.setWeather((double)weather.getWeatherInt()[0]);
+
+		// this is for the reputation. As reputaiton also has an affect on the sprite buying or not.
 		Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
 
+		// this method is to chaange the values on screen in real time when the sprite buys.
 		Results results = new Results(rep.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getSugar(),currentPlayer.inventory.getCream(),currentPlayer.inventory.getCones(),currentPlayer.inventory.getVanilla());
+		// getting the cone price that the user set it to
 		double iceCremePrice = currentPlayer.recipe.getConePrice();
-
+		// getting the creme quantity the user set it to.
 		double currCreme = currentPlayer.inventory.getCream();
-
+		// getting the vanilla amount the user set it to
 		double currVan = currentPlayer.inventory.getVanilla();
-
+		// getting the sugar amount the user set it to.
 		double currSugar = currentPlayer.inventory.getSugar();
-		System.out.println("creme:" + currCreme);
-		System.out.println("sugar:" + currSugar);
-		System.out.println("van: " + currVan);
-		System.out.println("cones:" + iceCreameCounter);
 
-		System.out.println("money:" + currentPlayer.getBalance());
 
-		// TODO remember to change this
 
 		// this is going to be a customer counter for the sprite, can't let it go over
 		// 20.
@@ -58,7 +73,11 @@ public class MainGamePlayClass {
 		for (customerCounter = 0; customerCounter < 10; customerCounter++) {
 			int range;
 			String hard;
+
+			// this is to get a range back for each sprite.
 			int test = (int) SpriteHardnessMaker();
+
+			// if else statment that will return a specific range "starting" value for each sprite.
 			if (test == 1) {
 				range = -1;
 				hard = " red ";
@@ -77,12 +96,12 @@ public class MainGamePlayClass {
 
 			}
 
+
 			// this part is to put that into a node.
 			SpriteNode newNode = new SpriteNode(hard, range);
 
 			// first case when there is no nodes in the list.
 			if (head == null) {
-
 				head = newNode;
 				tail = newNode;
 				newNode.setNewRange((int) weatherNum);
@@ -104,39 +123,55 @@ public class MainGamePlayClass {
 
 		SpriteNode currNode = head;
 		while (currNode != null) {
-			System.out.print(currNode.getRange());
-			System.out.print(currNode.getColor());
-			System.out.print(currNode.getNewrange());
+
 
 			// this is an if statement to stimulate if they will buy or not.
 			if (iceCreameCounter > 0 && 0 < currNode.getNewrange() && currNode.getNewrange() >= iceCremePrice) {
+
+				// if they buy, the number of available ice cremes goes down by 1.
 				iceCreameCounter = iceCreameCounter - 1;
-				System.out.print(" buy");
+				// everytime they buy, the store reputation goes up by 0.5
 				rep.setReputation(0.5);
+
+				// adding this reputation to the array for the graphs to be created.
 				results.addRep(rep.getReputation());
 
+				// the number of cones are going down by 1.
 				currentPlayer.inventory.setCones(currentPlayer.inventory.getCones() -1);
+				// this is for the real time decrease on screen of cones
 				results.decreaseCones(currentPlayer.inventory.getCones());
 
+				// the number of creme is going down by the value the user set it by
 				currentPlayer.inventory.setCream(currCreme - currentPlayer.recipe.getCreamMes());
+				// putting this new value into the number of cremes that are left.
 				currCreme = currentPlayer.inventory.getCream();
+				// this is for the real time decrease of creme on screen.
 				results.decreaseCreme(currCreme);
 
+				//  decreaseing the number of vanilla by the value the user set it by.
 				currentPlayer.inventory.setVanilla(currVan - currentPlayer.recipe.getVanillaMes());
+				// putting the new value into the number of vanilla that are left.
 				currVan = currentPlayer.inventory.getVanilla();
 				results.decreaseVan(currVan);
-
+				// this is for the real time decrease of vanilla on screen.
 				currentPlayer.inventory.setSugar(currSugar - currentPlayer.recipe.getSugarMes());
+				// this is for the current sugar in the inventory.
 				currSugar = currentPlayer.inventory.getSugar();
+
+				// decrease the sugar for the real time analysis.
 				results.decreaseSugar(currSugar);
 
+				// this sets the currentplayer balance.
 				currentPlayer.setBalance(currentPlayer.getBalance() + currentPlayer.recipe.getConePrice());
 				results.addCash(currentPlayer.getBalance());
-				// seeing if they buy
+				// setting true if they buy for the array for the animation.
 				currNode.setBuy(true);
 			} else {
-				System.out.print(" don't buy");
+
+
+				// if they don't buy, the reputation goes down by 0.25
 				rep.setReputation(-0.25);
+				// deoesn't change the cash/reputation/#of icecreme/vanilla/sugar/creme for real time/
 				results.addCash(currentPlayer.getBalance());
 				results.addRep(rep.getReputation());
 				results.decreaseCones(iceCreameCounter);
@@ -146,45 +181,40 @@ public class MainGamePlayClass {
 				currNode.setBuy(false);
 
 			}
-			System.out.println();
+			// points to the next node.
 			currNode = currNode.getNext();
 		}
 
-		// this is for the boolean
+		// this is to traverse the linked list to create an array for the animation.
 		SpriteNode BooleanNode = head;
 		int arrayCount = 0;
 		while (BooleanNode != null) {
 			// this is an if statement to stimulate if they will buy or not.
 			if (!BooleanNode.getbuy()) {
+				// if the sprite does not buy, the arrya at that index gets set to false.
 				SpriteOrder[arrayCount] = false;
 			} else {
+				// if the sprite does buy, the array at that index gets set to true.
 				SpriteOrder[arrayCount] = true;
 			}
+			// increments the array
 			arrayCount = arrayCount + 1;
+
+			// traverses the linked list.
 			BooleanNode = BooleanNode.getNext();
 		}
+
+		// this just writes to the excel files.
 		currentPlayer.getNewFile().CSVWriter(currentPlayer.getPlayerInitials(),
 				Integer.parseInt(currentPlayer.getNewFile().returnLastDay()[1]),
 				Integer.valueOf(currentPlayer.getNewFile().returnLastDay()[2]) + 1,(int) currentPlayer.getWeather(),
 				rep.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getCones(),
 				currentPlayer.inventory.getSugar(), currentPlayer.inventory.getVanilla(),
 				currentPlayer.inventory.getCream());
-		System.out.println("test count: " + iceCreameCounter);
-		System.out.println("Current Ice creme count :" + currentPlayer.inventory.getCones());
-
-		System.out.println("test sugar:" + currSugar);
-		System.out.println("Currount Sugar: " + currentPlayer.inventory.getSugar());
-
-		System.out.println("test van: " + currVan);
-		System.out.println("currount van: " + currentPlayer.inventory.getCream());
-
-		System.out.println("curr creme" + currCreme);
-		System.out.println("current Creame: " + currentPlayer.inventory.getCream());
-
-		System.out.println("balance: " + currentPlayer.getBalance());
 
 
-		results.printResults();
+		//
+//		results.printResults();
 	}
 
 	/**
