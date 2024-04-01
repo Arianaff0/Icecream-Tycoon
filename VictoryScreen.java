@@ -11,6 +11,20 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 
+/**
+* This is the screen displayed when a play successfully finishes the game. 
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class VictoryScreen extends JFrame implements ActionListener {
 

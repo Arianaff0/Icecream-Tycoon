@@ -12,7 +12,24 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.SwingConstants;
 
-
+/**
+* This is the screen for the main gameplay. It shows sprites moving across <b>
+* the screen and their buy/no buy status. The player's balance and the game <b>
+* stats are also displayed.
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+* Sprite designs are original, created by Ariana Feng
+* Graphics made using Photoshop and Graphics Gale
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 
 @SuppressWarnings("serial")
 public class MainGameplayScreen extends JFrame implements ActionListener {

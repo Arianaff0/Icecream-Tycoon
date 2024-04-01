@@ -6,15 +6,13 @@ import java.util.Stack;
  * This class also handles the increases and decreases of each ingredient's reserves, and calculates the amound <br>
  * of ice cream that can be served to customers during the daytime cycle.
  * <p>
- * Current version 1.0.3 has converted all "add__" methods to "change__Qty" to handle purchases, refunds and sales
- *
- * @version 1.0.3
+ * 
  * @author Matthew Molloy
  * @author Sabrina Lee
  * CS2212 Spring 2024 term
  * Group 48
  * Prof. Servos
- * Monday April 5, 2024
+ * Monday April 1, 2024
  */
 public class IngredientList {
 

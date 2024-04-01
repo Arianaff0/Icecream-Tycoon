@@ -8,6 +8,20 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/**
+* This is the screen to teach the user how to play the game. 
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class TutorialScreen extends JFrame implements ActionListener {
 

@@ -10,7 +10,6 @@ import java.math.*;
 * and each range represents a different weather condition, determined by {@link setWeatherData} <br>
 *<p>
 *
-* @version 
 * @author Kevin Russel
 * CS2212 Spring 2024 term
 * Group 48

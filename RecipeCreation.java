@@ -7,13 +7,13 @@ package application;
  * verify whether a recipe surpasses the quantity of any ingredient present in the player's <br>
  * inventory and consequently limit any further increment.
  * <p>
- * Current version 1.0.0 is the first implementation of the RecipeCreation class, and <br>
- * is likely subject to large changes. Newer versions will be better defined in their <br>
- * communication between the IngredientList class, and GUI.
- *
- * @version 1.0.0
+ * 
  * @author Matthew Molloy
  * @author Sabrina Lee
+ * CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
  */
 public class RecipeCreation {
     /** Stores the measurement of cream to be used in one cone */

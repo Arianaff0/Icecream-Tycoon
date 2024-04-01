@@ -3,8 +3,17 @@ package application;
 import java.util.Arrays;
 
 /**
- * @author Lukas Bozinov
- */
+* This class launches the game and sets up Player objects.
+* <p>
+* This class uses Java Swing to implement GUI elements.
+*<p>
+*
+* @author Lukas Bozinov
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 public class GameLauncher {
 	/** Initialize the three player/profiles objects that will be used */
 

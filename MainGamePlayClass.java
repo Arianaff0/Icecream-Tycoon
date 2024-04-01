@@ -1,20 +1,24 @@
 package application;
 
 /**
- * @author Kevin Russel
- * @date March/30/2024
- * @Version 1.01
- *
- */
-
+* This class implements the gameplay through interaction with sprites <b>
+* and player choices with recipe creation. The player's inventory and balance <b>
+* are updated when a sale is made. Sprite decisions on whether to purchase <b>
+* icecreams are also made here.
+*<p>
+*
+* @author Kevin Russel
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 
 
 public class MainGamePlayClass {
-
-
-	// this is for the sprite linkedlist head.
+	/** this is for the sprite linkedlist head. */
 	private SpriteNode head;
-	// this is for the sprite linked list tail
+	/** this is for the sprite linked list tail */
 	private SpriteNode tail;
 
 	/** the static method is for the order in which the sprites buy */
@@ -45,10 +49,10 @@ public class MainGamePlayClass {
 		// to set the weather of the current game.
 		currentPlayer.setWeather((double)weather.getWeatherInt()[0]);
 
-		// this is for the reputation. As reputaiton also has an affect on the sprite buying or not.
+		// this is for the reputation. As reputation also has an affect on the sprite buying or not.
 		Reputation rep = new Reputation(Double.parseDouble(currentPlayer.getNewFile().returnLastDay()[4]));
 
-		// this method is to chaange the values on screen in real time when the sprite buys.
+		// this method is to change the values on screen in real time when the sprite buys.
 		Results results = new Results(rep.getReputation(), currentPlayer.getBalance(), currentPlayer.inventory.getSugar(),currentPlayer.inventory.getCream(),currentPlayer.inventory.getCones(),currentPlayer.inventory.getVanilla());
 		// getting the cone price that the user set it to
 		double iceCremePrice = currentPlayer.recipe.getConePrice();

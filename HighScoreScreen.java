@@ -18,11 +18,18 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
- * This class displays the GUI to the user, and displays the high scores of the
- * top 5 individuals who have played the game.
- * 
- * @author Lukas Bozinov
- */
+* This is the screen for high scores. It displays the top 5 highest scores of 
+* all profiles that have played the game (locally)
+* <p>
+* This class uses Java Swing to implement GUI elements.
+*<p>
+*
+* @author Lukas Bozinov
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class HighScoreScreen extends JFrame implements ActionListener {
 

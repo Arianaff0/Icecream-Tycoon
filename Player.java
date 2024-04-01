@@ -1,8 +1,16 @@
 package application;
 
 /**
- * @author Ariana Feng Date: March 20, 2024
- */
+* This class represents a game for one player profile. It holds the aspects of gameplay <b>
+* that must be used during the gameplay by the player.  <b>
+*<p>
+*
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 
 public class Player {
 	/** the player's balance including starting money and revenue */

@@ -15,6 +15,23 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.event.*;
 
+/**
+* This is the screen for recipe creation. It has all the selection options for the number<b>
+* of ingredients in one cone of icecream. This has an effect on whether customers will buy <b>
+* icecream and how many icecreams can be made. The player can also adjust the price of one <b>
+* unit of icecream. <b>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class RecipeCreationScreen extends JFrame implements ActionListener, ChangeListener {
 
@@ -260,7 +277,7 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
         }
 
     }
-        // TODO change it so the ingredients also go down by the end of the day.
+
     @Override
     public void stateChanged(ChangeEvent e) {
         /** the recipe belonging to the player of the current save/load profile*/

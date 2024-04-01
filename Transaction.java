@@ -5,12 +5,11 @@ package application;
  *<p>
  * The stack's contents should be cleared once the player starts the daytime cycle
  *
- * @version 1.0.0
  * @author Matthew Molloy
  * CS2212 Spring 2024 term
  * Group 48
  * Prof. Servos
- * Monday April 5, 2024
+ * Monday April 1, 2024
  */
 public class Transaction {
 	/** represents the name of the ingredient being bought/refunded */

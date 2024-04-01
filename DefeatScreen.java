@@ -11,6 +11,18 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 
+/**
+* This is the screen for the defeat screen. It appears when the player loses the game. <br>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+*<p>
+*
+* @author Lukas Bozinov
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class DefeatScreen extends JFrame implements ActionListener {
 

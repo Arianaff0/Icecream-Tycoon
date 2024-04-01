@@ -13,6 +13,21 @@ import javax.swing.*;
 import javax.sound.sampled.Clip;
 import javax.swing.SwingConstants;
 
+/**
+* This is the screen the user first sees when launching the game. It is the main menu <b>
+* where they can choose to see the highscores, the tutorial, or play the game. Credits shown. <b>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 
@@ -214,14 +229,10 @@ public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

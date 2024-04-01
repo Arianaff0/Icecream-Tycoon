@@ -13,8 +13,20 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 /**
- * @author Lukas Bozinov
- */
+* This is the screen for selecting a profile to play. Profiles can be created if no data is <b>
+* saved previously or loaded from last game play. There are three playable profiles. <b>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class SaveAndLoadScreen extends JFrame implements ActionListener {
 

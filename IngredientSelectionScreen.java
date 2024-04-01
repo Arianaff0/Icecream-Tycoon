@@ -11,6 +11,26 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 
+/**
+* This is the screen for ingredient selection. It has all the selection options for entering <br>
+* gameplay. It adjusts the player's inventory items (ingredients for icecream) and their balance <b>
+* as they purchase items and allows players to undo their actions, returning their balance to the <b>
+* before they purchased the last item and restores the inventory to that state through a linked list. <b>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+* Music is original, created by Ariana Feng using Soundtrap
+*<p>
+*
+* @author Lukas Bozinov
+* @author Sabrina Lee
+* @author Kevin Russel
+* @author Ariana Feng
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
+
 @SuppressWarnings("serial")
 public class IngredientSelectionScreen extends JFrame implements ActionListener {
 

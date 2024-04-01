@@ -1,47 +1,50 @@
 
-/**
- * This class is used to set the reputation of the storefront. This can be used as a multiplier for either buying the
- * product.
- * Or after buying, the sprite can give the shop more reputation or less depending on wheter it likes the ice creme or not.
- * TO- DO: we are going to make this an addivite multiplier instead of multiplicative. Probably easier
- * TO-DO make the graphic for the multipler.
- */
-
 package application;
-public class Reputation {
 
+/**
+ * This class represents the player's reputation to customers. 
+*<p>
+*
+* @author Kevin Russel
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
+
+public class Reputation {
+	/** the reputation of the icecream truck */
     private double currReputation;
 
-
-    // constructor of this class that sets the current reputation to 0.
+    /**
+     * Constructor that sets reputation to for a new profile
+     */
     public Reputation(){
         currReputation = 0;
     }
-
-    public void setReputation (double Rep){
-        this.currReputation =  currReputation+ Rep;
-    }
+    
+    /**
+     * Constructor that sets the reputation from the csv
+     * @param rep the reputation of the last day of the profile
+     */
     public Reputation(double rep){
         this.currReputation = rep;
     }
 
-
-
-
-
     /**
      * this class sets the reputation of the shop
-     * @param num, this is how much the currReputation is going to change by.
-     * @return void.
+     * @param Repthis is how much the currReputation is going to change by.
      */
-
-
+    public void setReputation (double Rep){
+        this.currReputation =  currReputation+ Rep;
+    }
+   
     /**
      * Method that returns the reputation
      * @return the reputation
      */
     public double getReputation(){
-    return currReputation;
+    	return currReputation;
     }
 
 }

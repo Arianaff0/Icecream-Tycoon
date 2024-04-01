@@ -8,9 +8,23 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/**
+* This is the screen for debug mode. It has all the selection options for entering gameplay  <br>
+* with administrator settings. It also displays the 3 player profiles' last day data. <br>
+* <p>
+* This class uses Java Swing to implement GUI elements.
+*<p>
+*
+* @author Lukas Bozinov
+* @author Sabrina Lee
+* CS2212 Spring 2024 term
+* Group 48
+* Prof. Servos
+* Monday April 1, 2024
+*/
 @SuppressWarnings("serial")
 public class DebugScreen extends JFrame implements ActionListener {
-
+	
 	private JPanel panel = new JPanel();
 	private JPanel commandPanel = new JPanel();
 
@@ -26,6 +40,7 @@ public class DebugScreen extends JFrame implements ActionListener {
 	private final Integer[] reputationOptions = { -10, -5, 0, 5, 10 }; // -10/-5/0/5/10
 	private final String[] difficultyOptions = { "Easy", "Medium", "Hard" }; // easy/med/hard
 
+	
 	private JComboBox<String> weatherDropdown = new JComboBox<String>(weatherOptions);
 	private JComboBox<Double> moneyDropdown = new JComboBox<Double>(moneyOptions);
 	private JComboBox<Integer> vanillaDropdown = new JComboBox<Integer>(vanillaOptions);
@@ -57,8 +72,11 @@ public class DebugScreen extends JFrame implements ActionListener {
 	
 	private JButton execute = new JButton("Execute");
 	
+	/** profile 1 player object */
 	private Player player1 = GameLauncher.player1;
+	/** profile 2 player object */
 	private Player player2 = GameLauncher.player2;
+	/** profile 3 player object */
 	private Player player3 = GameLauncher.player3;
 
 	/**
@@ -137,7 +155,9 @@ public class DebugScreen extends JFrame implements ActionListener {
 		panel.setVisible(true);
 	}
 
-
+	/**
+	 * This method implements the dropdown option names for the debug settings
+	 */
 	private void addDropDownLabels() {
 		weatherLabel.setBounds(137, 4, 250, 60);
 		weatherLabel.setForeground(Color.BLACK);
@@ -217,7 +237,9 @@ public class DebugScreen extends JFrame implements ActionListener {
 		commandPanel.add(p3Label);
 	} 
 
-
+	/**
+	 * This method implements the dropdown options for the debug settings
+	 */
 	private void addDropDowns() {
 		weatherDropdown.setBounds(137, 60, 250, 60);
 		weatherDropdown.setFont(dropDownFont);
@@ -315,6 +337,8 @@ public class DebugScreen extends JFrame implements ActionListener {
 		difficultyDropdown.revalidate();
 		difficultyDropdown.repaint();
 		
+		// printing player profile data
+		
 		if (player1.getPlayerInitials().startsWith("user")) {
 			p1Data.setText("No Data");
 		}
@@ -363,6 +387,10 @@ public class DebugScreen extends JFrame implements ActionListener {
 		p3Data.repaint();
 	}
 
+	/**
+	 * Method implements actions for each action event on the screen,
+	 * including buttons, dropdowns.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int diff = 0;
