@@ -98,4 +98,11 @@ class PlayerTest {
 		instance.setPlayerInitials("sl");
 		assertEquals("sl",instance.getPlayerInitials());	}
 
+	@Test
+	void testToString() {
+		CSVFile testcsv = new CSVFile("test.csv");
+		Player instance = new Player(testcsv,"ts",1,1,1,1,1,1,1,1,1);
+		String exp = "Player [balance=1.0, playerInitials=ts, difficulty=0, day=1, weather=1.0, reputation=1.0, diff=1, currentDay=1, newFile=application.CSVFile@75d3a5e0]";
+		assertEquals(exp,instance.toString());	}
+
 }

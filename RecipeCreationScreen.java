@@ -50,10 +50,10 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
 
     private double nCreamInRecipe = 0, nVanillaInRecipe = 0, nSugarInRecipe = 0, priceOfCone = 0;
 
-    private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + Double.toString(2));
-    private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + Double.toString(2));
-    private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + Double.toString(2));
-    private JLabel priceLabel = new JLabel("<html>Price:&nbsp;<html/>" + Double.toString(5));
+    private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + String.format("%.1f", 2.0));
+    private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + String.format("%.1f", 2.0));
+    private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + String.format("%.1f", 2.0));
+    private JLabel priceLabel = new JLabel("<html>Price:&nbsp;<html/>" + String.format("%.1f", 5.0));
 
     private JSlider creamSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 40, 20);
     private JSlider vanillaSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 40, 20);
@@ -286,26 +286,26 @@ public class RecipeCreationScreen extends JFrame implements ActionListener, Chan
         if (e.getSource() == creamSlider) {
             nCreamInRecipe = creamSlider.getValue();
             pRecipe.setCreamMes(nCreamInRecipe);
-            creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCreamInRecipe / 10));
+            creamLabel.setText("<html>Cream:&nbsp;<html/>" + String.format("%.1f", nCreamInRecipe / 10));
             pRecipe.setCreamMes(nCreamInRecipe / 10);
 
         } else if (e.getSource() == vanillaSlider) {
             nVanillaInRecipe = vanillaSlider.getValue();
             pRecipe.setVanillaMes(nVanillaInRecipe);
-            vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanillaInRecipe / 10));
+            vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + String.format("%.1f", nVanillaInRecipe / 10));
 
             pRecipe.setSugarMes(nVanillaInRecipe / 10);
 
         } else if (e.getSource() == sugarSlider) {
             nSugarInRecipe = sugarSlider.getValue();
             pRecipe.setSugarMes(nSugarInRecipe);
-            sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugarInRecipe / 10));
+            sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + String.format("%.1f", nSugarInRecipe / 10));
 
             pRecipe.setVanillaMes(nSugarInRecipe / 10);
 
         } else if (e.getSource() == priceSlider) {
             priceOfCone = priceSlider.getValue();
-            priceLabel.setText("<html>Price:&nbsp;<html/>" + Double.toString(priceOfCone / 10));
+            priceLabel.setText("<html>Price:&nbsp;<html/>" + String.format("%.1f", priceOfCone / 10));
             pRecipe.setConePrice(priceOfCone / 10);
         }
 

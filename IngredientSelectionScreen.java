@@ -12,24 +12,23 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 /**
-* This is the screen for ingredient selection. It has all the selection options for entering <br>
-* gameplay. It adjusts the player's inventory items (ingredients for icecream) and their balance <b>
-* as they purchase items and allows players to undo their actions, returning their balance to the <b>
-* before they purchased the last item and restores the inventory to that state through a linked list. <b>
-* <p>
-* This class uses Java Swing to implement GUI elements.
-* Music is original, created by Ariana Feng using Soundtrap
-*<p>
-*
-* @author Lukas Bozinov
-* @author Sabrina Lee
-* @author Kevin Russel
-* @author Ariana Feng
-* CS2212 Spring 2024 term
-* Group 48
-* Prof. Servos
-* Monday April 1, 2024
-*/
+ * This is the screen for ingredient selection. It has all the selection options
+ * for entering <br>
+ * gameplay. It adjusts the player's inventory items (ingredients for icecream)
+ * and their balance <b> as they purchase items and allows players to undo their
+ * actions, returning their balance to the <b> before they purchased the last
+ * item and restores the inventory to that state through a linked list. <b>
+ * <p>
+ * This class uses Java Swing to implement GUI elements. Music is original,
+ * created by Ariana Feng using Soundtrap
+ * <p>
+ *
+ * @author Lukas Bozinov
+ * @author Sabrina Lee
+ * @author Kevin Russel
+ * @author Ariana Feng CS2212 Spring 2024 term Group 48 Prof. Servos Monday
+ *         April 1, 2024
+ */
 
 @SuppressWarnings("serial")
 public class IngredientSelectionScreen extends JFrame implements ActionListener {
@@ -42,7 +41,7 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 	private JLabel title = new JLabel("Select Your Ingredients", SwingConstants.CENTER);
 
 	// TODO: remember to change the cash.
-	private JLabel cash = new JLabel("<html>Cash:&nbsp;" + String.format("%.2f", cashDouble) + "<html/>");
+	private JLabel cash = new JLabel("<html>Cash:&nbsp;" + String.format("%.1f", cashDouble) + "<html/>");
 	private JLabel infoLabel = new JLabel(
 			"<html><center>Pick how much of each ingredient you'd like to purchase for the day!<center/><html>");
 
@@ -58,19 +57,19 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 	private double nCream = 0, nVanilla = 0, nSugar = 0;
 	private double conePrice = 0.10, creamPrice = 0.50, vanillaPrice = 1.0, sugarPrice = 0.20;
 
-	private JLabel conesLabel = new JLabel("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
-	private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + Double.toString(nCream));
-	private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanilla));
-	private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
+	private JLabel conesLabel = new JLabel("<html>Cones:&nbsp;<html/>" + String.format("%.1f", (double) nCones));
+	private JLabel creamLabel = new JLabel("<html>Cream:&nbsp;<html/>" + String.format("%.1f", nCream));
+	private JLabel vanillaLabel = new JLabel("<html>Vanilla:&nbsp;<html/>" + String.format("%.1f", nVanilla));
+	private JLabel sugarLabel = new JLabel("<html>Sugar:&nbsp;<html/>" + String.format("%.1f", nSugar));
 
 	private JLabel conesPriceLabel = new JLabel(
-			"<html>($" + Double.toString(conePrice) + "&nbsp;per cone)&nbsp;<html/>");
+			"<html>($" + String.format("%.1f", conePrice) + "&nbsp;per cone)&nbsp;<html/>");
 	private JLabel creamPriceLabel = new JLabel(
-			"<html>($" + Double.toString(creamPrice) + "&nbsp;per cup)&nbsp;<html/>");
+			"<html>($" + String.format("%.1f", creamPrice) + "&nbsp;per cup)&nbsp;<html/>");
 	private JLabel vanillaPriceLabel = new JLabel(
-			"<html>($" + Double.toString(vanillaPrice) + "&nbsp;per tsp)&nbsp;<html/>");
+			"<html>($" + String.format("%.1f", vanillaPrice) + "&nbsp;per tsp)&nbsp;<html/>");
 	private JLabel sugarPriceLabel = new JLabel(
-			"<html>($" + Double.toString(sugarPrice) + "&nbsp;per tbsp)&nbsp;<html/>");
+			"<html>($" + String.format("%.1f", sugarPrice) + "&nbsp;per tbsp)&nbsp;<html/>");
 
 	private JButton buy10Cones = new JButton("<html><center>+10 Cones<center/><html/>");
 	private JButton buy20Cones = new JButton("<html><center>+20 Cones<center/><html/>");
@@ -101,16 +100,16 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 		this.currentPlayer = currentPlayer;
 
 		nCones = currentPlayer.inventory.getCones();
-		conesLabel.setText("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
+		conesLabel.setText("<html>Cones:&nbsp;<html/>" + String.format("%.1f", (double) nCones));
 
 		nCream = currentPlayer.inventory.getCream();
-		creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCream));
+		creamLabel.setText("<html>Cream:&nbsp;<html/>" + String.format("%.1f", nCream));
 
 		nVanilla = currentPlayer.inventory.getVanilla();
-		vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanilla));
+		vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + String.format("%.1f", nVanilla));
 
 		nSugar = currentPlayer.inventory.getSugar();
-		sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
+		sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + String.format("%.1f", nSugar));
 
 		try {
 			cashChange();
@@ -135,22 +134,22 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 
 	private void changeCones() {
 		nCones = currentPlayer.inventory.getCones();
-		conesLabel.setText("<html>Cones:&nbsp;<html/>" + Integer.toString(nCones));
-	}
+		conesLabel.setText("<html>Cones:&nbsp;<html/>" + String.format("%.1f", (double) nCones));
+	} 
 
 	private void changeCreme() {
 		nCream = currentPlayer.inventory.getCream();
-		creamLabel.setText("<html>Cream:&nbsp;<html/>" + Double.toString(nCream));
+		creamLabel.setText("<html>Cream:&nbsp;<html/>" + String.format("%.1f", nCream));
 	}
 
 	private void changeVanila() {
 		nVanilla = currentPlayer.inventory.getVanilla();
-		vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + Double.toString(nVanilla));
+		vanillaLabel.setText("<html>Vanilla:&nbsp;<html/>" + String.format("%.1f", nVanilla));
 	}
 
 	private void changeSugar() {
 		nSugar = currentPlayer.inventory.getSugar();
-		sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + Double.toString(nSugar));
+		sugarLabel.setText("<html>Sugar:&nbsp;<html/>" + String.format("%.1f", nSugar));
 	}
 
 	private void playMusic() {
@@ -163,7 +162,6 @@ public class IngredientSelectionScreen extends JFrame implements ActionListener 
 			sound1.open(audio);
 			sound1.start();
 			sound1.loop(Clip.LOOP_CONTINUOUSLY);
-
 
 		} catch (Exception ex) { // print in console if the clip doesn't work for whatever reason
 			System.out.println("Error playing sound.");

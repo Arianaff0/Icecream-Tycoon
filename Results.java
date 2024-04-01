@@ -1,7 +1,5 @@
 package application;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
 * This class is used in MainGamePlayClass to determine the result of the game 
 *<p>

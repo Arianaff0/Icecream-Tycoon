@@ -225,6 +225,7 @@ public class HighScoreScreen extends JFrame implements ActionListener {
 
 		if (e.getSource() == back) {
 			setVisible(false);
+			TitleScreen.panel.requestFocus();
 		}
 
 	}

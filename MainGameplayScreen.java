@@ -112,10 +112,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
             weatherLabel.setText(currentPlayer.getWeather()+ " °");
             moneyLabel.setText("$ " + currentCash);
             inventoryLabel.setText("Inventory");
-            ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                    "Cream: " + currCreme + "<br>" +
-                    "Sugar: " + currSugar + "<br>" +
-                    "Vanilla: " + currentVan + "</html>");
+            ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                    "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                    "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                    "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
             frameSetup();
             assembleWindow();
@@ -186,10 +186,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
                         System.out.println("nobuy");
@@ -245,10 +245,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -302,10 +302,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -359,10 +359,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -417,10 +417,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -478,10 +478,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -540,10 +540,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -602,10 +602,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -657,7 +657,7 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         buyBubble.setVisible(true);
 
                         timer.setDelay(1000);
-                        cashCounter ++;
+                        cashCounter++;
                         currentCash = Results.dayCash[cashCounter];
                         moneyLabel.setText("$ " + currentCash);
                         currentVan = Results.VanArray[cashCounter];
@@ -665,10 +665,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 
@@ -731,10 +731,10 @@ public class MainGameplayScreen extends JFrame implements ActionListener {
                         currentCones = Results.ConeArray[cashCounter];
                         currSugar = Results.SugarArray[cashCounter];
 
-                        ingredientsLabel.setText("<html>Cones: " + currentCones + "<br>" +
-                                "Cream: " + currCreme + "<br>" +
-                                "Sugar: " + currSugar + "<br>" +
-                                "Vanilla: " + currentVan + "</html>");
+                        ingredientsLabel.setText("<html>Cones: " + String.format("%.1f", currentCones) + "<br>" +
+                                "Cream: " + String.format("%.1f", currCreme) + "<br>" +
+                                "Sugar: " + String.format("%.1f", currSugar) + "<br>" +
+                                "Vanilla: " + String.format("%.1f", currentVan) + "</html>");
 
                     } else {
 

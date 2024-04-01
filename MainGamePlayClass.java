@@ -216,9 +216,6 @@ public class MainGamePlayClass {
 				currentPlayer.inventory.getSugar(), currentPlayer.inventory.getVanilla(),
 				currentPlayer.inventory.getCream());
 
-
-		//
-//		results.printResults();
 	}
 
 	/**

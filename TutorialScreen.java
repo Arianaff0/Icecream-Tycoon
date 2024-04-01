@@ -146,7 +146,7 @@ public class TutorialScreen extends JFrame implements ActionListener {
 
         if (e.getSource() == execute) {
             setVisible(false);
-            // new RecipeCreationScreen();
+            TitleScreen.panel.requestFocus();
         }
 
     }

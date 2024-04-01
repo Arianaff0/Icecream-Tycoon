@@ -31,7 +31,7 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class TitleScreen extends JFrame implements ActionListener, KeyListener {
 
-	private JPanel panel = new JPanel();
+	public static JPanel panel = new JPanel();
 	private JLabel truckPhoto = new JLabel(new ImageIcon("files/icecreamtruck.png"));
 	private JLabel iceCreamConePhotoR = new JLabel(new ImageIcon("files/icecreamcone.png"));
 	private JLabel iceCreamConePhotoL = new JLabel(new ImageIcon("files/icecreamcone.png"));
