@@ -15,11 +15,10 @@ import javax.swing.*;
 * This is the screen displayed when a play successfully finishes the game. 
 * <p>
 * This class uses Java Swing to implement GUI elements.
-* Music is original, created by Ariana Feng using Soundtrap
+* Music is original, created by Lukas Bozinov using Soundtrap
 *<p>
 *
 * @author Lukas Bozinov
-* @author Ariana Feng
 * CS2212 Spring 2024 term
 * Group 48
 * Prof. Servos
